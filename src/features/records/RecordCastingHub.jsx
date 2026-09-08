@@ -5,7 +5,7 @@ import { createRecord, loadRecords, saveRecord, updateRecord, deleteRecord, matc
 import { castInputSchema, CASE_EVENT_TYPES } from '../../lib/schema';
 import PaipanCardLayout from '../../components/common/PaipanCardLayout';
 import YaoLine from '../../components/common/YaoLine';
-import casesData from '../../data/cases.json';
+import casesData from '../../data/cases_v2.json';
 import { Dices, Save, ChevronDown, ChevronUp, Trash2 } from 'lucide-react';
 
 const YAO_LABELS = ['初爻', '二爻', '三爻', '四爻', '五爻', '上爻'];

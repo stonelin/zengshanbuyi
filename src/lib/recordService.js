@@ -72,8 +72,9 @@ export function createRecord({ eventType, question, board, resolution, myJudgmen
 }
 
 // 按标签匹配书中实例，分组：同要点(优先) / 同事类+同用神状态 / 同格局
-// cases 目前仍是未结构化的原文（Step 5 才会补上 tags），这里对缺 tags 的条目做防御性跳过，
-// 结构化完成前匹配结果自然为空，不是 bug。
+// casesData 传入 cases_v2.json（已校对实例，仍在持续录入中）；sameKeyPoint 恒为空——
+// keyPoints 是人工提炼的要点文本，record 的 tags 由 board 派生，没有对应字段可比对，
+// 这里仅对缺 tags 的条目做防御性跳过。
 export function matchCasesForRecord(record, casesData) {
   const structuredCases = (casesData || []).filter(c => c.tags);
   const sameKeyPoint = [];
