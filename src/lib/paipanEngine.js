@@ -420,6 +420,13 @@ export function resolvePatterns(board) {
   if (board.benGua.is_six_combine) patterns.push('六合');
   if (board.benGua.is_six_clash) patterns.push('六冲');
 
+  // 含变卦：原著反复强调"六冲变六合""六合变六合"是断吉凶的关键格局（不看用神，径以此断）
+  if (board.bianGua) {
+    if (board.benGua.is_six_clash && board.bianGua.is_six_combine) patterns.push('六冲变六合');
+    if (board.benGua.is_six_combine && board.bianGua.is_six_combine) patterns.push('六合变六合');
+    if (board.benGua.is_six_clash && board.bianGua.is_six_clash) patterns.push('六冲变六冲');
+  }
+
   const branchesInPlay = board.yaos.flatMap(y => [y.branch, y.bianYao?.branch].filter(Boolean));
   patterns.push(...detectSanHeGroups(branchesInPlay));
 
