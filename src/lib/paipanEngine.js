@@ -412,9 +412,7 @@ export function assemblePaipanBoard({
   return board;
 }
 
-// 格局判断（六合六冲含变卦/三合局/化空化墓/化合化冲/爻反吟/日辰生克冲合）。
-// 卦反吟、卦伏吟（整卦层面的宫位对冲/同位）未实现：其判定规则把握不足，留待用实例校对后再补，
-// 避免编造错误公式。爻反吟（单爻本变相冲）已确认就是"化冲"，已覆盖。
+// 格局判断（六合六冲含变卦/三合局/化空化墓/化合化冲/爻反吟/卦反吟伏吟/卦变生克/日辰生克冲合）。
 export function resolvePatterns(board) {
   const patterns = [];
 
@@ -429,21 +427,63 @@ export function resolvePatterns(board) {
     if (board.benGua.is_six_combine && board.bianGua.is_six_clash) patterns.push('六合变六冲');
   }
 
-  // 卦变生克（宫位层面）：变卦所属宫位五行克本卦所属宫位五行为"化来"（回头来克，凶）；
-  // 本卦克变卦为"化去"（我去克他，不为凶）。原文"卦变生克墓绝章"反复用这对术语判断整卦吉凶，
+  // 卦变生克（宫位层面）：原文"卦变生克墓绝章"按变卦/本卦所属宫位五行的关系判整卦吉凶，
   // 与针对单一动爻的"回头生/回头克"是不同层面（那个已在 bianYao.dynamicTrend 里）。
+  // [乾按] 给出的正式三分类："变卦生主卦为变生；变卦与主卦所属五行相同为比和；变卦克主卦
+  // 为变克。凡变生、变比和为吉，变克为凶"——变克在案例正文里就是"化来"（回头来克）；
+  // 案例正文还单独提过"本卦克变卦"为"化去"（我去克他，不为凶），三分类没提这种，但案例
+  // 明确说了不为凶，故保留。本卦生变卦（泄气）原文未讨论，不臆测吉凶，不作标注。
   if (board.bianGua) {
     const benEl = board.benGua.palaceElement;
     const bianEl = board.bianGua.palaceElement;
-    if (benEl !== bianEl) {
-      if (WUXING_RELATIONS[bianEl].ke === benEl) patterns.push('化来');
-      else if (WUXING_RELATIONS[benEl].ke === bianEl) patterns.push('化去');
+    if (benEl === bianEl) {
+      patterns.push('比和');
+    } else if (WUXING_RELATIONS[bianEl].ke === benEl) {
+      patterns.push('化来');
+    } else if (WUXING_RELATIONS[benEl].ke === bianEl) {
+      patterns.push('化去');
+    } else if (WUXING_RELATIONS[bianEl].sheng === benEl) {
+      patterns.push('变生');
     }
   }
 
   // 爻反吟：本爻与变爻地支相冲（原文"化卯相冲，乃反吟之卦"即此，与"动爻变冲者"同指一事）
   if (board.yaos.some(y => y.bianYao?.heChong === '化冲') && !patterns.includes('反吟(爻)')) {
     patterns.push('反吟(爻)');
+  }
+
+  // 卦反吟/卦伏吟（内卦=1-3爻，外卦=4-6爻）：原文"反伏章"用具体例卦给出的结构性定义——
+  // 直接比较本卦与变卦同一爻位的地支：内/外卦三爻若两两都是"六冲支"，称反吟；若两两地支
+  // 完全相同（阴阳互换但地支不变），称伏吟。这是本卦、变卦作为两个完整卦象的结构性比较，
+  // 不看某一爻是否真的"动"（原著"观变坤"例中四爻阴阳未变但地支仍从未变丑，照样算进外卦
+  // 反吟），所以直接比对 benGua.lines / bianGua.lines，不经过 yaos 的 isMoving 门槛。
+  const trigramReflection = (lineNumbers) => {
+    if (!board.bianGua) return null;
+    const pairs = lineNumbers.map(n => ({
+      ben: board.benGua.lines.find(l => l.line_number === n),
+      bian: board.bianGua.lines.find(l => l.line_number === n)
+    }));
+    // 先看这半边卦的阴阳组合本身是否真的变了（即变卦是否换了一个不同的三爻符号）——
+    // 若阴阳组合根本没变（比如"观变坤"的内卦本来就同是坤，"巽变观"的外卦本来就同是巽），
+    // 这半边压根不在这次卦变里，不算伏吟，否则任何"没变"的半卦都会被误判成伏吟。
+    const benPattern = pairs.map(p => p.ben.yin_yang).join('');
+    const bianPattern = pairs.map(p => p.bian.yin_yang).join('');
+    if (benPattern === bianPattern) return null;
+    if (pairs.every(p => p.bian.branch === p.ben.branch)) return 'fu';
+    if (pairs.every(p => p.bian.branch === getClashBranch(p.ben.branch))) return 'fan';
+    return null;
+  };
+  const innerType = trigramReflection([1, 2, 3]);
+  const outerType = trigramReflection([4, 5, 6]);
+  if (innerType === 'fan' && outerType === 'fan') patterns.push('反吟(内外)');
+  else {
+    if (innerType === 'fan') patterns.push('反吟(内卦)');
+    if (outerType === 'fan') patterns.push('反吟(外卦)');
+  }
+  if (innerType === 'fu' && outerType === 'fu') patterns.push('伏吟(内外)');
+  else {
+    if (innerType === 'fu') patterns.push('伏吟(内卦)');
+    if (outerType === 'fu') patterns.push('伏吟(外卦)');
   }
 
   const branchesInPlay = board.yaos.flatMap(y => [y.branch, y.bianYao?.branch].filter(Boolean));
