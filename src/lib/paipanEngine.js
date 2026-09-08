@@ -429,6 +429,18 @@ export function resolvePatterns(board) {
     if (board.benGua.is_six_combine && board.bianGua.is_six_clash) patterns.push('六合变六冲');
   }
 
+  // 卦变生克（宫位层面）：变卦所属宫位五行克本卦所属宫位五行为"化来"（回头来克，凶）；
+  // 本卦克变卦为"化去"（我去克他，不为凶）。原文"卦变生克墓绝章"反复用这对术语判断整卦吉凶，
+  // 与针对单一动爻的"回头生/回头克"是不同层面（那个已在 bianYao.dynamicTrend 里）。
+  if (board.bianGua) {
+    const benEl = board.benGua.palaceElement;
+    const bianEl = board.bianGua.palaceElement;
+    if (benEl !== bianEl) {
+      if (WUXING_RELATIONS[bianEl].ke === benEl) patterns.push('化来');
+      else if (WUXING_RELATIONS[benEl].ke === bianEl) patterns.push('化去');
+    }
+  }
+
   // 爻反吟：本爻与变爻地支相冲（原文"化卯相冲，乃反吟之卦"即此，与"动爻变冲者"同指一事）
   if (board.yaos.some(y => y.bianYao?.heChong === '化冲') && !patterns.includes('反吟(爻)')) {
     patterns.push('反吟(爻)');
