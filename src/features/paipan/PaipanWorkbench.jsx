@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  tossThreeCoins, 
-  assemblePaipanBoard, 
-  ALL_HEXAGRAMS, 
-  HEAVENLY_STEMS, 
-  EARTHLY_BRANCHES, 
-  getWangXiangStatus,
+import {
+  tossThreeCoins,
+  assemblePaipanBoard,
+  ALL_HEXAGRAMS,
+  HEAVENLY_STEMS,
+  EARTHLY_BRANCHES,
   findHexagramByName
 } from '../../lib/paipanEngine';
-import { getWuxingStyle } from '../../lib/wuxingHelper';
 import YaoLine from '../../components/common/YaoLine';
+import PaipanCardLayout from '../../components/common/PaipanCardLayout';
 import { 
   RotateCcw, 
   Sparkles, 
@@ -403,134 +402,16 @@ export default function PaipanWorkbench({ onSelectConcept }) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
         {/* 左侧/主栏：排盘大看板 (7 cols) */}
-        <div className="lg:col-span-7 bg-white border border-[#EAE6DC] rounded-2xl shadow-sm overflow-hidden flex flex-col">
-          
-          {/* 天时与卦名头部 */}
-          <div className="p-5 bg-[#FBF9F5] border-b border-[#EAE6DC]">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <div>
-                <h3 className="text-xl font-bold font-serif-sc text-[#1F2421] flex items-center gap-2">
-                  <span>{boardData.benGua.full_name}</span>
-                  <span className="text-xs px-2.5 py-0.5 rounded-md bg-stone-200 text-stone-700 font-sans font-normal">
-                    {boardData.benGua.palace} · {boardData.benGua.generation}
-                  </span>
-                  {boardData.bianGua && (
-                    <>
-                      <span className="text-stone-400 text-sm">之</span>
-                      <span className="text-[#C0392B]">{boardData.bianGua.full_name}</span>
-                    </>
-                  )}
-                </h3>
-                <p className="text-xs text-stone-600 mt-1">
-                  占事：<strong className="text-stone-900">{boardData.question}</strong>
-                </p>
-              </div>
-
-              {/* 四柱与旬空破散徽章 */}
-              <div className="flex flex-wrap gap-2 text-xs">
-                <span className="px-2.5 py-1 rounded-lg bg-white border border-stone-200 font-medium shadow-2xs">
-                  📅 月建: <strong className="text-stone-900">{boardData.dateGanzhi.month}</strong> 
-                  <span className="text-red-600 ml-1">(破:{boardData.dateGanzhi.monthBroken})</span>
-                </span>
-                <span className="px-2.5 py-1 rounded-lg bg-white border border-stone-200 font-medium shadow-2xs">
-                  ☀️ 日辰: <strong className="text-stone-900">{boardData.dateGanzhi.day}</strong>
-                  <span className="text-amber-700 ml-1">(空:{boardData.dateGanzhi.xunKong.join('')})</span>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* 六爻装配列表 (从上爻 line 6 到初爻 line 1 渲染) */}
-          <div className="p-4 flex-1 flex flex-col justify-around gap-2">
-            {[...boardData.yaos].reverse().map((yao) => {
-              const isSelected = activeYaoIndex === yao.index;
-              const isYongShen = yao.relative === yongShenKey;
-              const wuxingStyle = getWuxingStyle(yao.element);
-
-              return (
-                <div
-                  key={yao.index}
-                  onClick={() => setActiveYaoIndex(yao.index)}
-                  className={`grid grid-cols-12 items-center p-3 rounded-xl cursor-pointer transition-all border ${
-                    isSelected
-                      ? 'bg-amber-50/80 border-amber-300 ring-2 ring-amber-400/40 shadow-xs'
-                      : 'bg-stone-50/60 border-stone-200/60 hover:bg-stone-100/70'
-                  }`}
-                >
-                  {/* 六神 (2 cols) */}
-                  <div className="col-span-2 text-xs font-semibold text-stone-600">
-                    {yao.liuShen}
-                  </div>
-
-                  {/* 伏神 (2 cols) */}
-                  <div className="col-span-2 text-[11px] text-stone-400 font-medium truncate">
-                    {yao.hiddenSpirit ? (
-                      <span title="伏神" className="px-1 py-0.5 rounded bg-stone-100 text-stone-600">
-                        [伏] {yao.hiddenSpirit.relative}{yao.hiddenSpirit.stem_branch}
-                      </span>
-                    ) : ''}
-                  </div>
-
-                  {/* 本卦爻象与干支六亲 (5 cols) */}
-                  <div className="col-span-5 flex items-center gap-2.5">
-                    {/* 矢量几何爻象 */}
-                    <YaoLine yinYang={yao.yinYang} isMoving={yao.isMoving} size="md" />
-                    
-                    {/* 六亲与干支 (注入五行语义色) */}
-                    <span className={`text-xs sm:text-sm font-medium ${yao.isMoving ? 'font-bold text-[#C0392B]' : 'text-stone-900'}`}>
-                      {yao.relative}
-                    </span>
-                    <span className={`text-xs px-1.5 py-0.5 rounded border font-mono font-semibold ${wuxingStyle.badge}`}>
-                      {yao.ganzhi}
-                    </span>
-
-                    {/* 世应与用神标记 */}
-                    {yao.isShi && (
-                      <span className="px-1.5 py-0.5 text-[10px] font-bold rounded bg-[#C0392B] text-white">
-                        世
-                      </span>
-                    )}
-                    {yao.isYing && (
-                      <span className="px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-600 text-white">
-                        应
-                      </span>
-                    )}
-                    {isYongShen && (
-                      <span className="px-1.5 py-0.5 text-[10px] font-bold rounded bg-emerald-600 text-white">
-                        用
-                      </span>
-                    )}
-                  </div>
-
-                  {/* 变卦变爻 (3 cols) */}
-                  <div className="col-span-3 flex items-center gap-1.5 text-xs text-stone-600 justify-end">
-                    {yao.bianYao ? (
-                      <>
-                        <span className="text-[#C0392B] font-bold">➯</span>
-                        <YaoLine yinYang={yao.bianYao.yinYang} size="sm" compact />
-                        <span className="font-medium text-stone-800">{yao.bianYao.relative}{yao.bianYao.branch}</span>
-                        {yao.bianYao.dynamicTrend && (
-                          <span className="text-[10px] px-1 py-0.5 rounded bg-red-100 text-[#C0392B] font-bold">
-                            {yao.bianYao.dynamicTrend}
-                          </span>
-                        )}
-                      </>
-                    ) : (
-                      <span className="text-stone-300">--</span>
-                    )}
-                  </div>
-
-                </div>
-              );
-            })}
-          </div>
-
-          {/* 看板底部说明 */}
-          <div className="px-5 py-3 bg-[#FBF9F5] border-t border-[#EAE6DC] flex items-center justify-between text-xs text-stone-500">
+        <div className="lg:col-span-7 flex flex-col gap-2">
+          <PaipanCardLayout
+            board={boardData}
+            activeYaoIndex={activeYaoIndex}
+            onYaoClick={(yao) => setActiveYaoIndex(yao.index)}
+          />
+          <div className="px-1 flex items-center justify-between text-xs text-stone-500">
             <span>💡 提示：点击任意一行爻象，右侧将自动展开生克显微镜深度推演。</span>
             <span className="font-mono text-stone-400">八宫纳甲定本</span>
           </div>
-
         </div>
 
         {/* 右侧：生克推演显微镜 (5 cols) */}
@@ -573,7 +454,7 @@ export default function PaipanWorkbench({ onSelectConcept }) {
                 <div className="flex items-center justify-between text-xs font-semibold text-stone-600 mb-1">
                   <span>📅 月令力量 ({boardData.dateGanzhi.month})</span>
                   <span className="text-[#C0392B] font-bold">
-                    {getWangXiangStatus(activeYao.element, boardData.dateGanzhi.monthBranch)}
+                    {activeYao.wangShuai}
                   </span>
                 </div>
                 <p className="text-xs text-stone-600 leading-relaxed">
