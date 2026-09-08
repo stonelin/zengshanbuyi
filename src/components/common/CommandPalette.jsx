@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Search, X, BookOpen, Compass, Award, ArrowRight } from 'lucide-react';
+import { Search, X, BookOpen, Compass, Library, ArrowRight } from 'lucide-react';
 import chaptersData from '../../data/chapters.json';
-import conceptsData from '../../data/concepts.json';
+import termsData from '../../data/terms.json';
 
 export default function CommandPalette({
   isOpen,
@@ -39,11 +39,12 @@ export default function CommandPalette({
     (ch.summary && ch.summary.toLowerCase().includes(q))
   ).slice(0, 4) : [];
 
-  // 筛选概念
-  const matchedConcepts = q ? conceptsData.filter(cp => 
-    cp.name.toLowerCase().includes(q) || 
-    cp.category.toLowerCase().includes(q) ||
-    (cp.definition && cp.definition.toLowerCase().includes(q))
+  // 筛选术语
+  const matchedTerms = q ? termsData.filter(t =>
+    t.name.toLowerCase().includes(q) ||
+    (t.aliases || []).some(a => a.toLowerCase().includes(q)) ||
+    t.category.toLowerCase().includes(q) ||
+    (t.literalTranslation && t.literalTranslation.toLowerCase().includes(q))
   ).slice(0, 4) : [];
 
   return (
@@ -104,6 +105,16 @@ export default function CommandPalette({
                     <div className="text-xs text-stone-500">原文、直译与讲解</div>
                   </div>
                 </button>
+                <button
+                  onClick={() => { onSwitchTab('terms'); onClose(); }}
+                  className="flex items-center gap-2.5 p-3 rounded-xl bg-stone-50 hover:bg-amber-50/60 border border-stone-200/60 text-left text-sm transition-all"
+                >
+                  <Library className="w-4 h-4 text-[#C0392B]" />
+                  <div>
+                    <div className="font-bold text-stone-800">术语总览</div>
+                    <div className="text-xs text-stone-500">按分类查阅全部术语</div>
+                  </div>
+                </button>
               </div>
 
               <div className="mt-4 text-xs font-semibold text-stone-400 mb-2 uppercase tracking-wider">
@@ -123,22 +134,22 @@ export default function CommandPalette({
             </div>
           )}
 
-          {/* 概念结果 */}
-          {matchedConcepts.length > 0 && (
+          {/* 术语结果 */}
+          {matchedTerms.length > 0 && (
             <div>
               <div className="text-xs font-semibold text-[#C0392B] mb-2 flex items-center gap-1.5">
-                <Award className="w-3.5 h-3.5" /> 易学理法与核心术语 ({matchedConcepts.length})
+                <Library className="w-3.5 h-3.5" /> 易学理法与核心术语 ({matchedTerms.length})
               </div>
               <div className="space-y-1">
-                {matchedConcepts.map((cp) => (
+                {matchedTerms.map((t) => (
                   <button
-                    key={cp.id}
-                    onClick={() => { onSelectConcept(cp.id); onClose(); }}
+                    key={t.id}
+                    onClick={() => { onSelectConcept(t.id); onClose(); }}
                     className="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-amber-50/60 text-left text-xs transition-colors group"
                   >
                     <div>
-                      <span className="font-bold text-stone-900 group-hover:text-[#C0392B] mr-2">{cp.name}</span>
-                      <span className="text-stone-500 line-clamp-1">{cp.definition}</span>
+                      <span className="font-bold text-stone-900 group-hover:text-[#C0392B] mr-2">{t.name}</span>
+                      <span className="text-stone-500 line-clamp-1">{t.literalTranslation}</span>
                     </div>
                     <ArrowRight className="w-4 h-4 text-stone-300 group-hover:text-[#C0392B] shrink-0" />
                   </button>
@@ -172,7 +183,7 @@ export default function CommandPalette({
           )}
 
           {/* 未匹配到结果 */}
-          {q && matchedChapters.length === 0 && matchedConcepts.length === 0 && (
+          {q && matchedChapters.length === 0 && matchedTerms.length === 0 && (
             <div className="py-12 text-center text-stone-400 text-sm">
               未找到与 “{query}” 匹配的内容，尝试换个词或者输入拼音搜索。
             </div>

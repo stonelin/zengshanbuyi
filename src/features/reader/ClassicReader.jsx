@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import chaptersData from '../../data/chapters.json';
-import { CORE_CONCEPT_NAMES } from '../../lib/conceptService';
+import { CORE_TERM_NAMES } from '../../lib/termService';
 import {
   BookOpen,
   Search,
@@ -44,7 +44,7 @@ export default function ClassicReader({
 
   // 渲染带有概念穿透高亮的正文 (按长度降序排列，优先匹配较长术语)
   const sortedConceptNames = useMemo(() => {
-    return [...CORE_CONCEPT_NAMES].sort((a, b) => b.length - a.length);
+    return [...CORE_TERM_NAMES].sort((a, b) => b.length - a.length);
   }, []);
 
   const conceptRegex = useMemo(() => {
@@ -58,7 +58,7 @@ export default function ClassicReader({
     const parts = text.split(conceptRegex);
 
     return parts.map((part, i) => {
-      if (CORE_CONCEPT_NAMES.includes(part)) {
+      if (CORE_TERM_NAMES.includes(part)) {
         return (
           <button
             key={i}

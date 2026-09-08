@@ -17,11 +17,11 @@ import {
   LU_SHEN_MAP,
   YI_MA_MAP
 } from '../src/lib/paipanEngine.js';
-import { boardSchema, yongShenResolutionSchema, caseSchema } from '../src/lib/schema.js';
+import { boardSchema, yongShenResolutionSchema, caseSchema, termSchema } from '../src/lib/schema.js';
 import chaptersData from '../src/data/chapters.json' with { type: 'json' };
 import casesV2Data from '../src/data/cases_v2.json' with { type: 'json' };
 import casesData from '../src/data/cases.json' with { type: 'json' };
-import conceptsData from '../src/data/concepts.json' with { type: 'json' };
+import termsData from '../src/data/terms.json' with { type: 'json' };
 
 const bugsFound = [];
 
@@ -189,7 +189,7 @@ console.log(`- 案例关联章节有效性: ${casesData.length - brokenChapterLi
 // 会取错卦，这类条目在录入时已经手工修正 board，不能反过来验证 resolveCaseBoard 本身，
 // 故排除在自动回归之外，仅保留 caseSchema 结构校验。
 console.log('\n--- 测试项 8: 已校对实例库回归测试（cases_v2.json） ---');
-const MANUAL_BOARD_CASE_IDS = new Set(['case_007', 'case_019b', 'case_020b', 'case_020c', 'case_036b', 'case_040b', 'case_047', 'case_048', 'case_049', 'case_050']);
+const MANUAL_BOARD_CASE_IDS = new Set(['case_007', 'case_019b', 'case_020b', 'case_020c', 'case_036b', 'case_040b', 'case_047', 'case_048', 'case_049', 'case_050', 'case_059']);
 let caseRegressionErrors = 0;
 casesV2Data.forEach(verified => {
   const schemaCheck = caseSchema.safeParse(verified);
@@ -220,6 +220,32 @@ casesV2Data.forEach(verified => {
 });
 if (caseRegressionErrors === 0) {
   console.log(`✅ ${casesV2Data.length} 条已校对实例全部通过 caseSchema 校验与引擎重算回归 (${casesV2Data.length - MANUAL_BOARD_CASE_IDS.size} 条参与卦名/格局重算比对)`);
+}
+
+// 9. 术语库校验：termSchema + sourceChapterId/relatedTermIds 交叉链接有效性
+console.log('\n--- 测试项 9: 术语库 Schema 与交叉链接完整性测试 ---');
+let termErrors = 0;
+const termIds = new Set(termsData.map(t => t.id));
+const chapterIds = new Set(chaptersData.map(c => c.id));
+termsData.forEach(t => {
+  const schemaCheck = termSchema.safeParse(t);
+  if (!schemaCheck.success) {
+    bugsFound.push(`[BUG-18] ${t.id} 不符合 termSchema: ${JSON.stringify(schemaCheck.error.issues)}`);
+    termErrors++;
+  }
+  if (t.sourceChapterId && !chapterIds.has(t.sourceChapterId)) {
+    bugsFound.push(`[BUG-19] ${t.id} 的 sourceChapterId (${t.sourceChapterId}) 在 chapters.json 中不存在`);
+    termErrors++;
+  }
+  (t.relatedTermIds || []).forEach(rid => {
+    if (!termIds.has(rid)) {
+      bugsFound.push(`[BUG-20] ${t.id} 的 relatedTermIds 里有不存在的术语 ${rid}`);
+      termErrors++;
+    }
+  });
+});
+if (termErrors === 0) {
+  console.log(`✅ ${termsData.length} 条术语全部通过 termSchema 校验，sourceChapterId/relatedTermIds 交叉链接全部有效`);
 }
 
 // 总结

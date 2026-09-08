@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/common/Header';
 import CommandPalette from './components/common/CommandPalette';
-import ConceptModal from './components/common/ConceptModal';
+import TermModal from './components/common/TermModal';
 import PaipanWorkbench from './features/paipan/PaipanWorkbench';
 import ClassicReader from './features/reader/ClassicReader';
 import RecordCastingHub from './features/records/RecordCastingHub';
-import { getConceptByIdOrName } from './lib/conceptService';
+import TermsOverview from './features/terms/TermsOverview';
+import { getTermByIdOrName } from './lib/termService';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('paipan');
   const [selectedChapterId, setSelectedChapterId] = useState('ch_001');
-  const [activeConcept, setActiveConcept] = useState(null);
+  const [activeTerm, setActiveTerm] = useState(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   // 全局快捷键 ⌘K / Ctrl+K 监听
@@ -32,10 +33,10 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSelectConcept = (conceptKey) => {
-    const cp = getConceptByIdOrName(conceptKey);
-    if (cp) {
-      setActiveConcept(cp);
+  const handleSelectTerm = (termKey) => {
+    const t = getTermByIdOrName(termKey);
+    if (t) {
+      setActiveTerm(t);
     }
   };
 
@@ -53,7 +54,7 @@ export default function App() {
       <main className="flex-1">
         {activeTab === 'paipan' && (
           <PaipanWorkbench
-            onSelectConcept={handleSelectConcept}
+            onSelectConcept={handleSelectTerm}
           />
         )}
 
@@ -63,9 +64,11 @@ export default function App() {
           <ClassicReader
             selectedChapterId={selectedChapterId}
             onSelectChapter={handleSelectChapter}
-            onSelectConcept={handleSelectConcept}
+            onSelectConcept={handleSelectTerm}
           />
         )}
+
+        {activeTab === 'terms' && <TermsOverview onSelectTerm={handleSelectTerm} />}
       </main>
 
       {/* 全局底部 Footer */}
@@ -86,10 +89,11 @@ export default function App() {
       </footer>
 
       {/* 术语概念穿透模态框 */}
-      <ConceptModal
-        concept={activeConcept}
-        onClose={() => setActiveConcept(null)}
+      <TermModal
+        term={activeTerm}
+        onClose={() => setActiveTerm(null)}
         onSelectChapter={handleSelectChapter}
+        onSelectTerm={handleSelectTerm}
       />
 
       {/* 全局 Command Palette 搜索框 (⌘K) */}
@@ -97,7 +101,7 @@ export default function App() {
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
         onSelectChapter={handleSelectChapter}
-        onSelectConcept={handleSelectConcept}
+        onSelectConcept={handleSelectTerm}
         onSwitchTab={setActiveTab}
       />
 
