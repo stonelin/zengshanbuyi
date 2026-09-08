@@ -205,19 +205,14 @@ export function getWangXiangStatus(yaoElement, monthBranch) {
   return '平';
 }
 
-// 模拟摇 3 枚铜钱
-// 规则：0 代表字/反面 (阴 2)，1 代表背/正面 (阳 3)
+// 三枚铜钱摇卦的计分规则：0 代表字/反面 (阴 2)，1 代表背/正面 (阳 3)
 // 1背2字 = 3+2+2 = 7 (少阳，静)
 // 2背1字 = 3+3+2 = 8 (少阴，静)
 // 3背0字 = 3+3+3 = 9 (老阳，动 ◯)
 // 0背3字 = 2+2+2 = 6 (老阴，动 ✕)
-export function tossThreeCoins() {
-  const c1 = Math.random() > 0.5 ? 1 : 0;
-  const c2 = Math.random() > 0.5 ? 1 : 0;
-  const c3 = Math.random() > 0.5 ? 1 : 0;
-  const backCount = c1 + c2 + c3; // 背面数量 (0~3)
-  
-  let type = 'shao_yang'; // 7
+// 由背面数量 (0~3) 直接解出该爻：既用于模拟摇卦，也用于卦例记录里"逐次输入六次背数"的直接录入场景
+export function resolveLineFromBackCount(backCount) {
+  let type = '少阳 (单/静)';
   let yinYang = '阳';
   let isMoving = false;
   let changedYinYang = '阳';
@@ -249,15 +244,16 @@ export function tossThreeCoins() {
     type = '老阴 ✕ (交/动)';
   }
 
-  return {
-    coins: [c1, c2, c3],
-    backCount,
-    score,
-    yinYang,
-    isMoving,
-    changedYinYang,
-    type
-  };
+  return { backCount, score, yinYang, isMoving, changedYinYang, type };
+}
+
+// 模拟摇 3 枚铜钱（随机）
+export function tossThreeCoins() {
+  const c1 = Math.random() > 0.5 ? 1 : 0;
+  const c2 = Math.random() > 0.5 ? 1 : 0;
+  const c3 = Math.random() > 0.5 ? 1 : 0;
+  const backCount = c1 + c2 + c3;
+  return { coins: [c1, c2, c3], ...resolveLineFromBackCount(backCount) };
 }
 
 // 完整推演排盘看板数据组装

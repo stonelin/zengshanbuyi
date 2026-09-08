@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, BookOpen, Search } from 'lucide-react';
+import { Compass, BookOpen, NotebookPen, Search } from 'lucide-react';
 
 export default function Header({
   activeTab,
@@ -8,6 +8,7 @@ export default function Header({
 }) {
   const navTabs = [
     { id: 'paipan', label: '智能排盘', icon: Compass },
+    { id: 'records', label: '卦例记录', icon: NotebookPen },
     { id: 'reader', label: '典籍精读', icon: BookOpen }
   ];
 

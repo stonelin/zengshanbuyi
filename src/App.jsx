@@ -4,6 +4,7 @@ import CommandPalette from './components/common/CommandPalette';
 import ConceptModal from './components/common/ConceptModal';
 import PaipanWorkbench from './features/paipan/PaipanWorkbench';
 import ClassicReader from './features/reader/ClassicReader';
+import RecordCastingHub from './features/records/RecordCastingHub';
 import { getConceptByIdOrName } from './lib/conceptService';
 
 export default function App() {
@@ -55,6 +56,8 @@ export default function App() {
             onSelectConcept={handleSelectConcept}
           />
         )}
+
+        {activeTab === 'records' && <RecordCastingHub />}
 
         {activeTab === 'reader' && (
           <ClassicReader
