@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-canvas: #FBF9F5;
+    --bg-card: #FFFFFF;
+    --text-primary: #1F2421;
+    --text-secondary: #5C6460;
+    --text-tertiary: #8F9893;
+    --brand-cinnabar: #C0392B;
+    --brand-ochre: #9C6634;
+    --border-subtle: #EAE6DC;
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  }
+
+  h1, h2, h3, .font-serif-sc {
+    font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D5CEBF;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8AF9C;
+}
+
+/* 3D Coin Animation */
+@keyframes coinFlip {
+  0% { transform: translateY(0) rotateX(0deg) scale(1); }
+  50% { transform: translateY(-50px) rotateX(720deg) scale(1.15); }
+  100% { transform: translateY(0) rotateX(1440deg) scale(1); }
+}
+
+.animate-coin-flip {
+  animation: coinFlip 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Pulse Glow for active Yao */
+@keyframes cinnabarPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-cinnabar-pulse {
+  animation: cinnabarPulse 1.8s infinite ease-in-out;
+}
