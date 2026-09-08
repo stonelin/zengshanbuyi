@@ -197,6 +197,16 @@ export const WUXING_RELATIONS = {
   '水': { sheng: '木', ke: '火', beisheng: '金', beike: '土' }
 };
 
+// 变爻六亲：纳甲筮法中，变爻的六亲以本卦所属宫的五行为准来比较生克，
+// 不能用变卦自身独立成卦时所属宫的五行（变卦数据库里存的 relative 字段是后者，不能直接拿来用）。
+export function resolveRelativeByPalace(lineElement, palaceElement) {
+  if (lineElement === palaceElement) return '兄弟'; // 比和者兄弟
+  if (WUXING_RELATIONS[lineElement].sheng === palaceElement) return '父母'; // 生我者父母
+  if (WUXING_RELATIONS[palaceElement].sheng === lineElement) return '子孙'; // 我生者子孙
+  if (WUXING_RELATIONS[lineElement].ke === palaceElement) return '官鬼'; // 克我者官鬼
+  return '妻财'; // 我克者妻财
+}
+
 // 五季旺相休囚死
 export function getWangXiangStatus(yaoElement, monthBranch) {
   const monthElement = BRANCH_WUXING[monthBranch] || '木';
@@ -339,7 +349,7 @@ export function assemblePaipanBoard({
 
       bianYao = {
         yinYang: targetBianLine.yin_yang,
-        relative: targetBianLine.relative,
+        relative: resolveRelativeByPalace(targetBianLine.element, benGua.palaceElement),
         ganzhi: targetBianLine.stem_branch,
         branch: targetBianLine.branch,
         element: targetBianLine.element,

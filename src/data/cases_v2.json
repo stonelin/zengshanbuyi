@@ -275,7 +275,7 @@
           "liuShen": "勾陈",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "兄弟",
+            "relative": "子孙",
             "ganzhi": "戊午",
             "branch": "午",
             "element": "火",
@@ -395,11 +395,7 @@
         "三合木局"
       ]
     },
-    "summary": "占是否可往：不取固定六亲用神，以世应生克直断——应爻旺相克世即为忌神有害，纵是\"仇神\"之辨，落到实处仍要看应爻所代表的具体人物关系。",
-    "disputed": {
-      "isDisputed": true,
-      "note": "本例变卦三爻（应爻，官鬼酉金动）原文六亲标注与纳甲法推算不一致（按本卦宫位五行生克关系算应为\"兄弟\"），疑原书变卦六亲栏排印/扫描有误，此处以纳甲法计算结果为准，不影响本例断语所涉及的核心用神推理。"
-    }
+    "summary": "占是否可往：不取固定六亲用神，以世应生克直断——应爻旺相克世即为忌神有害，纵是\"仇神\"之辨，落到实处仍要看应爻所代表的具体人物关系。"
   },
   {
     "id": "case_003",
@@ -789,6 +785,7 @@
       "movingCount": "独发",
       "patterns": [
         "六冲",
+        "比和",
         "三合水局",
         "三合火局"
       ]
@@ -1095,7 +1092,7 @@
           "liuShen": "玄武",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "妻财",
+            "relative": "父母",
             "ganzhi": "辛未",
             "branch": "未",
             "element": "土",
@@ -1190,16 +1187,13 @@
       "movingCount": "独发",
       "patterns": [
         "六冲",
+        "化去",
         "三合水局",
         "三合火局",
         "化合"
       ]
     },
-    "summary": "占父病：父母爻多现，取临月建的辰土（应爻）为用神；病重是因寅木暗动克辰土，且午火忌神动化未土与午相合，贪合不生辰土，待丑日冲去未土解合，午火转生辰土，病愈。",
-    "disputed": {
-      "isDisputed": true,
-      "note": "本例变卦四爻（官鬼午火动，变爻未土）原文六亲标注与纳甲法推算不一致（按本卦宫位五行生克关系算应为\"妻财\"），疑原书变卦六亲栏排印/扫描有误，此处以纳甲法计算结果为准，不影响本例断语所涉及的核心用神推理。 原文讨论\"三重父母爻\"隐含把这个变爻未土也算作父母，与纳甲法算出的\"妻财\"不同，但本例最终用神取的是三爻辰土（应爻），未土六亲的归属分歧不影响用神结论。"
-    }
+    "summary": "占父病：父母爻多现，取临月建的辰土（应爻）为用神；病重是因寅木暗动克辰土，且午火忌神动化未土与午相合，贪合不生辰土，待丑日冲去未土解合，午火转生辰土，病愈。"
   },
   {
     "id": "case_005",
@@ -1420,7 +1414,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "兄弟",
+            "relative": "妻财",
             "ganzhi": "戊寅",
             "branch": "寅",
             "element": "木",
@@ -1531,7 +1525,7 @@
           "liuShen": "勾陈",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "官鬼",
+            "relative": "兄弟",
             "ganzhi": "庚申",
             "branch": "申",
             "element": "金",
@@ -1607,6 +1601,7 @@
       "movingCount": "二爻动",
       "patterns": [
         "六冲",
+        "化去",
         "三合金局",
         "三合木局",
         "化空"
@@ -1945,7 +1940,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "子孙",
+            "relative": "妻财",
             "ganzhi": "己未",
             "branch": "未",
             "element": "土",
@@ -1976,7 +1971,7 @@
           "liuShen": "玄武",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "兄弟",
+            "relative": "子孙",
             "ganzhi": "己巳",
             "branch": "巳",
             "element": "火",
@@ -2262,7 +2257,7 @@
           "liuShen": "螣蛇",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "妻财",
+            "relative": "父母",
             "ganzhi": "甲寅",
             "branch": "寅",
             "element": "木",
@@ -2435,6 +2430,7 @@
       "movingCount": "独发",
       "patterns": [
         "六冲",
+        "化去",
         "三合金局",
         "三合木局"
       ]
@@ -2442,7 +2438,7 @@
     "summary": "一人自占病又请母亲代占子病：本人卦看世爻元神申金动而相生本非死症，但申金墓于丑月存疑；母占卦看子孙丑土动化寅木回头克，寅月冲去申金则两卦合看皆危，果卒于交春（寅月）之日——示范\"一事多占、合参断吉凶\"的方法。",
     "disputed": {
       "isDisputed": true,
-      "note": "本例实际包含两次起卦（\"同人之旅\"自占 + \"离之大有\"母占子），caseSchema 目前只支持单个 board，这里的 board 取第二次起卦\"离之大有\"（最终判断生死所依据的子孙用神所在卦），第一次起卦的卦画与讨论保留在 originalText 里作为背景，不单独结构化。diagram 字段里两次起卦的\"X宫：Y\"标题行连在一起，resolveCaseBoard() 的自动解析会误取前两行（对应第一次起卦），此处改为手工指定\"离为火之火天大有\"构建 board。 本例变卦二爻（子孙丑土动，变爻寅木）原文六亲标注与纳甲法推算不一致（按本卦宫位五行生克关系算应为\"妻财\"），疑原书变卦六亲栏排印/扫描有误，此处以纳甲法计算结果为准，不影响本例断语所涉及的核心用神推理。"
+      "note": "本例实际包含两次起卦（\"同人之旅\"自占 + \"离之大有\"母占子），caseSchema 目前只支持单个 board，这里的 board 取第二次起卦\"离之大有\"（最终判断生死所依据的子孙用神所在卦），第一次起卦的卦画与讨论保留在 originalText 里作为背景，不单独结构化。diagram 字段里两次起卦的\"X宫：Y\"标题行连在一起，resolveCaseBoard() 的自动解析会误取前两行（对应第一次起卦），此处改为手工指定\"离为火之火天大有\"构建 board。"
     }
   },
   {
@@ -2965,7 +2961,7 @@
           "liuShen": "勾陈",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "父母",
+            "relative": "妻财",
             "ganzhi": "己卯",
             "branch": "卯",
             "element": "木",
@@ -3033,7 +3029,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "官鬼",
+            "relative": "子孙",
             "ganzhi": "己亥",
             "branch": "亥",
             "element": "水",
@@ -3118,7 +3114,7 @@
           "liuShen": "朱雀",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "子孙",
+            "relative": "父母",
             "ganzhi": "壬戌",
             "branch": "戌",
             "element": "土",
@@ -3175,6 +3171,7 @@
       "shiYingPosition": "世二应五",
       "movingCount": "三爻以上",
       "patterns": [
+        "化来",
         "三合木局",
         "化空",
         "化墓"
@@ -3740,7 +3737,7 @@
           "liuShen": "螣蛇",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "兄弟",
+            "relative": "子孙",
             "ganzhi": "戊午",
             "branch": "午",
             "element": "火",
@@ -4089,7 +4086,7 @@
           "liuShen": "朱雀",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "父母",
+            "relative": "妻财",
             "ganzhi": "庚子",
             "branch": "子",
             "element": "水",
@@ -4144,7 +4141,7 @@
           "liuShen": "螣蛇",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "妻财",
+            "relative": "兄弟",
             "ganzhi": "庚辰",
             "branch": "辰",
             "element": "土",
@@ -4281,6 +4278,7 @@
       "movingCount": "二爻动",
       "patterns": [
         "六冲",
+        "化来",
         "三合水局",
         "三合火局",
         "化空"
@@ -4552,7 +4550,7 @@
           "liuShen": "螣蛇",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "官鬼",
+            "relative": "兄弟",
             "ganzhi": "辛酉",
             "branch": "酉",
             "element": "金",
@@ -4620,7 +4618,7 @@
           "liuShen": "玄武",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "官鬼",
+            "relative": "兄弟",
             "ganzhi": "庚申",
             "branch": "申",
             "element": "金",
@@ -4687,7 +4685,8 @@
       "shiYingPosition": "世初应四",
       "movingCount": "二爻动",
       "patterns": [
-        "六合"
+        "六合",
+        "化去"
       ]
     },
     "summary": "占弟被论：兄弟爻（用神）本被月克日生，可以相抵，但卦中另一爻动出忌神（月建亲自入卦克用神），且用神已化退神，纵有太岁相合暂缓一时，退神终究无力，最终还是应验大凶。",
@@ -4915,7 +4914,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "子孙",
+            "relative": "官鬼",
             "ganzhi": "己卯",
             "branch": "卯",
             "element": "木",
@@ -5039,7 +5038,7 @@
           "liuShen": "螣蛇",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "父母",
+            "relative": "子孙",
             "ganzhi": "癸酉",
             "branch": "酉",
             "element": "金",
@@ -5093,6 +5092,7 @@
       "movingCount": "独发",
       "patterns": [
         "六冲",
+        "化去",
         "三合水局",
         "三合火局"
       ]
@@ -5795,6 +5795,7 @@
       "shiYingPosition": "世五应二",
       "movingCount": "独发",
       "patterns": [
+        "比和",
         "化合"
       ]
     },
@@ -6198,7 +6199,9 @@
       "guaPalace": "乾宫",
       "shiYingPosition": "世二应五",
       "movingCount": "独发",
-      "patterns": []
+      "patterns": [
+        "比和"
+      ]
     },
     "summary": "自占病：世爻（用神）午火本临日辰而旺，但发动化出子孙亥水回头克，且这个亥水又被申金月建生扶，克力更重，故断应期在亥月——旺相之爻仍会被\"有月建撑腰的回头克\"所伤。",
     "disputed": {
@@ -6614,7 +6617,9 @@
       "guaPalace": "坤宫",
       "shiYingPosition": "世五应二",
       "movingCount": "二爻动",
-      "patterns": []
+      "patterns": [
+        "比和"
+      ]
     },
     "summary": "占仆人何日归：用神妻财亥水虽临日建可解一时月破，但卦中多个土爻合力克水，双拳不敌四手，日建的护佑抵不过多数克制，故断\"不独难望归期，犹防不测\"，后果中途被害。"
   },
@@ -6924,7 +6929,7 @@
           "liuShen": "螣蛇",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "子孙",
+            "relative": "妻财",
             "ganzhi": "庚午",
             "branch": "午",
             "element": "火",
@@ -6955,7 +6960,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "官鬼",
+            "relative": "父母",
             "ganzhi": "庚申",
             "branch": "申",
             "element": "金",
@@ -7429,7 +7434,9 @@
       "guaPalace": "乾宫",
       "shiYingPosition": "世四应初",
       "movingCount": "独发",
-      "patterns": []
+      "patterns": [
+        "比和"
+      ]
     },
     "summary": "占会试：世爻父母（文章）动化回头生，又逢日建正是官星（与卦中官鬼同气）一起生世，双重生扶，故断\"首唱无疑\"。",
     "disputed": {
@@ -7718,7 +7725,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "兄弟",
+            "relative": "子孙",
             "ganzhi": "戊午",
             "branch": "午",
             "element": "火",
@@ -8141,7 +8148,7 @@
           "liuShen": "玄武",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "子孙",
+            "relative": "兄弟",
             "ganzhi": "丁亥",
             "branch": "亥",
             "element": "水",
@@ -8206,7 +8213,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "",
+      "yongShenKey": "用神",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -8233,6 +8240,7 @@
       "patterns": [
         "六冲",
         "六冲变六合",
+        "变生",
         "三合水局",
         "三合火局"
       ]
@@ -8859,7 +8867,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "官鬼",
+            "relative": "妻财",
             "ganzhi": "庚午",
             "branch": "午",
             "element": "火",
@@ -8965,13 +8973,11 @@
       "guaPalace": "坎宫",
       "shiYingPosition": "世四应初",
       "movingCount": "二爻动",
-      "patterns": []
+      "patterns": [
+        "变生"
+      ]
     },
-    "summary": "占出行：世爻发动被日辰合住，是\"合绊\"而非吉合，故不能成行；真正的凶兆在子孙爻（女儿）动而变官鬼，又逢月绝日刑，双重受克，故断女儿有性命之忧，果然应验。",
-    "disputed": {
-      "isDisputed": true,
-      "note": "原文明确写变爻是\"官鬼丙辰土\"，且断语的核心论点（\"子动变鬼\"）直接依赖这个六亲身份，但按纳甲法算出的应为\"父母\"（离宫火，辰土为生我者）。这是与 case_002/004/007 相同的变卦六亲系统性偏差，但这次断语逻辑离不开这个具体六亲名，所以这里手工把 board.yaos[0].bianYao.relative 由\"父母\"改回原文的\"官鬼\"，而不是只记录存疑——盘面必须以原文为准才能读懂这段断语。"
-    }
+    "summary": "占出行：世爻发动被日辰合住，是\"合绊\"而非吉合，故不能成行；真正的凶兆在子孙爻（女儿）动而变官鬼，又逢月绝日刑，双重受克，故断女儿有性命之忧，果然应验。"
   },
   {
     "id": "case_023",
@@ -9385,9 +9391,10 @@
       "movingCount": "独发",
       "patterns": [
         "六冲",
+        "六冲变六合",
+        "比和",
         "三合金局",
-        "三合木局",
-        "六冲变六合"
+        "三合木局"
       ]
     },
     "summary": "占已悔婚是否还能复合：卦本难以吉断（用神状态不佳），但六冲卦变六合，\"散而复聚，离而必合\"，特殊格局不看用神径直断吉，果然次年复婚。"
@@ -9606,7 +9613,7 @@
           "liuShen": "青龙",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "妻财",
+            "relative": "官鬼",
             "ganzhi": "丁巳",
             "branch": "巳",
             "element": "火",
@@ -9684,7 +9691,7 @@
           "liuShen": "螣蛇",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "父母",
+            "relative": "兄弟",
             "ganzhi": "戊申",
             "branch": "申",
             "element": "金",
@@ -10307,7 +10314,7 @@
           "liuShen": "朱雀",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "兄弟",
+            "relative": "子孙",
             "ganzhi": "乙未",
             "branch": "未",
             "element": "土",
@@ -10363,7 +10370,7 @@
           "liuShen": "螣蛇",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "官鬼",
+            "relative": "父母",
             "ganzhi": "乙卯",
             "branch": "卯",
             "element": "木",
@@ -10417,7 +10424,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "兄弟",
+            "relative": "子孙",
             "ganzhi": "癸丑",
             "branch": "丑",
             "element": "土",
@@ -10483,7 +10490,7 @@
           "liuShen": "青龙",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "子孙",
+            "relative": "妻财",
             "ganzhi": "癸酉",
             "branch": "酉",
             "element": "金",
@@ -10506,7 +10513,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "",
+      "yongShenKey": "用神",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -10825,7 +10832,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "子孙",
+            "relative": "兄弟",
             "ganzhi": "戊申",
             "branch": "申",
             "element": "金",
@@ -10883,7 +10890,7 @@
           "liuShen": "青龙",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "妻财",
+            "relative": "子孙",
             "ganzhi": "戊子",
             "branch": "子",
             "element": "水",
@@ -10934,6 +10941,7 @@
       "movingCount": "二爻动",
       "patterns": [
         "六冲",
+        "变生",
         "三合水局",
         "三合火局"
       ]
@@ -11236,7 +11244,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "妻财",
+            "relative": "父母",
             "ganzhi": "辛未",
             "branch": "未",
             "element": "土",
@@ -11340,9 +11348,11 @@
       "movingCount": "独发",
       "patterns": [
         "六冲",
+        "化去",
         "三合水局",
         "三合火局",
-        "化合"
+        "化合",
+        "化墓"
       ]
     },
     "summary": "占选期：官星午火独发，戌爻暗动，本卦寅木虽静止不动，借月建（寅月）之力凑齐寅午戌三合官局，故断本月必选，果然应验；地点则由世爻爻位与官星方位推断为闽中。"
@@ -11566,7 +11576,7 @@
           "liuShen": "朱雀",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "子孙",
+            "relative": "妻财",
             "ganzhi": "己卯",
             "branch": "卯",
             "element": "木",
@@ -11640,7 +11650,7 @@
           "liuShen": "螣蛇",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "兄弟",
+            "relative": "子孙",
             "ganzhi": "己亥",
             "branch": "亥",
             "element": "水",
@@ -12147,6 +12157,7 @@
       "patterns": [
         "六冲",
         "六冲变六合",
+        "比和",
         "三合水局",
         "三合火局"
       ]
@@ -12860,7 +12871,9 @@
       "shiYingPosition": "世三应六",
       "movingCount": "二爻动",
       "patterns": [
+        "比和",
         "反吟(爻)",
+        "反吟(内卦)",
         "三合金局",
         "化冲"
       ]
@@ -13091,7 +13104,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "父母",
+            "relative": "兄弟",
             "ganzhi": "丁巳",
             "branch": "巳",
             "element": "火",
@@ -13216,7 +13229,7 @@
           "liuShen": "勾陈",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "兄弟",
+            "relative": "子孙",
             "ganzhi": "己未",
             "branch": "未",
             "element": "土",
@@ -14289,6 +14302,7 @@
       "patterns": [
         "六合",
         "六合变六冲",
+        "比和",
         "三合水局",
         "三合火局",
         "化空"
@@ -14511,7 +14525,7 @@
           "liuShen": "朱雀",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "妻财",
+            "relative": "兄弟",
             "ganzhi": "辛丑",
             "branch": "丑",
             "element": "土",
@@ -14598,7 +14612,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "妻财",
+            "relative": "兄弟",
             "ganzhi": "辛未",
             "branch": "未",
             "element": "土",
@@ -14637,7 +14651,7 @@
           "liuShen": "玄武",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "子孙",
+            "relative": "父母",
             "ganzhi": "辛巳",
             "branch": "巳",
             "element": "火",
@@ -14672,7 +14686,7 @@
           "liuShen": "青龙",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "兄弟",
+            "relative": "官鬼",
             "ganzhi": "辛卯",
             "branch": "卯",
             "element": "木",
@@ -14725,6 +14739,7 @@
       "patterns": [
         "六冲",
         "六冲变六冲",
+        "化来",
         "三合水局",
         "三合火局",
         "化合"
@@ -14968,7 +14983,7 @@
           "liuShen": "朱雀",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "父母",
+            "relative": "子孙",
             "ganzhi": "乙巳",
             "branch": "巳",
             "element": "火",
@@ -14999,7 +15014,7 @@
           "liuShen": "勾陈",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "官鬼",
+            "relative": "兄弟",
             "ganzhi": "乙卯",
             "branch": "卯",
             "element": "木",
@@ -15054,7 +15069,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "妻财",
+            "relative": "父母",
             "ganzhi": "癸亥",
             "branch": "亥",
             "element": "水",
@@ -15124,7 +15139,7 @@
           ]
         }
       ],
-      "yongShenKey": "",
+      "yongShenKey": "用神",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -15154,18 +15169,15 @@
       "patterns": [
         "六冲",
         "六冲变六冲",
+        "化去",
         "反吟(爻)",
+        "反吟(内外)",
         "三合金局",
         "三合木局",
-        "化冲",
-        "化去"
+        "化冲"
       ]
     },
-    "summary": "占父子七人被拿问：卦变本身是\"化去\"（本宫克变宫，不为凶），但世爻自身动而变官鬼、子孙动而变父母，父子两条线都被克伤，加上六冲变六冲，乱冲乱击，断为极凶之卦，果然全部受刑。",
-    "disputed": {
-      "isDisputed": true,
-      "note": "本例原本是 case_036 raw_text 之后紧跟的一段（\"父子七人俱行拿问\"没有\"占\"字，未被切分脚本识别为新案例），单独整理为 case_036b，board 为手工重建。 另外，原文明确写世爻变爻是\"官鬼癸酉金\"，断语核心论点（\"世爻变鬼\"）依赖这个六亲身份，但按纳甲法算出应为\"子孙\"（坤宫土，酉金为我生者）——与此前多例相同的变卦六亲系统性偏差，这里手工把 board.yaos[5].bianYao.relative 改回原文的\"官鬼\"。"
-    }
+    "summary": "占父子七人被拿问：卦变本身是\"化去\"（本宫克变宫，不为凶），但世爻自身动而变官鬼、子孙动而变父母，父子两条线都被克伤，加上六冲变六冲，乱冲乱击，断为极凶之卦，果然全部受刑。"
   },
   {
     "id": "case_037",
@@ -15468,7 +15480,7 @@
           "liuShen": "朱雀",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "妻财",
+            "relative": "官鬼",
             "ganzhi": "己酉",
             "branch": "酉",
             "element": "金",
@@ -15509,7 +15521,7 @@
           "liuShen": "勾陈",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "子孙",
+            "relative": "妻财",
             "ganzhi": "己未",
             "branch": "未",
             "element": "土",
@@ -15822,7 +15834,7 @@
           "liuShen": "朱雀",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "官鬼",
+            "relative": "兄弟",
             "ganzhi": "戊辰",
             "branch": "辰",
             "element": "土",
@@ -15973,6 +15985,7 @@
       "movingCount": "独发",
       "patterns": [
         "六冲",
+        "化去",
         "三合金局",
         "三合木局",
         "化空"
@@ -16328,7 +16341,7 @@
           "liuShen": "青龙",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "兄弟",
+            "relative": "官鬼",
             "ganzhi": "戊子",
             "branch": "子",
             "element": "水",
@@ -16371,7 +16384,9 @@
       "guaPalace": "离宫",
       "shiYingPosition": "世五应二",
       "movingCount": "独发",
-      "patterns": []
+      "patterns": [
+        "化来"
+      ]
     },
     "summary": "占父亲出外一年无音信：父母爻（用神）发动生世，又化出回头生，双重生扶，且世爻落空主速归，断为平安即归，果然二月得意而回——反驳\"爻逢日冲即散\"的旧说。"
   },
@@ -16590,7 +16605,7 @@
           "liuShen": "朱雀",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "子孙",
+            "relative": "父母",
             "ganzhi": "戊寅",
             "branch": "寅",
             "element": "木",
@@ -16621,7 +16636,7 @@
           "liuShen": "勾陈",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "官鬼",
+            "relative": "子孙",
             "ganzhi": "戊辰",
             "branch": "辰",
             "element": "土",
@@ -16652,7 +16667,7 @@
           "liuShen": "螣蛇",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "妻财",
+            "relative": "兄弟",
             "ganzhi": "戊午",
             "branch": "午",
             "element": "火",
@@ -16701,7 +16716,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "父母",
+            "relative": "妻财",
             "ganzhi": "戊申",
             "branch": "申",
             "element": "金",
@@ -16742,7 +16757,7 @@
           "liuShen": "玄武",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "官鬼",
+            "relative": "子孙",
             "ganzhi": "戊戌",
             "branch": "戌",
             "element": "土",
@@ -16773,7 +16788,7 @@
           "liuShen": "青龙",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "兄弟",
+            "relative": "官鬼",
             "ganzhi": "戊子",
             "branch": "子",
             "element": "水",
@@ -17060,7 +17075,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "子孙",
+            "relative": "父母",
             "ganzhi": "甲子",
             "branch": "子",
             "element": "水",
@@ -17169,7 +17184,7 @@
           "liuShen": "朱雀",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "官鬼",
+            "relative": "子孙",
             "ganzhi": "壬午",
             "branch": "午",
             "element": "火",
@@ -17229,7 +17244,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "",
+      "yongShenKey": "用神",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -17499,7 +17514,7 @@
           "liuShen": "朱雀",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "父母",
+            "relative": "妻财",
             "ganzhi": "乙巳",
             "branch": "巳",
             "element": "火",
@@ -17586,7 +17601,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "妻财",
+            "relative": "兄弟",
             "ganzhi": "癸亥",
             "branch": "亥",
             "element": "水",
@@ -17907,7 +17922,7 @@
           "liuShen": "朱雀",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "父母",
+            "relative": "妻财",
             "ganzhi": "辛亥",
             "branch": "亥",
             "element": "水",
@@ -17938,7 +17953,7 @@
           "liuShen": "勾陈",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "官鬼",
+            "relative": "子孙",
             "ganzhi": "辛酉",
             "branch": "酉",
             "element": "金",
@@ -18004,7 +18019,7 @@
           "liuShen": "白虎",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "子孙",
+            "relative": "父母",
             "ganzhi": "辛巳",
             "branch": "巳",
             "element": "火",
@@ -18043,7 +18058,7 @@
           "liuShen": "玄武",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "兄弟",
+            "relative": "官鬼",
             "ganzhi": "辛卯",
             "branch": "卯",
             "element": "木",
@@ -18098,6 +18113,7 @@
         "六冲变六冲",
         "化来",
         "反吟(爻)",
+        "反吟(内外)",
         "三合金局",
         "三合木局",
         "化空",
@@ -18344,7 +18360,7 @@
           "liuShen": "青龙",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "妻财",
+            "relative": "兄弟",
             "ganzhi": "丁卯",
             "branch": "卯",
             "element": "木",
@@ -18416,7 +18432,7 @@
           "liuShen": "螣蛇",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "兄弟",
+            "relative": "官鬼",
             "ganzhi": "丁酉",
             "branch": "酉",
             "element": "金",
@@ -18746,7 +18762,7 @@
           "liuShen": "青龙",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "父母",
+            "relative": "妻财",
             "ganzhi": "辛亥",
             "branch": "亥",
             "element": "水",
@@ -18787,7 +18803,7 @@
           "liuShen": "朱雀",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "官鬼",
+            "relative": "子孙",
             "ganzhi": "辛酉",
             "branch": "酉",
             "element": "金",
@@ -19689,7 +19705,7 @@
           "liuShen": "螣蛇",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "官鬼",
+            "relative": "兄弟",
             "ganzhi": "庚申",
             "branch": "申",
             "element": "金",
@@ -19779,11 +19795,7 @@
         "伏吟(外卦)"
       ]
     },
-    "summary": "占父亲在外任是否平安：日辰生父母（用神）本主平安，但外卦伏吟主\"不宁之象\"，任期必有不顺；伏吟又主\"欲归不能\"，需待冲开之年（辰年）才能归——果然地方发生民变，寅年占卦辰年才裁缺而归，午年又补任四川，应期与伏吟推断完全吻合。",
-    "disputed": {
-      "isDisputed": true,
-      "note": "原文断语的应期推理直接依赖\"戌父化戌父\"（地支不变、六亲也不变，这正是伏吟的字面体现），但按纳甲法算出雷风恒六爻的六亲应为\"妻财\"而非\"父母\"——与此前多例相同的变卦六亲系统性偏差。这里手工把 board.yaos[5].bianYao.relative 改回原文的\"父母\"，因为断语的\"父化父\"这个文字游戏本身就是在描述伏吟这个格局，数据必须与原文一致才说得通。"
-    }
+    "summary": "占父亲在外任是否平安：日辰生父母（用神）本主平安，但外卦伏吟主\"不宁之象\"，任期必有不顺；伏吟又主\"欲归不能\"，需待冲开之年（辰年）才能归——果然地方发生民变，寅年占卦辰年才裁缺而归，午年又补任四川，应期与伏吟推断完全吻合。"
   },
   {
     "id": "case_047",
@@ -21687,7 +21699,7 @@
           "liuShen": "玄武",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "兄弟",
+            "relative": "父母",
             "ganzhi": "己亥",
             "branch": "亥",
             "element": "水",
@@ -22039,7 +22051,7 @@
           "liuShen": "螣蛇",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "父母",
+            "relative": "妻财",
             "ganzhi": "戊寅",
             "branch": "寅",
             "element": "木",
@@ -22155,7 +22167,7 @@
           "liuShen": "勾陈",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "子孙",
+            "relative": "父母",
             "ganzhi": "壬戌",
             "branch": "戌",
             "element": "土",
@@ -22215,7 +22227,9 @@
       "movingCount": "二爻动",
       "patterns": [
         "六冲",
-        "化去"
+        "化来",
+        "三合金局",
+        "三合木局"
       ]
     },
     "summary": "占将来是否有官运：第一卦官爻月破却仍发动生世、世爻化进神，显然有官之象，但古法说月破无用，野鹤老人疑而再占；第二卦官临世位印证第一卦并非虚象，两卦合看断为终须食禄，应期在官爻实破之年，果然巳年承袭世职——反驳\"月破百无所用\"的旧说。"
@@ -22555,7 +22569,7 @@
           "liuShen": "朱雀",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "兄弟",
+            "relative": "父母",
             "ganzhi": "丁未",
             "branch": "未",
             "element": "土",
@@ -22885,7 +22899,7 @@
           "liuShen": "朱雀",
           "bianYao": {
             "yinYang": "阴",
-            "relative": "妻财",
+            "relative": "官鬼",
             "ganzhi": "乙卯",
             "branch": "卯",
             "element": "木",
@@ -22941,7 +22955,7 @@
           "liuShen": "螣蛇",
           "bianYao": {
             "yinYang": "阳",
-            "relative": "官鬼",
+            "relative": "父母",
             "ganzhi": "辛巳",
             "branch": "巳",
             "element": "火",
