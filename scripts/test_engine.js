@@ -189,7 +189,7 @@ console.log(`- 案例关联章节有效性: ${casesData.length - brokenChapterLi
 // 会取错卦，这类条目在录入时已经手工修正 board，不能反过来验证 resolveCaseBoard 本身，
 // 故排除在自动回归之外，仅保留 caseSchema 结构校验。
 console.log('\n--- 测试项 8: 已校对实例库回归测试（cases_v2.json） ---');
-const MANUAL_BOARD_CASE_IDS = new Set(['case_007', 'case_019b', 'case_020b', 'case_020c', 'case_036b', 'case_040b', 'case_047', 'case_048', 'case_049', 'case_050', 'case_059', 'case_064b', 'case_077b', 'case_086', 'case_086b', 'case_088', 'case_090b', 'case_111b', 'case_118', 'case_124', 'case_132', 'case_132b', 'case_142b', 'case_145b', 'case_146b', 'case_146c', 'case_146d', 'case_149b', 'case_149c', 'case_150b', 'case_151', 'case_159b', 'case_160', 'case_162', 'case_162b', 'case_162c', 'case_162d', 'case_162e', 'case_162f', 'case_163b', 'case_163c', 'case_164b', 'case_164c', 'case_164d', 'case_165b', 'case_176b']);
+const MANUAL_BOARD_CASE_IDS = new Set(['case_007', 'case_019b', 'case_020b', 'case_020c', 'case_036b', 'case_040b', 'case_047', 'case_048', 'case_049', 'case_050', 'case_059', 'case_064b', 'case_077b', 'case_086', 'case_086b', 'case_088', 'case_090b', 'case_111b', 'case_118', 'case_124', 'case_132', 'case_132b', 'case_142b', 'case_145b', 'case_146b', 'case_146c', 'case_146d', 'case_149b', 'case_149c', 'case_150b', 'case_151', 'case_159b', 'case_160', 'case_162', 'case_162b', 'case_162c', 'case_162d', 'case_162e', 'case_162f', 'case_163b', 'case_163c', 'case_164b', 'case_164c', 'case_164d', 'case_165b', 'case_176b', 'case_186', 'case_186b', 'case_188', 'case_188b', 'case_188c']);
 let caseRegressionErrors = 0;
 casesV2Data.forEach(verified => {
   const schemaCheck = caseSchema.safeParse(verified);
