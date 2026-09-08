@@ -37,7 +37,7 @@ baguaTables.palaces.forEach(palace => {
     allHexagrams.push({
       ...hex,
       binarySeq,
-      palaceName: palace.palace_name,
+      palaceName: palace.name,
       palaceElement: palace.element
     });
   });
@@ -103,6 +103,86 @@ export const SIX_CLASHES = {
 
 export function getMonthBrokenBranch(monthBranch) {
   return SIX_CLASHES[monthBranch] || '酉';
+}
+
+// 通用地支六冲查询（对称关系，与 SIX_CLASHES 共用同一张表）
+export function getClashBranch(branch) {
+  return SIX_CLASHES[branch] || null;
+}
+
+// 地支六合表
+export const LIU_HE_MAP = {
+  '子': '丑', '丑': '子',
+  '寅': '亥', '亥': '寅',
+  '卯': '戌', '戌': '卯',
+  '辰': '酉', '酉': '辰',
+  '巳': '申', '申': '巳',
+  '午': '未', '未': '午'
+};
+
+export function getHeBranch(branch) {
+  return LIU_HE_MAP[branch] || null;
+}
+
+// 地支三合局分组
+export const SANHE_GROUPS = [
+  { branches: ['申', '子', '辰'], element: '水' },
+  { branches: ['寅', '午', '戌'], element: '火' },
+  { branches: ['巳', '酉', '丑'], element: '金' },
+  { branches: ['亥', '卯', '未'], element: '木' }
+];
+
+// 三合局检测：传入一组地支（本卦六爻地支 ∪ 变爻地支），返回命中的三合局
+export function detectSanHeGroups(branchesInPlay) {
+  const uniqueBranches = new Set(branchesInPlay);
+  return SANHE_GROUPS
+    .filter(g => g.branches.every(b => uniqueBranches.has(b)))
+    .map(g => `三合${g.element}局`);
+}
+
+// 墓库地支：仅金木水火四行有明确共识；土行墓库归属各派不一（辰/戌两说皆有），存疑不判
+export const MUKU_MAP = {
+  '水': '辰', '火': '戌', '金': '丑', '木': '未'
+};
+
+export function isRuMu(yaoElement, referenceBranch) {
+  const muku = MUKU_MAP[yaoElement];
+  return !!muku && muku === referenceBranch;
+}
+
+// 神煞：以日干起贵人与禄神，以日支起驿马（本项目仅采用旬空/贵人/禄神/驿马，其余不采）
+export const GUI_REN_MAP = {
+  '甲': ['丑', '未'], '戊': ['丑', '未'], '庚': ['丑', '未'],
+  '乙': ['子', '申'], '己': ['子', '申'],
+  '丙': ['亥', '酉'], '丁': ['亥', '酉'],
+  '壬': ['卯', '巳'], '癸': ['卯', '巳'],
+  '辛': ['午', '寅']
+};
+
+export function getGuiRen(dayStem) {
+  const stem = dayStem ? dayStem[0] : '甲';
+  return GUI_REN_MAP[stem] || [];
+}
+
+export const LU_SHEN_MAP = {
+  '甲': '寅', '乙': '卯', '丙': '巳', '丁': '午', '戊': '巳',
+  '己': '午', '庚': '申', '辛': '酉', '壬': '亥', '癸': '子'
+};
+
+export function getLuShen(dayStem) {
+  const stem = dayStem ? dayStem[0] : '甲';
+  return LU_SHEN_MAP[stem] || null;
+}
+
+export const YI_MA_MAP = {
+  '申': '寅', '子': '寅', '辰': '寅',
+  '寅': '申', '午': '申', '戌': '申',
+  '巳': '亥', '酉': '亥', '丑': '亥',
+  '亥': '巳', '卯': '巳', '未': '巳'
+};
+
+export function getYiMa(dayBranch) {
+  return YI_MA_MAP[dayBranch] || null;
 }
 
 // 五行生克与旺相休囚死判断
@@ -192,7 +272,12 @@ export function assemblePaipanBoard({
   const dayGanzhi = `${dayStem}${dayBranch}`;
   const xunKong = getXunKong(dayGanzhi);
   const monthBroken = getMonthBrokenBranch(monthBranch);
+  const dayClash = getClashBranch(dayBranch);
+  const dayHe = getHeBranch(dayBranch);
   const liuShenList = getLiuShenList(dayStem);
+  const guiRenBranches = getGuiRen(dayStem);
+  const luShenBranch = getLuShen(dayStem);
+  const yiMaBranch = getYiMa(dayBranch);
 
   // 本卦序列 (0/1)
   const benLinesBinary = rawLines.map(l => (l.yinYang === '阳' ? 1 : 0));
@@ -246,24 +331,48 @@ export function assemblePaipanBoard({
       else if (yaoBranch === '戌' && targetBianLine.branch === '未') dynamicTrend = '化退神';
       else if (yaoBranch === '丑' && targetBianLine.branch === '戌') dynamicTrend = '化退神';
 
+      // 化合/化冲：变爻地支与本爻地支的合冲关系（若已判定为回头生克/进退神则不重复标注）
+      let heChong = null;
+      if (dynamicTrend === '变爻') {
+        if (getHeBranch(yaoBranch) === targetBianLine.branch) heChong = '化合';
+        else if (getClashBranch(yaoBranch) === targetBianLine.branch) heChong = '化冲';
+      }
+
       bianYao = {
         yinYang: targetBianLine.yin_yang,
         relative: targetBianLine.relative,
         ganzhi: targetBianLine.stem_branch,
         branch: targetBianLine.branch,
         element: targetBianLine.element,
-        dynamicTrend
+        dynamicTrend,
+        heChong,
+        isKong: xunKong.includes(targetBianLine.branch), // 化空
+        isRuMu: isRuMu(targetBianLine.element, dayBranch) // 化墓（以日辰为准）
       };
     }
+
+    // 神煞命中（仅旬空/贵人/禄神/驿马）
+    const shenSha = [];
+    if (guiRenBranches.includes(yaoBranch)) shenSha.push('贵人');
+    if (luShenBranch === yaoBranch) shenSha.push('禄神');
+    if (yiMaBranch === yaoBranch) shenSha.push('驿马');
+
+    // 旺相休囚死（以月建为准）
+    const wangShuai = getWangXiangStatus(yaoElement, monthBranch);
 
     // 状态标签
     const tags = [];
     if (yaoBranch === monthBroken) tags.push({ text: '月破', type: 'danger' });
     if (xunKong.includes(yaoBranch)) tags.push({ text: '旬空', type: 'warning' });
+    if (dayClash === yaoBranch) tags.push({ text: '日破', type: 'danger' });
+    if (dayHe === yaoBranch) tags.push({ text: '日合', type: 'info' });
+    if (!isMoving && dayClash === yaoBranch && !xunKong.includes(yaoBranch)) tags.push({ text: '暗动', type: 'primary' });
+    if (isRuMu(yaoElement, dayBranch)) tags.push({ text: '入墓(日墓)', type: 'warning' });
     if (bLine.is_shi) tags.push({ text: '世爻', type: 'primary' });
     if (bLine.is_ying) tags.push({ text: '应爻', type: 'info' });
     if (bLine.relative === yongShenKey) tags.push({ text: '用神', type: 'success' });
     if (isMoving) tags.push({ text: '发动', type: 'danger' });
+    shenSha.forEach(s => tags.push({ text: s, type: 'info' }));
 
     return {
       index: bLine.line_number,
@@ -278,11 +387,13 @@ export function assemblePaipanBoard({
       liuShen,
       hiddenSpirit: bLine.hidden_spirit,
       bianYao,
-      tags
+      tags,
+      wangShuai,
+      shenSha
     };
   });
 
-  return {
+  const board = {
     question,
     dateGanzhi: {
       month: `${monthBranch}月`,
@@ -298,6 +409,95 @@ export function assemblePaipanBoard({
     yaos,
     yongShenKey,
     hasMoving
+  };
+
+  board.patterns = resolvePatterns(board);
+
+  return board;
+}
+
+// 格局判断（六合六冲/三合局/化空化墓/化合化冲/日辰生克冲合）。
+// 卦反吟、卦伏吟未实现：其宫位对冲判定规则把握不足，留待用实例校对后再补，避免编造错误公式。
+export function resolvePatterns(board) {
+  const patterns = [];
+
+  if (board.benGua.is_six_combine) patterns.push('六合');
+  if (board.benGua.is_six_clash) patterns.push('六冲');
+
+  const branchesInPlay = board.yaos.flatMap(y => [y.branch, y.bianYao?.branch].filter(Boolean));
+  patterns.push(...detectSanHeGroups(branchesInPlay));
+
+  board.yaos.forEach(y => {
+    if (!y.bianYao) return;
+    if (y.bianYao.heChong === '化合' && !patterns.includes('化合')) patterns.push('化合');
+    if (y.bianYao.heChong === '化冲' && !patterns.includes('化冲')) patterns.push('化冲');
+    if (y.bianYao.isKong && !patterns.includes('化空')) patterns.push('化空');
+    if (y.bianYao.isRuMu && !patterns.includes('化墓')) patterns.push('化墓');
+  });
+
+  return patterns;
+}
+
+// 占问事类 → 默认用神六亲。仅覆盖能直接归类到固定六亲的事类；
+// 婚姻按占问者自身男方视角默认取妻财，女方占婚姻应取官鬼，需按实际情境调整。
+export const EVENT_YONGSHEN_MAP = {
+  '求财': '妻财',
+  '功名': '官鬼',
+  '婚姻': '妻财',
+  '疾病': '官鬼'
+};
+
+// 这类事类不取固定六亲，以世爻自身旺衰吉凶为准
+export const WORLD_LINE_EVENTS = ['出行'];
+
+// 用神取法：按占问事类解析用神六亲，多现列出全部候选（不强行择一），不上卦转看伏神
+export function resolveYongShen(eventType, board) {
+  if (WORLD_LINE_EVENTS.includes(eventType)) {
+    const shiYao = board.yaos.find(y => y.isShi);
+    return {
+      eventType,
+      key: null,
+      candidates: shiYao ? [{ index: shiYao.index, relative: shiYao.relative, branch: shiYao.branch }] : [],
+      hiddenFallback: [],
+      note: '此事类以世爻自身旺衰吉凶为准，非固定六亲用神'
+    };
+  }
+
+  const key = EVENT_YONGSHEN_MAP[eventType] || null;
+  if (!key) {
+    return {
+      eventType,
+      key: null,
+      candidates: [],
+      hiddenFallback: [],
+      note: '该占问事类未内置默认用神映射，需按具体情境人工判断（如占行人需先定何人、占天时需具体天象对象）'
+    };
+  }
+
+  const candidates = board.yaos
+    .filter(y => y.relative === key)
+    .map(y => ({ index: y.index, relative: y.relative, branch: y.branch }));
+
+  if (candidates.length > 0) {
+    return {
+      eventType,
+      key,
+      candidates,
+      hiddenFallback: [],
+      note: candidates.length > 1 ? '用神多现，需结合旺衰、临世应等情况取舍' : null
+    };
+  }
+
+  const hiddenFallback = board.yaos
+    .filter(y => y.hiddenSpirit && y.hiddenSpirit.relative === key)
+    .map(y => ({ hostIndex: y.index, relative: y.hiddenSpirit.relative, stem_branch: y.hiddenSpirit.stem_branch, element: y.hiddenSpirit.element }));
+
+  return {
+    eventType,
+    key,
+    candidates: [],
+    hiddenFallback,
+    note: '用神不上卦，转看伏神'
   };
 }
 

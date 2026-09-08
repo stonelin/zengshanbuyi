@@ -64,7 +64,10 @@ const bianYaoSchema = z
     ganzhi: z.string(),
     branch: z.string(),
     element: z.enum(WUXING),
-    dynamicTrend: z.string() // '回头生' | '回头克' | '化进神' | '化退神' | '变爻'
+    dynamicTrend: z.string(), // '回头生' | '回头克' | '化进神' | '化退神' | '变爻'
+    heChong: z.enum(['化合', '化冲']).nullable(), // 变爻与本爻的合冲关系（仅当 dynamicTrend 为'变爻'时可能命中）
+    isKong: z.boolean(), // 化空：变爻地支落旬空
+    isRuMu: z.boolean() // 化墓：变爻地支为其五行的日墓（仅金木水火四行判定）
   })
   .nullable();
 
@@ -82,9 +85,8 @@ const yaoSchema = z.object({
   hiddenSpirit: hiddenSpiritSchema.optional(),
   bianYao: bianYaoSchema,
   tags: z.array(yaoTagSchema),
-  // --- Step 3 待补全 ---
-  wangShuai: z.string().optional(), // 该爻旺相休囚死判断（getWangXiangStatus 结果）
-  shenSha: z.array(z.string()).optional() // 该爻命中的神煞（贵人/禄神/驿马/天喜…，以日辰起）
+  wangShuai: z.string(), // 该爻旺相休囚死判断（以月建为准）
+  shenSha: z.array(z.enum(['贵人', '禄神', '驿马'])) // 本项目仅采用旬空/贵人/禄神/驿马；旬空走 tags，不重复放这里
 });
 
 const dateGanzhiSchema = z.object({
@@ -97,10 +99,9 @@ const dateGanzhiSchema = z.object({
   xunKong: z.tuple([z.string(), z.string()])
 });
 
-export const PATTERN_TYPES = [
-  '六合', '六冲', '反吟(卦)', '反吟(爻)', '伏吟(卦)', '伏吟(爻)',
-  '三合局', '合处逢冲', '化空', '化墓'
-];
+// 已实现的格局类型（不含反吟/伏吟——宫位对冲规则把握不足，留待用实例校对后再补）。
+// 三合局按命中五行标注具体名称，故 patterns 不做严格 enum 校验，仅以此列表作为参考。
+export const PATTERN_TYPES = ['六合', '六冲', '三合水局', '三合木局', '三合火局', '三合金局', '化空', '化墓', '化合', '化冲'];
 
 export const boardSchema = z.object({
   question: z.string(),
@@ -110,11 +111,29 @@ export const boardSchema = z.object({
   yaos: z.array(yaoSchema).length(6),
   yongShenKey: z.string(), // 当前标注的用神六亲
   hasMoving: z.boolean(),
-  // --- Step 3 待补全 ---
-  patterns: z.array(z.enum(PATTERN_TYPES)).optional(), // 卦局整体格局判断
-  yongShenCandidates: z
-    .array(z.object({ relative: z.enum(RELATIVES), reason: z.string() }))
-    .optional() // 用神多现时的候选列表 + 取舍理由；用神不上卦时为空数组，改看伏神
+  patterns: z.array(z.string()) // 卦局整体格局判断，见 PATTERN_TYPES
+});
+
+// resolveYongShen() 的返回契约：按占问事类解析用神，多现列全部候选，不上卦转看伏神
+const yaoRefSchema = z.object({
+  index: z.number().int().min(1).max(6),
+  relative: z.enum(RELATIVES),
+  branch: z.string()
+});
+
+export const yongShenResolutionSchema = z.object({
+  eventType: z.string(),
+  key: z.enum(RELATIVES).nullable(), // 目标用神六亲；世爻类事类（如出行）为 null
+  candidates: z.array(yaoRefSchema), // 用神在卦中出现的所有位置
+  hiddenFallback: z.array(
+    z.object({
+      hostIndex: z.number().int().min(1).max(6),
+      relative: z.enum(RELATIVES),
+      stem_branch: z.string(),
+      element: z.enum(WUXING)
+    })
+  ),
+  note: z.string().nullable()
 });
 
 // ---------------------------------------------------------------------------
@@ -179,7 +198,7 @@ const caseTagsSchema = z.object({
   guaPalace: z.string().optional(),
   shiYingPosition: z.string().optional(),
   movingCount: z.enum(MOVING_COUNT).optional(),
-  patterns: z.array(z.enum(PATTERN_TYPES)).optional()
+  patterns: z.array(z.string()).optional() // 见 PATTERN_TYPES
 });
 
 export const caseSchema = z.object({

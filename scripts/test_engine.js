@@ -1,17 +1,22 @@
-import { 
-  ALL_HEXAGRAMS, 
-  findHexagramByLines, 
-  findHexagramByName, 
-  getXunKong, 
-  getMonthBrokenBranch, 
-  getLiuShenList, 
-  tossThreeCoins, 
+import {
+  ALL_HEXAGRAMS,
+  findHexagramByLines,
+  findHexagramByName,
+  getXunKong,
+  getMonthBrokenBranch,
+  getLiuShenList,
+  tossThreeCoins,
   assemblePaipanBoard,
+  resolveYongShen,
   HEAVENLY_STEMS,
   EARTHLY_BRANCHES,
   XUNKONG_MAP,
-  SIX_CLASHES
+  SIX_CLASHES,
+  GUI_REN_MAP,
+  LU_SHEN_MAP,
+  YI_MA_MAP
 } from '../src/lib/paipanEngine.js';
+import { boardSchema, yongShenResolutionSchema } from '../src/lib/schema.js';
 import chaptersData from '../src/data/chapters.json' with { type: 'json' };
 import casesData from '../src/data/cases.json' with { type: 'json' };
 import conceptsData from '../src/data/concepts.json' with { type: 'json' };
@@ -105,8 +110,64 @@ const testBoard = assemblePaipanBoard({
 });
 console.log('✅ 排盘装配引擎运行正常');
 
-// 5. 检查案例、章节、概念、题库的交叉链接有效性
-console.log('\n--- 测试项 5: 数据集交叉链接完整性测试 ---');
+// 5. 神煞映射表覆盖测试
+console.log('\n--- 测试项 5: 贵人/禄神/驿马映射表覆盖测试 ---');
+let shenShaErrors = 0;
+HEAVENLY_STEMS.forEach(stem => {
+  if (!GUI_REN_MAP[stem] || GUI_REN_MAP[stem].length !== 2) {
+    bugsFound.push(`[BUG-09] 天干 ${stem} 缺少贵人映射`);
+    shenShaErrors++;
+  }
+  if (!LU_SHEN_MAP[stem]) {
+    bugsFound.push(`[BUG-10] 天干 ${stem} 缺少禄神映射`);
+    shenShaErrors++;
+  }
+});
+EARTHLY_BRANCHES.forEach(branch => {
+  if (!YI_MA_MAP[branch]) {
+    bugsFound.push(`[BUG-11] 地支 ${branch} 缺少驿马映射`);
+    shenShaErrors++;
+  }
+});
+if (shenShaErrors === 0) {
+  console.log('✅ 十天干贵人/禄神、十二地支驿马映射表覆盖完整');
+}
+
+// 6. boardSchema / yongShenResolutionSchema 端到端校验
+console.log('\n--- 测试项 6: 盘面与用神解析结果的 Schema 一致性测试 ---');
+const schemaProbeBoards = [testBoard, assemblePaipanBoard({
+  rawLines: [
+    { yinYang: '阴', isMoving: true },
+    { yinYang: '阳', isMoving: false },
+    { yinYang: '阴', isMoving: true },
+    { yinYang: '阳', isMoving: false },
+    { yinYang: '阴', isMoving: false },
+    { yinYang: '阳', isMoving: true }
+  ],
+  monthBranch: '卯',
+  dayStem: '甲',
+  dayBranch: '子'
+})];
+let schemaErrors = 0;
+schemaProbeBoards.forEach((b, idx) => {
+  const res = boardSchema.safeParse(b);
+  if (!res.success) {
+    bugsFound.push(`[BUG-12] 探测盘面 #${idx + 1} 不符合 boardSchema: ${JSON.stringify(res.error.issues)}`);
+    schemaErrors++;
+  }
+  const ys = resolveYongShen('求财', b);
+  const ysRes = yongShenResolutionSchema.safeParse(ys);
+  if (!ysRes.success) {
+    bugsFound.push(`[BUG-13] resolveYongShen 输出不符合 yongShenResolutionSchema: ${JSON.stringify(ysRes.error.issues)}`);
+    schemaErrors++;
+  }
+});
+if (schemaErrors === 0) {
+  console.log('✅ 排盘看板与用神解析结果均满足 Zod Schema 契约');
+}
+
+// 7. 检查案例、章节、概念、题库的交叉链接有效性
+console.log('\n--- 测试项 7: 数据集交叉链接完整性测试 ---');
 let brokenChapterLinks = 0;
 let brokenCaseLinks = 0;
 
