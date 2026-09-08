@@ -35979,5 +35979,2800 @@
       "shiYingPosition": "世二应五"
     },
     "summary": "占贼来否：世临官鬼月破又入日墓，双重不利，果携妻避贼时本人遇害；上爻官鬼动化子孙，本应是吉兆，此例却对应家中女儿的死亡——野鹤借此反驳\"世临破鬼、祸患潜消\"的旧说，强调入墓、化鬼的吉凶都要结合旺衰与具体情境，不能套用通则。"
+  },
+  {
+    "id": "case_086",
+    "chapterId": "ch_039",
+    "chapterTitle": "独发章",
+    "title": "辰月甲午日 占请迎父王灵柩允否",
+    "question": "占请迎父王灵柩允否？",
+    "originalText": {
+      "diagram": "坎宫：泽火革\n坎宫：水火既济\n青龙\n官鬼丁未土 ━ ━\n兄弟戊子水 ━ ━ 应\n玄武\n父母丁酉金 ━━━\n官鬼戊戌土 ━━━\n白虎\n兄弟丁亥水 ━━━ 世○→ 父母戊申金 ━ ━\n螣蛇 妻财戊午火 兄弟己亥水 ━━━\n兄弟己亥水 ━━━ 世\n勾陈\n官鬼己丑土 ━ ━\n官鬼己丑土 ━ ━\n朱雀\n子孙己卯木 ━━━ 应\n子孙己卯木 ━━━",
+      "verdict": "此卦正与前卦相合，前卦应冲开寅木者，申也，此卦世化申金回头生，亦应申月。世临虎动，因丧事而行。卯日冲动九五，又来生世，今年申酉月，必蒙恩允，目下月破，断然不能。后应申年请准，酉年迎灵而归。此两卦俱是独发，可执之耶？",
+      "analysis": "第一次起卦（辰月甲午日，大有之离）：寅木一爻独发，化出丑父。有门客据此断\"应正月得见父灵\"，野鹤反驳：\"此隔靴而搔痒也。卦中父爻持世，被寅木克制，乃身不能动，父灵亦不能动也，欲身动而见父灵，必待冲开寅木之年月。\"因而\"迟旬余，再请一卦，合而决之\"，才有第二次起卦。"
+    },
+    "board": {
+      "question": "占请迎父王灵柩允否？（第二次起卦）",
+      "dateGanzhi": {
+        "month": "巳月",
+        "monthBranch": "巳",
+        "monthBroken": "亥",
+        "day": "丁卯",
+        "dayStem": "丁",
+        "dayBranch": "卯",
+        "xunKong": [
+          "戌",
+          "亥"
+        ]
+      },
+      "benGua": {
+        "hexagram_id": "hex_13",
+        "name": "泽火革",
+        "full_name": "泽火革",
+        "palace": "坎宫",
+        "element": "水",
+        "order_in_palace": 5,
+        "generation": "四世卦",
+        "shi_line": 4,
+        "ying_line": 1,
+        "is_six_clash": false,
+        "is_six_combine": false,
+        "is_youhun": false,
+        "is_guihun": false,
+        "upper_trigram": "兑",
+        "lower_trigram": "离",
+        "lines": [
+          {
+            "line_number": 1,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "己卯",
+            "branch": "卯",
+            "element": "木",
+            "relative": "子孙",
+            "is_shi": false,
+            "is_ying": true
+          },
+          {
+            "line_number": 2,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "己丑",
+            "branch": "丑",
+            "element": "土",
+            "relative": "官鬼",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 3,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "己亥",
+            "branch": "亥",
+            "element": "水",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": false,
+            "hidden_spirit": {
+              "relative": "妻财",
+              "stem_branch": "戊午",
+              "element": "火"
+            }
+          },
+          {
+            "line_number": 4,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "丁亥",
+            "branch": "亥",
+            "element": "水",
+            "relative": "兄弟",
+            "is_shi": true,
+            "is_ying": false
+          },
+          {
+            "line_number": 5,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "丁酉",
+            "branch": "酉",
+            "element": "金",
+            "relative": "父母",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 6,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "丁未",
+            "branch": "未",
+            "element": "土",
+            "relative": "官鬼",
+            "is_shi": false,
+            "is_ying": false
+          }
+        ],
+        "binarySeq": "101110",
+        "palaceName": "坎宫",
+        "palaceElement": "水"
+      },
+      "bianGua": {
+        "hexagram_id": "hex_12",
+        "name": "水火既济",
+        "full_name": "水火既济",
+        "palace": "坎宫",
+        "element": "水",
+        "order_in_palace": 4,
+        "generation": "三世卦",
+        "shi_line": 3,
+        "ying_line": 6,
+        "is_six_clash": false,
+        "is_six_combine": false,
+        "is_youhun": false,
+        "is_guihun": false,
+        "upper_trigram": "坎",
+        "lower_trigram": "离",
+        "lines": [
+          {
+            "line_number": 1,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "己卯",
+            "branch": "卯",
+            "element": "木",
+            "relative": "子孙",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 2,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "己丑",
+            "branch": "丑",
+            "element": "土",
+            "relative": "官鬼",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 3,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "己亥",
+            "branch": "亥",
+            "element": "水",
+            "relative": "兄弟",
+            "is_shi": true,
+            "is_ying": false,
+            "hidden_spirit": {
+              "relative": "妻财",
+              "stem_branch": "戊午",
+              "element": "火"
+            }
+          },
+          {
+            "line_number": 4,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "戊申",
+            "branch": "申",
+            "element": "金",
+            "relative": "父母",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 5,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "戊戌",
+            "branch": "戌",
+            "element": "土",
+            "relative": "官鬼",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 6,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "戊子",
+            "branch": "子",
+            "element": "水",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": true
+          }
+        ],
+        "binarySeq": "101010",
+        "palaceName": "坎宫",
+        "palaceElement": "水"
+      },
+      "yaos": [
+        {
+          "index": 1,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "子孙",
+          "ganzhi": "己卯",
+          "branch": "卯",
+          "element": "木",
+          "isShi": false,
+          "isYing": true,
+          "liuShen": "朱雀",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "帝旺(日)",
+              "type": "success"
+            },
+            {
+              "text": "应爻",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "休 (我生月为休)",
+          "shenSha": []
+        },
+        {
+          "index": 2,
+          "yinYang": "阴",
+          "isMoving": false,
+          "relative": "官鬼",
+          "ganzhi": "己丑",
+          "branch": "丑",
+          "element": "土",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "勾陈",
+          "bianYao": null,
+          "tags": [],
+          "wangShuai": "相 (月生我为相)",
+          "shenSha": []
+        },
+        {
+          "index": 3,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "兄弟",
+          "ganzhi": "己亥",
+          "branch": "亥",
+          "element": "水",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "螣蛇",
+          "hiddenSpirit": {
+            "relative": "妻财",
+            "stem_branch": "戊午",
+            "element": "火"
+          },
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "月破",
+              "type": "danger"
+            },
+            {
+              "text": "旬空",
+              "type": "warning"
+            },
+            {
+              "text": "贵人",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "囚 (我克月为囚)",
+          "shenSha": [
+            "贵人"
+          ]
+        },
+        {
+          "index": 4,
+          "yinYang": "阳",
+          "isMoving": true,
+          "relative": "兄弟",
+          "ganzhi": "丁亥",
+          "branch": "亥",
+          "element": "水",
+          "isShi": true,
+          "isYing": false,
+          "liuShen": "白虎",
+          "bianYao": {
+            "yinYang": "阴",
+            "relative": "父母",
+            "ganzhi": "戊申",
+            "branch": "申",
+            "element": "金",
+            "dynamicTrend": "回头生",
+            "heChong": null,
+            "isKong": false,
+            "isRuMu": false
+          },
+          "tags": [
+            {
+              "text": "月破",
+              "type": "danger"
+            },
+            {
+              "text": "旬空",
+              "type": "warning"
+            },
+            {
+              "text": "世爻",
+              "type": "primary"
+            },
+            {
+              "text": "发动",
+              "type": "danger"
+            },
+            {
+              "text": "贵人",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "囚 (我克月为囚)",
+          "shenSha": [
+            "贵人"
+          ]
+        },
+        {
+          "index": 5,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "父母",
+          "ganzhi": "丁酉",
+          "branch": "酉",
+          "element": "金",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "玄武",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "日破",
+              "type": "danger"
+            },
+            {
+              "text": "暗动",
+              "type": "primary"
+            },
+            {
+              "text": "贵人",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "死 (月克我为死)",
+          "shenSha": [
+            "贵人"
+          ]
+        },
+        {
+          "index": 6,
+          "yinYang": "阴",
+          "isMoving": false,
+          "relative": "官鬼",
+          "ganzhi": "丁未",
+          "branch": "未",
+          "element": "土",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "青龙",
+          "bianYao": null,
+          "tags": [],
+          "wangShuai": "相 (月生我为相)",
+          "shenSha": []
+        }
+      ],
+      "yongShenKey": "用神",
+      "hasMoving": true,
+      "patterns": [
+        "比和",
+        "三合木局"
+      ]
+    },
+    "tags": {
+      "chapterId": "ch_039",
+      "volume": "卷之二·深造之论",
+      "keyPoints": [
+        "一事两占互相印证：第一卦看出\"父爻持世被克，身不能动\"，只知道方向不知道具体时间；第二卦\"世化申金回头生\"才补上应期（申月/申年），两卦合看才敢下断语",
+        "\"独发\"不是看一爻发动就直接断吉凶，同一件事前后两次起卦都是独发，仍要看世爻旺衰、回头生克、日辰冲动等多条线索合参"
+      ],
+      "eventType": "迎柩",
+      "verified": "应验",
+      "yongShenStatus": [],
+      "guaName": "泽火革之水火既济（第二次起卦；第一次起卦为火天大有之离为火，见 originalText）",
+      "guaPalace": "坎宫",
+      "patterns": [
+        "比和",
+        "三合木局"
+      ],
+      "movingCount": "独发",
+      "shiYingPosition": "世四应初"
+    },
+    "summary": "占请迎父王灵柩允否，一事两占：第一卦（大有之离）看出世临父母被寅木克制、身不能动，只知方向未知应期；第二卦（革之既济）世临兄弟动化回头生、又得日辰冲动九五来生世，断申酉月必蒙恩允，后果然申年请准、酉年迎灵而归。",
+    "disputed": {
+      "isDisputed": true,
+      "note": "本例是\"一事两占\"，board 取第二次（最终判断依据的那次）起卦，第一次起卦的卦画与讨论保留在 originalText.analysis 的引文里。两次起卦世爻所临六亲不同（第一次父母、第二次兄弟），这是两次独立起卦自然落出的结果，不代表用神取法有固定六亲——本例本质是自占\"迎柩之事能否获准\"，看的是世爻本身的动向，不套用某个固定六亲，故 tags.yongShen 留空。"
+    }
+  },
+  {
+    "id": "case_086b",
+    "chapterId": "ch_039",
+    "chapterTitle": "独发章",
+    "title": "午月丁亥日 占防水涨冲麦何日始晴",
+    "question": "防水涨冲麦，何日始晴？",
+    "originalText": {
+      "diagram": "离宫：天火同人(归魂)\n坎宫：泽火革\n玄武\n子孙壬戌土 ━━━ 应○→ 子孙丁未土 ━ ━\n白虎\n妻财壬申金 ━━━\n妻财丁酉金 ━━━\n螣蛇\n兄弟壬午火 ━━━\n官鬼丁亥水 ━━━ 世\n勾陈\n官鬼己亥水 ━━━ 世\n官鬼己亥水 ━━━\n朱雀\n子孙己丑土 ━ ━\n子孙己丑土 ━ ━\n青龙\n父母己卯木 ━━━\n父母己卯木 ━━━ 应",
+      "verdict": "友人执此而问余曰：戌土子孙，一爻独发，昨日丙戌，定应大晴，如何迄今犹雨？余曰：尔忧麦被水冲，神以子孙发动，克去身边之鬼，令尔勿忧，非应晴也。虽然目下未晴，决不至于涨水，即以此卦决阴晴，亦在卯日方大晴也。或曰：何也？余曰：动而逢合之日也。果于卯日大晴。"
+    },
+    "board": {
+      "question": "占防水涨冲麦，何日始晴？",
+      "dateGanzhi": {
+        "month": "午月",
+        "monthBranch": "午",
+        "monthBroken": "子",
+        "day": "丁亥",
+        "dayStem": "丁",
+        "dayBranch": "亥",
+        "xunKong": [
+          "午",
+          "未"
+        ]
+      },
+      "benGua": {
+        "hexagram_id": "hex_48",
+        "name": "天火同人",
+        "full_name": "天火同人",
+        "palace": "离宫",
+        "element": "火",
+        "order_in_palace": 8,
+        "generation": "归魂卦",
+        "shi_line": 3,
+        "ying_line": 6,
+        "is_six_clash": false,
+        "is_six_combine": false,
+        "is_youhun": false,
+        "is_guihun": true,
+        "upper_trigram": "乾",
+        "lower_trigram": "离",
+        "lines": [
+          {
+            "line_number": 1,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "己卯",
+            "branch": "卯",
+            "element": "木",
+            "relative": "父母",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 2,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "己丑",
+            "branch": "丑",
+            "element": "土",
+            "relative": "子孙",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 3,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "己亥",
+            "branch": "亥",
+            "element": "水",
+            "relative": "官鬼",
+            "is_shi": true,
+            "is_ying": false
+          },
+          {
+            "line_number": 4,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "壬午",
+            "branch": "午",
+            "element": "火",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 5,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "壬申",
+            "branch": "申",
+            "element": "金",
+            "relative": "妻财",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 6,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "壬戌",
+            "branch": "戌",
+            "element": "土",
+            "relative": "子孙",
+            "is_shi": false,
+            "is_ying": true
+          }
+        ],
+        "binarySeq": "101111",
+        "palaceName": "离宫",
+        "palaceElement": "火"
+      },
+      "bianGua": {
+        "hexagram_id": "hex_13",
+        "name": "泽火革",
+        "full_name": "泽火革",
+        "palace": "坎宫",
+        "element": "水",
+        "order_in_palace": 5,
+        "generation": "四世卦",
+        "shi_line": 4,
+        "ying_line": 1,
+        "is_six_clash": false,
+        "is_six_combine": false,
+        "is_youhun": false,
+        "is_guihun": false,
+        "upper_trigram": "兑",
+        "lower_trigram": "离",
+        "lines": [
+          {
+            "line_number": 1,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "己卯",
+            "branch": "卯",
+            "element": "木",
+            "relative": "子孙",
+            "is_shi": false,
+            "is_ying": true
+          },
+          {
+            "line_number": 2,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "己丑",
+            "branch": "丑",
+            "element": "土",
+            "relative": "官鬼",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 3,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "己亥",
+            "branch": "亥",
+            "element": "水",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": false,
+            "hidden_spirit": {
+              "relative": "妻财",
+              "stem_branch": "戊午",
+              "element": "火"
+            }
+          },
+          {
+            "line_number": 4,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "丁亥",
+            "branch": "亥",
+            "element": "水",
+            "relative": "兄弟",
+            "is_shi": true,
+            "is_ying": false
+          },
+          {
+            "line_number": 5,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "丁酉",
+            "branch": "酉",
+            "element": "金",
+            "relative": "父母",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 6,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "丁未",
+            "branch": "未",
+            "element": "土",
+            "relative": "官鬼",
+            "is_shi": false,
+            "is_ying": false
+          }
+        ],
+        "binarySeq": "101110",
+        "palaceName": "坎宫",
+        "palaceElement": "水"
+      },
+      "yaos": [
+        {
+          "index": 1,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "父母",
+          "ganzhi": "己卯",
+          "branch": "卯",
+          "element": "木",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "朱雀",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "长生(日)",
+              "type": "success"
+            }
+          ],
+          "wangShuai": "休 (我生月为休)",
+          "shenSha": []
+        },
+        {
+          "index": 2,
+          "yinYang": "阴",
+          "isMoving": false,
+          "relative": "子孙",
+          "ganzhi": "己丑",
+          "branch": "丑",
+          "element": "土",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "勾陈",
+          "bianYao": null,
+          "tags": [],
+          "wangShuai": "相 (月生我为相)",
+          "shenSha": []
+        },
+        {
+          "index": 3,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "官鬼",
+          "ganzhi": "己亥",
+          "branch": "亥",
+          "element": "水",
+          "isShi": true,
+          "isYing": false,
+          "liuShen": "螣蛇",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "世爻",
+              "type": "primary"
+            },
+            {
+              "text": "贵人",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "囚 (我克月为囚)",
+          "shenSha": [
+            "贵人"
+          ]
+        },
+        {
+          "index": 4,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "兄弟",
+          "ganzhi": "壬午",
+          "branch": "午",
+          "element": "火",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "白虎",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "旬空",
+              "type": "warning"
+            },
+            {
+              "text": "绝(日)",
+              "type": "danger"
+            },
+            {
+              "text": "禄神",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "旺 (同我为旺)",
+          "shenSha": [
+            "禄神"
+          ]
+        },
+        {
+          "index": 5,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "妻财",
+          "ganzhi": "壬申",
+          "branch": "申",
+          "element": "金",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "玄武",
+          "bianYao": null,
+          "tags": [],
+          "wangShuai": "死 (月克我为死)",
+          "shenSha": []
+        },
+        {
+          "index": 6,
+          "yinYang": "阳",
+          "isMoving": true,
+          "relative": "子孙",
+          "ganzhi": "壬戌",
+          "branch": "戌",
+          "element": "土",
+          "isShi": false,
+          "isYing": true,
+          "liuShen": "青龙",
+          "bianYao": {
+            "yinYang": "阴",
+            "relative": "子孙",
+            "ganzhi": "丁未",
+            "branch": "未",
+            "element": "土",
+            "dynamicTrend": "化退神",
+            "heChong": null,
+            "isKong": true,
+            "isRuMu": false
+          },
+          "tags": [
+            {
+              "text": "应爻",
+              "type": "info"
+            },
+            {
+              "text": "发动",
+              "type": "danger"
+            }
+          ],
+          "wangShuai": "相 (月生我为相)",
+          "shenSha": []
+        }
+      ],
+      "yongShenKey": "用神",
+      "hasMoving": true,
+      "patterns": [
+        "化来",
+        "三合木局",
+        "化空"
+      ]
+    },
+    "tags": {
+      "chapterId": "ch_039",
+      "volume": "卷之二·深造之论",
+      "keyPoints": [
+        "子孙独发克官鬼，代表的是\"化解忧患\"（不至于涨水冲麦），不等于\"马上天晴\"——同一个发动的爻，字面对应的事（子孙克鬼）跟占问的表面问题（阴晴）不是一回事，不能望文生义",
+        "真正决定天晴日期的是\"动而逢合之日\"（戌与卯合），不是子孙独发本身"
+      ],
+      "eventType": "天时",
+      "verified": "应验",
+      "yongShen": "子孙",
+      "yongShenStatus": [],
+      "guaName": "天火同人之泽火革",
+      "guaPalace": "离宫",
+      "patterns": [
+        "化来",
+        "三合木局",
+        "化空"
+      ],
+      "movingCount": "独发",
+      "shiYingPosition": "世三应上"
+    },
+    "summary": "占防水涨冲麦何日始晴：子孙戌土独发克官鬼，友人误以为当天（昨日丙戌）就该天晴，野鹤纠正：子孙克鬼只代表化解水患之忧、不代表天晴，真正天晴的应期要看\"动而逢合之日\"（戌与卯合），断卯日大晴，果然应验。",
+    "disputed": {
+      "isDisputed": true,
+      "note": "本例原属 case_086 raw_text 尾部（因日期格式\"又如：午月 甲申日\"未被切分脚本识别为新案例而被吞并），单独整理为 case_086b，diagram/board 均为手工从原文重建。原文日期写\"甲申日\"，但断语称\"昨日丙戌\"——甲申早于丙戌两天，逻辑上应为\"丁亥日\"（丙戌的次日）；且甲申、丁亥同属甲申旬，与原文所记旬空\"午未\"均自洽，原文本身也用括注\"（断语有\"昨日丙戍\"疑其是\"丁亥日\"）\"承认这处矛盾。此处采用丁亥日构建 board。"
+    }
+  },
+  {
+    "id": "case_087",
+    "chapterId": "ch_039",
+    "chapterTitle": "独发章",
+    "title": "辰月甲午日 占开煤窖",
+    "question": "占开煤窖",
+    "originalText": {
+      "diagram": "巽宫：风火家人\n巽宫：风雷益\n玄武\n兄弟辛卯木 ━━━\n兄弟辛卯木 ━━━ 应\n白虎\n子孙辛巳火 ━━━ 应\n子孙辛巳火 ━━━\n螣蛇\n妻财辛未土 ━ ━\n妻财辛未土 ━ ━\n勾陈 官鬼辛酉金 父母己亥水 ━━━\n○→ 妻财庚辰土 ━ ━ 世\n朱雀\n妻财己丑土 ━ ━ 世\n兄弟庚寅木 ━ ━\n青龙\n兄弟己卯木 ━━━\n父母庚子水 ━━━",
+      "verdict": "丑土财爻持世，午日生之，许之可开。问应何时见煤？余曰：丑土财静，未月冲开，应在六月。及至六月，竟不见煤。歇而开，开而歇，未年占卦，至亥年辰月，始得见煤。此乃应于独发。亥水化辰土，年月俱应，事后始会神机，断卦之时，谁敢以亥年辰月而断耶？"
+    },
+    "board": {
+      "question": "占开煤窖",
+      "dateGanzhi": {
+        "month": "辰月",
+        "monthBranch": "辰",
+        "monthBroken": "戌",
+        "day": "甲午",
+        "dayStem": "甲",
+        "dayBranch": "午",
+        "xunKong": [
+          "辰",
+          "巳"
+        ]
+      },
+      "benGua": {
+        "hexagram_id": "hex_35",
+        "name": "风火家人",
+        "full_name": "风火家人",
+        "palace": "巽宫",
+        "element": "木",
+        "order_in_palace": 3,
+        "generation": "二世卦",
+        "shi_line": 2,
+        "ying_line": 5,
+        "is_six_clash": false,
+        "is_six_combine": false,
+        "is_youhun": false,
+        "is_guihun": false,
+        "upper_trigram": "巽",
+        "lower_trigram": "离",
+        "lines": [
+          {
+            "line_number": 1,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "己卯",
+            "branch": "卯",
+            "element": "木",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 2,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "己丑",
+            "branch": "丑",
+            "element": "土",
+            "relative": "妻财",
+            "is_shi": true,
+            "is_ying": false
+          },
+          {
+            "line_number": 3,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "己亥",
+            "branch": "亥",
+            "element": "水",
+            "relative": "父母",
+            "is_shi": false,
+            "is_ying": false,
+            "hidden_spirit": {
+              "relative": "官鬼",
+              "stem_branch": "辛酉",
+              "element": "金"
+            }
+          },
+          {
+            "line_number": 4,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "辛未",
+            "branch": "未",
+            "element": "土",
+            "relative": "妻财",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 5,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "辛巳",
+            "branch": "巳",
+            "element": "火",
+            "relative": "子孙",
+            "is_shi": false,
+            "is_ying": true
+          },
+          {
+            "line_number": 6,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "辛卯",
+            "branch": "卯",
+            "element": "木",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": false
+          }
+        ],
+        "binarySeq": "101011",
+        "palaceName": "巽宫",
+        "palaceElement": "木"
+      },
+      "bianGua": {
+        "hexagram_id": "hex_36",
+        "name": "风雷益",
+        "full_name": "风雷益",
+        "palace": "巽宫",
+        "element": "木",
+        "order_in_palace": 4,
+        "generation": "三世卦",
+        "shi_line": 3,
+        "ying_line": 6,
+        "is_six_clash": false,
+        "is_six_combine": false,
+        "is_youhun": false,
+        "is_guihun": false,
+        "upper_trigram": "巽",
+        "lower_trigram": "震",
+        "lines": [
+          {
+            "line_number": 1,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "庚子",
+            "branch": "子",
+            "element": "水",
+            "relative": "父母",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 2,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "庚寅",
+            "branch": "寅",
+            "element": "木",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 3,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "庚辰",
+            "branch": "辰",
+            "element": "土",
+            "relative": "妻财",
+            "is_shi": true,
+            "is_ying": false,
+            "hidden_spirit": {
+              "relative": "官鬼",
+              "stem_branch": "辛酉",
+              "element": "金"
+            }
+          },
+          {
+            "line_number": 4,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "辛未",
+            "branch": "未",
+            "element": "土",
+            "relative": "妻财",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 5,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "辛巳",
+            "branch": "巳",
+            "element": "火",
+            "relative": "子孙",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 6,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "辛卯",
+            "branch": "卯",
+            "element": "木",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": true
+          }
+        ],
+        "binarySeq": "100011",
+        "palaceName": "巽宫",
+        "palaceElement": "木"
+      },
+      "yaos": [
+        {
+          "index": 1,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "兄弟",
+          "ganzhi": "己卯",
+          "branch": "卯",
+          "element": "木",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "青龙",
+          "bianYao": null,
+          "tags": [],
+          "wangShuai": "囚 (我克月为囚)",
+          "shenSha": []
+        },
+        {
+          "index": 2,
+          "yinYang": "阴",
+          "isMoving": false,
+          "relative": "妻财",
+          "ganzhi": "己丑",
+          "branch": "丑",
+          "element": "土",
+          "isShi": true,
+          "isYing": false,
+          "liuShen": "朱雀",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "世爻",
+              "type": "primary"
+            },
+            {
+              "text": "贵人",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "旺 (同我为旺)",
+          "shenSha": [
+            "贵人"
+          ]
+        },
+        {
+          "index": 3,
+          "yinYang": "阳",
+          "isMoving": true,
+          "relative": "父母",
+          "ganzhi": "己亥",
+          "branch": "亥",
+          "element": "水",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "勾陈",
+          "hiddenSpirit": {
+            "relative": "官鬼",
+            "stem_branch": "辛酉",
+            "element": "金"
+          },
+          "bianYao": {
+            "yinYang": "阴",
+            "relative": "妻财",
+            "ganzhi": "庚辰",
+            "branch": "辰",
+            "element": "土",
+            "dynamicTrend": "回头克",
+            "heChong": null,
+            "isKong": true,
+            "isRuMu": false
+          },
+          "tags": [
+            {
+              "text": "发动",
+              "type": "danger"
+            }
+          ],
+          "wangShuai": "死 (月克我为死)",
+          "shenSha": []
+        },
+        {
+          "index": 4,
+          "yinYang": "阴",
+          "isMoving": false,
+          "relative": "妻财",
+          "ganzhi": "辛未",
+          "branch": "未",
+          "element": "土",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "螣蛇",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "日合",
+              "type": "info"
+            },
+            {
+              "text": "贵人",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "旺 (同我为旺)",
+          "shenSha": [
+            "贵人"
+          ]
+        },
+        {
+          "index": 5,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "子孙",
+          "ganzhi": "辛巳",
+          "branch": "巳",
+          "element": "火",
+          "isShi": false,
+          "isYing": true,
+          "liuShen": "白虎",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "旬空",
+              "type": "warning"
+            },
+            {
+              "text": "帝旺(日)",
+              "type": "success"
+            },
+            {
+              "text": "应爻",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "休 (我生月为休)",
+          "shenSha": []
+        },
+        {
+          "index": 6,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "兄弟",
+          "ganzhi": "辛卯",
+          "branch": "卯",
+          "element": "木",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "玄武",
+          "bianYao": null,
+          "tags": [],
+          "wangShuai": "囚 (我克月为囚)",
+          "shenSha": []
+        }
+      ],
+      "yongShenKey": "用神",
+      "hasMoving": true,
+      "patterns": [
+        "比和",
+        "三合木局",
+        "化空"
+      ]
+    },
+    "tags": {
+      "chapterId": "ch_039",
+      "volume": "卷之二·深造之论",
+      "keyPoints": [
+        "野鹤自己坦承应期判断失误的真实案例：当初按\"丑土财静，未月冲开\"许六月见煤，结果六月落空；真正应验的是卦中独发那一爻（亥水化辰土）所对应的年月（亥年辰月），是事后才想明白的",
+        "这条教训提醒：断卦时能列出的应期依据不止一条，哪一条才是真正应验的线索，有时候要等事后才能验证，不能自信满满地只咬定一种取法"
+      ],
+      "eventType": "求财",
+      "verified": "不验",
+      "yongShen": "妻财",
+      "yongShenStatus": [],
+      "guaName": "风火家人之风雷益",
+      "guaPalace": "巽宫",
+      "patterns": [
+        "比和",
+        "三合木局",
+        "化空"
+      ],
+      "movingCount": "独发",
+      "shiYingPosition": "世二应五"
+    },
+    "summary": "占开煤窖：丑土财爻持世，最初许六月见煤，结果六月落空，煤窖时开时歇，直到多年后的亥年辰月才真正见煤——事后野鹤才想明白真正的应期线索是卦中独发之爻（亥水化辰土），坦承\"断卦之时，谁敢以亥年辰月而断耶\"，是一次应期判断失误后如实复盘的案例。"
+  },
+  {
+    "id": "case_088",
+    "chapterId": "ch_039",
+    "chapterTitle": "独发章",
+    "title": "寅月庚戌日 占女病",
+    "question": "占女病",
+    "originalText": {
+      "diagram": "乾宫：天风姤\n巽宫：天雷无妄(六冲)\n螣蛇\n父母壬戌土 ━━━\n父母壬戌土 ━━━\n勾陈\n兄弟壬申金 ━━━\n兄弟壬申金 ━━━\n朱雀\n官鬼壬午火 ━━━ 应\n官鬼壬午火 ━━━ 世\n青龙\n兄弟辛酉金 ━━━\n○→ 父母庚辰土 ━ ━\n玄武 妻财甲寅木 子孙辛亥水 ━━━\n○→ 妻财庚寅木 ━ ━\n白虎\n父母辛丑土 ━ ━ 世×→ 子孙庚子水 ━━━ 应",
+      "verdict": "亥水子孙化寅木空亡，近病逢空即愈，出空之日，亦寅日也。与前卦相合，余曰：寅日大愈。目下病虽重，无妨。果于寅日，沉疴复醒。此虽应前卦一爻独静，然必因用神旺相，再得后卦明显，方敢以寅日决之也。",
+      "analysis": "第一次起卦（未济之蹇）：寅木独静未动。野鹤先驳斥\"古有以独静之爻而断应期者\"的机械做法（\"若不看用神，断寅日生耶？断寅日死耶？\"），自己是看子孙用神虽休囚但得火爻生扶、又两爻化进神/回头生，才许\"寅日当愈\"；但仍不敢仅凭一卦断定，\"命其母再占一卦\"，才有第二次起卦（姤之无妄）互相印证。李我平曰：\"《易冒》以吉凶之生由乎动，所以，重于动而轻于用神……即曰用用神，又曰不用用神，主既无定，何以为法？得此可以醒世。\""
+    },
+    "board": {
+      "question": "占女病（母亲再占，第二次起卦）",
+      "dateGanzhi": {
+        "month": "寅月",
+        "monthBranch": "寅",
+        "monthBroken": "申",
+        "day": "庚戌",
+        "dayStem": "庚",
+        "dayBranch": "戌",
+        "xunKong": [
+          "寅",
+          "卯"
+        ]
+      },
+      "benGua": {
+        "hexagram_id": "hex_02",
+        "name": "天风姤",
+        "full_name": "天风姤",
+        "palace": "乾宫",
+        "element": "金",
+        "order_in_palace": 2,
+        "generation": "一世卦",
+        "shi_line": 1,
+        "ying_line": 4,
+        "is_six_clash": false,
+        "is_six_combine": false,
+        "is_youhun": false,
+        "is_guihun": false,
+        "upper_trigram": "乾",
+        "lower_trigram": "巽",
+        "lines": [
+          {
+            "line_number": 1,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "辛丑",
+            "branch": "丑",
+            "element": "土",
+            "relative": "父母",
+            "is_shi": true,
+            "is_ying": false,
+            "hidden_spirit": {
+              "relative": "子孙",
+              "stem_branch": "甲子",
+              "element": "水"
+            }
+          },
+          {
+            "line_number": 2,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "辛亥",
+            "branch": "亥",
+            "element": "水",
+            "relative": "子孙",
+            "is_shi": false,
+            "is_ying": false,
+            "hidden_spirit": {
+              "relative": "妻财",
+              "stem_branch": "甲寅",
+              "element": "木"
+            }
+          },
+          {
+            "line_number": 3,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "辛酉",
+            "branch": "酉",
+            "element": "金",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": false,
+            "hidden_spirit": {
+              "relative": "父母",
+              "stem_branch": "甲辰",
+              "element": "土"
+            }
+          },
+          {
+            "line_number": 4,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "壬午",
+            "branch": "午",
+            "element": "火",
+            "relative": "官鬼",
+            "is_shi": false,
+            "is_ying": true
+          },
+          {
+            "line_number": 5,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "壬申",
+            "branch": "申",
+            "element": "金",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 6,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "壬戌",
+            "branch": "戌",
+            "element": "土",
+            "relative": "父母",
+            "is_shi": false,
+            "is_ying": false
+          }
+        ],
+        "binarySeq": "011111",
+        "palaceName": "乾宫",
+        "palaceElement": "金"
+      },
+      "bianGua": {
+        "hexagram_id": "hex_37",
+        "name": "天雷无妄",
+        "full_name": "天雷无妄",
+        "palace": "巽宫",
+        "element": "木",
+        "order_in_palace": 5,
+        "generation": "四世卦",
+        "shi_line": 4,
+        "ying_line": 1,
+        "is_six_clash": true,
+        "is_six_combine": false,
+        "is_youhun": false,
+        "is_guihun": false,
+        "upper_trigram": "乾",
+        "lower_trigram": "震",
+        "lines": [
+          {
+            "line_number": 1,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "庚子",
+            "branch": "子",
+            "element": "水",
+            "relative": "父母",
+            "is_shi": false,
+            "is_ying": true
+          },
+          {
+            "line_number": 2,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "庚寅",
+            "branch": "寅",
+            "element": "木",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 3,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "庚辰",
+            "branch": "辰",
+            "element": "土",
+            "relative": "妻财",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 4,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "壬午",
+            "branch": "午",
+            "element": "火",
+            "relative": "子孙",
+            "is_shi": true,
+            "is_ying": false
+          },
+          {
+            "line_number": 5,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "壬申",
+            "branch": "申",
+            "element": "金",
+            "relative": "官鬼",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 6,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "壬戌",
+            "branch": "戌",
+            "element": "土",
+            "relative": "妻财",
+            "is_shi": false,
+            "is_ying": false,
+            "hidden_spirit": {
+              "relative": "兄弟",
+              "stem_branch": "辛卯",
+              "element": "木"
+            }
+          }
+        ],
+        "binarySeq": "100111",
+        "palaceName": "巽宫",
+        "palaceElement": "木"
+      },
+      "yaos": [
+        {
+          "index": 1,
+          "yinYang": "阴",
+          "isMoving": true,
+          "relative": "父母",
+          "ganzhi": "辛丑",
+          "branch": "丑",
+          "element": "土",
+          "isShi": true,
+          "isYing": false,
+          "liuShen": "白虎",
+          "hiddenSpirit": {
+            "relative": "子孙",
+            "stem_branch": "甲子",
+            "element": "水"
+          },
+          "bianYao": {
+            "yinYang": "阳",
+            "relative": "子孙",
+            "ganzhi": "庚子",
+            "branch": "子",
+            "element": "水",
+            "dynamicTrend": "变爻",
+            "heChong": "化合",
+            "isKong": false,
+            "isRuMu": false
+          },
+          "tags": [
+            {
+              "text": "世爻",
+              "type": "primary"
+            },
+            {
+              "text": "发动",
+              "type": "danger"
+            },
+            {
+              "text": "贵人",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "死 (月克我为死)",
+          "shenSha": [
+            "贵人"
+          ]
+        },
+        {
+          "index": 2,
+          "yinYang": "阳",
+          "isMoving": true,
+          "relative": "子孙",
+          "ganzhi": "辛亥",
+          "branch": "亥",
+          "element": "水",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "玄武",
+          "hiddenSpirit": {
+            "relative": "妻财",
+            "stem_branch": "甲寅",
+            "element": "木"
+          },
+          "bianYao": {
+            "yinYang": "阴",
+            "relative": "妻财",
+            "ganzhi": "庚寅",
+            "branch": "寅",
+            "element": "木",
+            "dynamicTrend": "变爻",
+            "heChong": "化合",
+            "isKong": true,
+            "isRuMu": false
+          },
+          "tags": [
+            {
+              "text": "用神",
+              "type": "success"
+            },
+            {
+              "text": "发动",
+              "type": "danger"
+            }
+          ],
+          "wangShuai": "休 (我生月为休)",
+          "shenSha": []
+        },
+        {
+          "index": 3,
+          "yinYang": "阳",
+          "isMoving": true,
+          "relative": "兄弟",
+          "ganzhi": "辛酉",
+          "branch": "酉",
+          "element": "金",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "青龙",
+          "hiddenSpirit": {
+            "relative": "父母",
+            "stem_branch": "甲辰",
+            "element": "土"
+          },
+          "bianYao": {
+            "yinYang": "阴",
+            "relative": "父母",
+            "ganzhi": "庚辰",
+            "branch": "辰",
+            "element": "土",
+            "dynamicTrend": "回头生",
+            "heChong": null,
+            "isKong": false,
+            "isRuMu": false
+          },
+          "tags": [
+            {
+              "text": "发动",
+              "type": "danger"
+            }
+          ],
+          "wangShuai": "囚 (我克月为囚)",
+          "shenSha": []
+        },
+        {
+          "index": 4,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "官鬼",
+          "ganzhi": "壬午",
+          "branch": "午",
+          "element": "火",
+          "isShi": false,
+          "isYing": true,
+          "liuShen": "朱雀",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "入墓(日墓)",
+              "type": "warning"
+            },
+            {
+              "text": "应爻",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "相 (月生我为相)",
+          "shenSha": []
+        },
+        {
+          "index": 5,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "兄弟",
+          "ganzhi": "壬申",
+          "branch": "申",
+          "element": "金",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "勾陈",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "月破",
+              "type": "danger"
+            },
+            {
+              "text": "禄神",
+              "type": "info"
+            },
+            {
+              "text": "驿马",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "囚 (我克月为囚)",
+          "shenSha": [
+            "禄神",
+            "驿马"
+          ]
+        },
+        {
+          "index": 6,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "父母",
+          "ganzhi": "壬戌",
+          "branch": "戌",
+          "element": "土",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "螣蛇",
+          "bianYao": null,
+          "tags": [],
+          "wangShuai": "死 (月克我为死)",
+          "shenSha": []
+        }
+      ],
+      "yongShenKey": "子孙",
+      "hasMoving": true,
+      "patterns": [
+        "化去",
+        "三合水局",
+        "三合火局",
+        "化合",
+        "化空"
+      ]
+    },
+    "tags": {
+      "chapterId": "ch_039",
+      "volume": "卷之二·深造之论",
+      "keyPoints": [
+        "两次起卦交叉印证同一个\"寅日\"应期：第一卦看独静之爻（寅木）配合用神旺衰推出寅日；第二卦子孙亥水化寅木空亡，\"近病逢空即愈，出空之日\"正好也是寅日——两条独立线索指向同一天，才敢下断语",
+        "反驳\"独静之爻可直接断应期\"的机械古法：同一个独静的寅木，不看用神旺衰，既可以说\"寅日生\"也可以说\"寅日死\"，必须结合用神状态才有意义"
+      ],
+      "eventType": "疾病",
+      "verified": "应验",
+      "yongShen": "子孙",
+      "yongShenStatus": [
+        "旬空"
+      ],
+      "guaName": "天风姤之天雷无妄（第二次起卦；第一次起卦为火水未济之水山蹇，见 originalText）",
+      "guaPalace": "乾宫",
+      "patterns": [
+        "化去",
+        "三合水局",
+        "三合火局",
+        "化合",
+        "化空"
+      ],
+      "movingCount": "三爻以上",
+      "shiYingPosition": "世初应四"
+    },
+    "summary": "占女病，一事两占：第一卦（未济之蹇）借独静之爻配合用神旺衰推出寅日可愈，但不敢仅凭一卦下断，命其母再占一卦，得姤之无妄，子孙亥水化寅木空亡（近病逢空即愈，出空之日即寅日），两卦交叉印证同一应期，果于寅日沉疴复醒。",
+    "disputed": {
+      "isDisputed": true,
+      "note": "本例是\"一事两占\"，board 取第二次（最终判断依据的那次）起卦，第一次起卦的卦画与讨论保留在 originalText.analysis 的引文里。"
+    }
+  },
+  {
+    "id": "case_089",
+    "chapterId": "ch_040",
+    "chapterTitle": "两现章",
+    "title": "未月庚子日 占求财",
+    "question": "占求财",
+    "originalText": {
+      "diagram": "巽宫：风天小畜\n螣蛇\n兄弟辛卯木 ━━━\n勾陈\n子孙辛巳火 ━━━\n朱雀\n妻财辛未土 ━ ━ 应\n青龙 官鬼辛酉金 妻财甲辰土 ━━━\n玄武\n兄弟甲寅木 ━━━\n白虎\n父母甲子水 ━━━ 世",
+      "verdict": "应临月建之财以克世，许之必得。彼问：何日到手？余以次日辛丑冲动未土，必得。后却得于辰土出空之日，此乃舍其不空而用旬空也。"
+    },
+    "board": {
+      "question": "占求财",
+      "dateGanzhi": {
+        "month": "未月",
+        "monthBranch": "未",
+        "monthBroken": "丑",
+        "day": "庚子",
+        "dayStem": "庚",
+        "dayBranch": "子",
+        "xunKong": [
+          "辰",
+          "巳"
+        ]
+      },
+      "benGua": {
+        "hexagram_id": "hex_34",
+        "name": "风天小畜",
+        "full_name": "风天小畜",
+        "palace": "巽宫",
+        "element": "木",
+        "order_in_palace": 2,
+        "generation": "一世卦",
+        "shi_line": 1,
+        "ying_line": 4,
+        "is_six_clash": false,
+        "is_six_combine": false,
+        "is_youhun": false,
+        "is_guihun": false,
+        "upper_trigram": "巽",
+        "lower_trigram": "乾",
+        "lines": [
+          {
+            "line_number": 1,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "甲子",
+            "branch": "子",
+            "element": "水",
+            "relative": "父母",
+            "is_shi": true,
+            "is_ying": false
+          },
+          {
+            "line_number": 2,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "甲寅",
+            "branch": "寅",
+            "element": "木",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 3,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "甲辰",
+            "branch": "辰",
+            "element": "土",
+            "relative": "妻财",
+            "is_shi": false,
+            "is_ying": false,
+            "hidden_spirit": {
+              "relative": "官鬼",
+              "stem_branch": "辛酉",
+              "element": "金"
+            }
+          },
+          {
+            "line_number": 4,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "辛未",
+            "branch": "未",
+            "element": "土",
+            "relative": "妻财",
+            "is_shi": false,
+            "is_ying": true
+          },
+          {
+            "line_number": 5,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "辛巳",
+            "branch": "巳",
+            "element": "火",
+            "relative": "子孙",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 6,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "辛卯",
+            "branch": "卯",
+            "element": "木",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": false
+          }
+        ],
+        "binarySeq": "111011",
+        "palaceName": "巽宫",
+        "palaceElement": "木"
+      },
+      "bianGua": null,
+      "yaos": [
+        {
+          "index": 1,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "父母",
+          "ganzhi": "甲子",
+          "branch": "子",
+          "element": "水",
+          "isShi": true,
+          "isYing": false,
+          "liuShen": "白虎",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "帝旺(日)",
+              "type": "success"
+            },
+            {
+              "text": "世爻",
+              "type": "primary"
+            }
+          ],
+          "wangShuai": "死 (月克我为死)",
+          "shenSha": []
+        },
+        {
+          "index": 2,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "兄弟",
+          "ganzhi": "甲寅",
+          "branch": "寅",
+          "element": "木",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "玄武",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "驿马",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "囚 (我克月为囚)",
+          "shenSha": [
+            "驿马"
+          ]
+        },
+        {
+          "index": 3,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "妻财",
+          "ganzhi": "甲辰",
+          "branch": "辰",
+          "element": "土",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "青龙",
+          "hiddenSpirit": {
+            "relative": "官鬼",
+            "stem_branch": "辛酉",
+            "element": "金"
+          },
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "旬空",
+              "type": "warning"
+            },
+            {
+              "text": "帝旺(日)",
+              "type": "success"
+            }
+          ],
+          "wangShuai": "旺 (同我为旺)",
+          "shenSha": []
+        },
+        {
+          "index": 4,
+          "yinYang": "阴",
+          "isMoving": false,
+          "relative": "妻财",
+          "ganzhi": "辛未",
+          "branch": "未",
+          "element": "土",
+          "isShi": false,
+          "isYing": true,
+          "liuShen": "朱雀",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "帝旺(日)",
+              "type": "success"
+            },
+            {
+              "text": "应爻",
+              "type": "info"
+            },
+            {
+              "text": "贵人",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "旺 (同我为旺)",
+          "shenSha": [
+            "贵人"
+          ]
+        },
+        {
+          "index": 5,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "子孙",
+          "ganzhi": "辛巳",
+          "branch": "巳",
+          "element": "火",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "勾陈",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "旬空",
+              "type": "warning"
+            }
+          ],
+          "wangShuai": "休 (我生月为休)",
+          "shenSha": []
+        },
+        {
+          "index": 6,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "兄弟",
+          "ganzhi": "辛卯",
+          "branch": "卯",
+          "element": "木",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "螣蛇",
+          "bianYao": null,
+          "tags": [],
+          "wangShuai": "囚 (我克月为囚)",
+          "shenSha": []
+        }
+      ],
+      "yongShenKey": "用神",
+      "hasMoving": false,
+      "patterns": []
+    },
+    "tags": {
+      "chapterId": "ch_040",
+      "volume": "卷之二·深造之论",
+      "keyPoints": [
+        "本章主旨：用神两现（此例财爻两现）时，古法讲究\"舍休囚用旺相、舍静爻用动爻、舍空破用不空不破\"，但野鹤发现实际应验的常常恰恰是那个旬空/月破的一现，不能不假思索照搬古法取舍",
+        "初判\"次日辛丑冲动未土必得\"没有应验，真正到手是在旬空的辰土出空之日——这本身就是\"舍其不空而用旬空\"这条原则的实证"
+      ],
+      "eventType": "求财",
+      "verified": "应验",
+      "yongShen": "妻财",
+      "yongShenStatus": [
+        "旬空"
+      ],
+      "guaName": "风天小畜",
+      "guaPalace": "巽宫",
+      "movingCount": "静卦",
+      "patterns": [],
+      "shiYingPosition": "世初应四"
+    },
+    "summary": "占求财：财爻两现，一现临月建克世（不空不破），一现旬空；古法当取不空的旺相一现，野鹤却应验在旬空的那一现出空之日，印证本章主旨\"用神两现，常应乎旬空月破，不能照搬古法舍空破而用旺相\"。"
+  },
+  {
+    "id": "case_090",
+    "chapterId": "ch_040",
+    "chapterTitle": "两现章",
+    "title": "未月甲午日 占升迁",
+    "question": "占升迁",
+    "originalText": {
+      "diagram": "坎宫：地水师(归魂)\n离宫：风水涣\n玄武\n父母癸酉金 ━ ━ 应×→ 子孙辛卯木 ━━━\n白虎\n兄弟癸亥水 ━ ━\n×→ 妻财辛巳火 ━━━ 世\n螣蛇\n官鬼癸丑土 ━ ━\n官鬼辛未土 ━ ━\n勾陈\n妻财戊午火 ━ ━ 世\n妻财戊午火 ━ ━\n朱雀\n官鬼戊辰土 ━━━\n官鬼戊辰土 ━━━ 应\n青龙\n子孙戊寅木 ━ ━\n子孙戊寅木 ━ ━\n震宫：雷地豫(六合)\n兑宫：雷泽归妹(归魂)\n青龙\n妻财庚戌土 ━ ━\n妻财庚戌土 ━ ━ 应\n玄武\n官鬼庚申金 ━ ━\n官鬼庚申金 ━ ━\n白虎\n子孙庚午火 ━━━ 应\n子孙庚午火 ━━━\n螣蛇\n兄弟乙卯木 ━ ━\n妻财丁丑土 ━ ━ 世\n勾陈\n子孙乙巳火 ━ ━\n×→ 兄弟丁卯木 ━━━\n朱雀 父母庚子水 妻财乙未土 ━ ━ 世×→ 子孙丁巳火 ━━━",
+      "verdict": "断曰：世爻极旺，既临日建，又得月令作官星而合世，但卦中两现官星，一空一破，至辰年，辰土之官出空，一定高擢。然反吟于外卦，每得验者，去而复来。寅年占，果于辰年调迁于河南，五月因他故，又调回楚，十月而升督府，一年两调一升，皆应实空之年也。"
+    },
+    "board": {
+      "question": "占升迁",
+      "dateGanzhi": {
+        "month": "未月",
+        "monthBranch": "未",
+        "monthBroken": "丑",
+        "day": "甲午",
+        "dayStem": "甲",
+        "dayBranch": "午",
+        "xunKong": [
+          "辰",
+          "巳"
+        ]
+      },
+      "benGua": {
+        "hexagram_id": "hex_16",
+        "name": "地水师",
+        "full_name": "地水师",
+        "palace": "坎宫",
+        "element": "水",
+        "order_in_palace": 8,
+        "generation": "归魂卦",
+        "shi_line": 3,
+        "ying_line": 6,
+        "is_six_clash": false,
+        "is_six_combine": false,
+        "is_youhun": false,
+        "is_guihun": true,
+        "upper_trigram": "坤",
+        "lower_trigram": "坎",
+        "lines": [
+          {
+            "line_number": 1,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "戊寅",
+            "branch": "寅",
+            "element": "木",
+            "relative": "子孙",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 2,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "戊辰",
+            "branch": "辰",
+            "element": "土",
+            "relative": "官鬼",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 3,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "戊午",
+            "branch": "午",
+            "element": "火",
+            "relative": "妻财",
+            "is_shi": true,
+            "is_ying": false
+          },
+          {
+            "line_number": 4,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "癸丑",
+            "branch": "丑",
+            "element": "土",
+            "relative": "官鬼",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 5,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "癸亥",
+            "branch": "亥",
+            "element": "水",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 6,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "癸酉",
+            "branch": "酉",
+            "element": "金",
+            "relative": "父母",
+            "is_shi": false,
+            "is_ying": true
+          }
+        ],
+        "binarySeq": "010000",
+        "palaceName": "坎宫",
+        "palaceElement": "水"
+      },
+      "bianGua": {
+        "hexagram_id": "hex_46",
+        "name": "风水涣",
+        "full_name": "风水涣",
+        "palace": "离宫",
+        "element": "火",
+        "order_in_palace": 6,
+        "generation": "五世卦",
+        "shi_line": 5,
+        "ying_line": 2,
+        "is_six_clash": false,
+        "is_six_combine": false,
+        "is_youhun": false,
+        "is_guihun": false,
+        "upper_trigram": "巽",
+        "lower_trigram": "坎",
+        "lines": [
+          {
+            "line_number": 1,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "戊寅",
+            "branch": "寅",
+            "element": "木",
+            "relative": "父母",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 2,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "戊辰",
+            "branch": "辰",
+            "element": "土",
+            "relative": "子孙",
+            "is_shi": false,
+            "is_ying": true
+          },
+          {
+            "line_number": 3,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "戊午",
+            "branch": "午",
+            "element": "火",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": false,
+            "hidden_spirit": {
+              "relative": "官鬼",
+              "stem_branch": "己亥",
+              "element": "水"
+            }
+          },
+          {
+            "line_number": 4,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "辛未",
+            "branch": "未",
+            "element": "土",
+            "relative": "子孙",
+            "is_shi": false,
+            "is_ying": false,
+            "hidden_spirit": {
+              "relative": "妻财",
+              "stem_branch": "己酉",
+              "element": "金"
+            }
+          },
+          {
+            "line_number": 5,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "辛巳",
+            "branch": "巳",
+            "element": "火",
+            "relative": "兄弟",
+            "is_shi": true,
+            "is_ying": false
+          },
+          {
+            "line_number": 6,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "辛卯",
+            "branch": "卯",
+            "element": "木",
+            "relative": "父母",
+            "is_shi": false,
+            "is_ying": false
+          }
+        ],
+        "binarySeq": "010011",
+        "palaceName": "离宫",
+        "palaceElement": "火"
+      },
+      "yaos": [
+        {
+          "index": 1,
+          "yinYang": "阴",
+          "isMoving": false,
+          "relative": "子孙",
+          "ganzhi": "戊寅",
+          "branch": "寅",
+          "element": "木",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "青龙",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "禄神",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "囚 (我克月为囚)",
+          "shenSha": [
+            "禄神"
+          ]
+        },
+        {
+          "index": 2,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "官鬼",
+          "ganzhi": "戊辰",
+          "branch": "辰",
+          "element": "土",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "朱雀",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "旬空",
+              "type": "warning"
+            }
+          ],
+          "wangShuai": "旺 (同我为旺)",
+          "shenSha": []
+        },
+        {
+          "index": 3,
+          "yinYang": "阴",
+          "isMoving": false,
+          "relative": "妻财",
+          "ganzhi": "戊午",
+          "branch": "午",
+          "element": "火",
+          "isShi": true,
+          "isYing": false,
+          "liuShen": "勾陈",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "帝旺(日)",
+              "type": "success"
+            },
+            {
+              "text": "世爻",
+              "type": "primary"
+            }
+          ],
+          "wangShuai": "休 (我生月为休)",
+          "shenSha": []
+        },
+        {
+          "index": 4,
+          "yinYang": "阴",
+          "isMoving": false,
+          "relative": "官鬼",
+          "ganzhi": "癸丑",
+          "branch": "丑",
+          "element": "土",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "螣蛇",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "月破",
+              "type": "danger"
+            },
+            {
+              "text": "贵人",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "旺 (同我为旺)",
+          "shenSha": [
+            "贵人"
+          ]
+        },
+        {
+          "index": 5,
+          "yinYang": "阴",
+          "isMoving": true,
+          "relative": "兄弟",
+          "ganzhi": "癸亥",
+          "branch": "亥",
+          "element": "水",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "白虎",
+          "bianYao": {
+            "yinYang": "阳",
+            "relative": "妻财",
+            "ganzhi": "辛巳",
+            "branch": "巳",
+            "element": "火",
+            "dynamicTrend": "变爻",
+            "heChong": "化冲",
+            "isKong": true,
+            "isRuMu": false
+          },
+          "tags": [
+            {
+              "text": "发动",
+              "type": "danger"
+            }
+          ],
+          "wangShuai": "死 (月克我为死)",
+          "shenSha": []
+        },
+        {
+          "index": 6,
+          "yinYang": "阴",
+          "isMoving": true,
+          "relative": "父母",
+          "ganzhi": "癸酉",
+          "branch": "酉",
+          "element": "金",
+          "isShi": false,
+          "isYing": true,
+          "liuShen": "玄武",
+          "bianYao": {
+            "yinYang": "阳",
+            "relative": "子孙",
+            "ganzhi": "辛卯",
+            "branch": "卯",
+            "element": "木",
+            "dynamicTrend": "变爻",
+            "heChong": "化冲",
+            "isKong": false,
+            "isRuMu": false
+          },
+          "tags": [
+            {
+              "text": "应爻",
+              "type": "info"
+            },
+            {
+              "text": "发动",
+              "type": "danger"
+            }
+          ],
+          "wangShuai": "相 (月生我为相)",
+          "shenSha": []
+        }
+      ],
+      "yongShenKey": "用神",
+      "hasMoving": true,
+      "patterns": [
+        "化去",
+        "反吟(爻)",
+        "反吟(外卦)",
+        "三合金局",
+        "化冲",
+        "化空"
+      ]
+    },
+    "tags": {
+      "chapterId": "ch_040",
+      "volume": "卷之二·深造之论",
+      "keyPoints": [
+        "官星两现，一空一破，取旬空出空之年（辰年）断高擢——又一次印证\"两现用旬空/月破\"的原则",
+        "外卦反吟往往应验\"去而复来\"，此例一年之内调迁、调回、再升迁，三件事都落在同一个\"实空之年\"（辰年），不是三次孤立的巧合"
+      ],
+      "eventType": "升迁",
+      "verified": "应验",
+      "yongShen": "官鬼",
+      "yongShenStatus": [
+        "旬空"
+      ],
+      "guaName": "地水师之风水涣",
+      "guaPalace": "坎宫",
+      "patterns": [
+        "化去",
+        "反吟(爻)",
+        "反吟(外卦)",
+        "三合金局",
+        "化冲",
+        "化空"
+      ],
+      "movingCount": "二爻动",
+      "shiYingPosition": "世三应上"
+    },
+    "summary": "占升迁：官星两现，一空一破，取出空的辰年断高擢，又因外卦反吟主\"去而复来\"，果然一年之内先调迁、再调回、又升督府，三事都应在同一个实空之年（辰年）。"
+  },
+  {
+    "id": "case_090b",
+    "chapterId": "ch_040",
+    "chapterTitle": "两现章",
+    "title": "亥月丙午日 母占子何时脱厄",
+    "question": "母占子何时脱厄？",
+    "originalText": {
+      "diagram": "震宫：雷地豫(六合)\n兑宫：雷泽归妹(归魂)\n青龙\n妻财庚戌土 ━ ━\n妻财庚戌土 ━ ━ 应\n玄武\n官鬼庚申金 ━ ━\n官鬼庚申金 ━ ━\n白虎\n子孙庚午火 ━━━ 应\n子孙庚午火 ━━━\n螣蛇\n兄弟乙卯木 ━ ━\n妻财丁丑土 ━ ━ 世\n勾陈\n子孙乙巳火 ━ ━\n×→ 兄弟丁卯木 ━━━\n朱雀 父母庚子水 妻财乙未土 ━ ━ 世×→ 子孙丁巳火 ━━━",
+      "verdict": "余见卦中子孙三现，俱生世爻，午爻逢日建而静，二爻巳火逢月破，许巳年脱厄，乃实破之年也。果脱厄于巳年，此乃卦中用神三现，而用月破之爻也。",
+      "analysis": "野鹤曰：余竟以月破而断年者，非只此一卦也。因此位老夫人之长公携印弃封疆而归。本人自身占过，申金子孙发动，动而逢合，当应巳年；其弟又占兄，申金兄动，亦应巳年。今此卦母占子，巳火子孙动化回头生世，虽逢月破，合前二卦，故敢竟许以巳年。所以卜易者一则全其灵机达变，二则卦要留神记之。若不留心记得前卦，则此卦午火日建生世，何不许其午年？况午岁又是合世之年，何敢许其巳年？许巳年者，因合前卦而断也。"
+    },
+    "board": {
+      "question": "母占子何时脱厄？",
+      "dateGanzhi": {
+        "month": "亥月",
+        "monthBranch": "亥",
+        "monthBroken": "巳",
+        "day": "丙午",
+        "dayStem": "丙",
+        "dayBranch": "午",
+        "xunKong": [
+          "寅",
+          "卯"
+        ]
+      },
+      "benGua": {
+        "hexagram_id": "hex_26",
+        "name": "雷地豫",
+        "full_name": "雷地豫",
+        "palace": "震宫",
+        "element": "木",
+        "order_in_palace": 2,
+        "generation": "一世卦",
+        "shi_line": 1,
+        "ying_line": 4,
+        "is_six_clash": false,
+        "is_six_combine": true,
+        "is_youhun": false,
+        "is_guihun": false,
+        "upper_trigram": "震",
+        "lower_trigram": "坤",
+        "lines": [
+          {
+            "line_number": 1,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "乙未",
+            "branch": "未",
+            "element": "土",
+            "relative": "妻财",
+            "is_shi": true,
+            "is_ying": false,
+            "hidden_spirit": {
+              "relative": "父母",
+              "stem_branch": "庚子",
+              "element": "水"
+            }
+          },
+          {
+            "line_number": 2,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "乙巳",
+            "branch": "巳",
+            "element": "火",
+            "relative": "子孙",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 3,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "乙卯",
+            "branch": "卯",
+            "element": "木",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 4,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "庚午",
+            "branch": "午",
+            "element": "火",
+            "relative": "子孙",
+            "is_shi": false,
+            "is_ying": true
+          },
+          {
+            "line_number": 5,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "庚申",
+            "branch": "申",
+            "element": "金",
+            "relative": "官鬼",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 6,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "庚戌",
+            "branch": "戌",
+            "element": "土",
+            "relative": "妻财",
+            "is_shi": false,
+            "is_ying": false
+          }
+        ],
+        "binarySeq": "000100",
+        "palaceName": "震宫",
+        "palaceElement": "木"
+      },
+      "bianGua": {
+        "hexagram_id": "hex_64",
+        "name": "雷泽归妹",
+        "full_name": "雷泽归妹",
+        "palace": "兑宫",
+        "element": "金",
+        "order_in_palace": 8,
+        "generation": "归魂卦",
+        "shi_line": 3,
+        "ying_line": 6,
+        "is_six_clash": false,
+        "is_six_combine": false,
+        "is_youhun": false,
+        "is_guihun": true,
+        "upper_trigram": "震",
+        "lower_trigram": "兑",
+        "lines": [
+          {
+            "line_number": 1,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "丁巳",
+            "branch": "巳",
+            "element": "火",
+            "relative": "官鬼",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 2,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "丁卯",
+            "branch": "卯",
+            "element": "木",
+            "relative": "妻财",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 3,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "丁丑",
+            "branch": "丑",
+            "element": "土",
+            "relative": "父母",
+            "is_shi": true,
+            "is_ying": false
+          },
+          {
+            "line_number": 4,
+            "yin_yang": "阳",
+            "symbol": "━━━",
+            "stem_branch": "庚午",
+            "branch": "午",
+            "element": "火",
+            "relative": "官鬼",
+            "is_shi": false,
+            "is_ying": false,
+            "hidden_spirit": {
+              "relative": "子孙",
+              "stem_branch": "丁亥",
+              "element": "水"
+            }
+          },
+          {
+            "line_number": 5,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "庚申",
+            "branch": "申",
+            "element": "金",
+            "relative": "兄弟",
+            "is_shi": false,
+            "is_ying": false
+          },
+          {
+            "line_number": 6,
+            "yin_yang": "阴",
+            "symbol": "━ ━",
+            "stem_branch": "庚戌",
+            "branch": "戌",
+            "element": "土",
+            "relative": "父母",
+            "is_shi": false,
+            "is_ying": true
+          }
+        ],
+        "binarySeq": "110100",
+        "palaceName": "兑宫",
+        "palaceElement": "金"
+      },
+      "yaos": [
+        {
+          "index": 1,
+          "yinYang": "阴",
+          "isMoving": true,
+          "relative": "妻财",
+          "ganzhi": "乙未",
+          "branch": "未",
+          "element": "土",
+          "isShi": true,
+          "isYing": false,
+          "liuShen": "朱雀",
+          "hiddenSpirit": {
+            "relative": "父母",
+            "stem_branch": "庚子",
+            "element": "水"
+          },
+          "bianYao": {
+            "yinYang": "阳",
+            "relative": "子孙",
+            "ganzhi": "丁巳",
+            "branch": "巳",
+            "element": "火",
+            "dynamicTrend": "回头生",
+            "heChong": null,
+            "isKong": false,
+            "isRuMu": false
+          },
+          "tags": [
+            {
+              "text": "日合",
+              "type": "info"
+            },
+            {
+              "text": "世爻",
+              "type": "primary"
+            },
+            {
+              "text": "发动",
+              "type": "danger"
+            }
+          ],
+          "wangShuai": "囚 (我克月为囚)",
+          "shenSha": []
+        },
+        {
+          "index": 2,
+          "yinYang": "阴",
+          "isMoving": true,
+          "relative": "子孙",
+          "ganzhi": "乙巳",
+          "branch": "巳",
+          "element": "火",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "勾陈",
+          "bianYao": {
+            "yinYang": "阳",
+            "relative": "兄弟",
+            "ganzhi": "丁卯",
+            "branch": "卯",
+            "element": "木",
+            "dynamicTrend": "回头生",
+            "heChong": null,
+            "isKong": true,
+            "isRuMu": false
+          },
+          "tags": [
+            {
+              "text": "月破",
+              "type": "danger"
+            },
+            {
+              "text": "帝旺(日)",
+              "type": "success"
+            },
+            {
+              "text": "用神",
+              "type": "success"
+            },
+            {
+              "text": "发动",
+              "type": "danger"
+            },
+            {
+              "text": "禄神",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "死 (月克我为死)",
+          "shenSha": [
+            "禄神"
+          ]
+        },
+        {
+          "index": 3,
+          "yinYang": "阴",
+          "isMoving": false,
+          "relative": "兄弟",
+          "ganzhi": "乙卯",
+          "branch": "卯",
+          "element": "木",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "螣蛇",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "旬空",
+              "type": "warning"
+            }
+          ],
+          "wangShuai": "相 (月生我为相)",
+          "shenSha": []
+        },
+        {
+          "index": 4,
+          "yinYang": "阳",
+          "isMoving": false,
+          "relative": "子孙",
+          "ganzhi": "庚午",
+          "branch": "午",
+          "element": "火",
+          "isShi": false,
+          "isYing": true,
+          "liuShen": "白虎",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "帝旺(日)",
+              "type": "success"
+            },
+            {
+              "text": "应爻",
+              "type": "info"
+            },
+            {
+              "text": "用神",
+              "type": "success"
+            }
+          ],
+          "wangShuai": "死 (月克我为死)",
+          "shenSha": []
+        },
+        {
+          "index": 5,
+          "yinYang": "阴",
+          "isMoving": false,
+          "relative": "官鬼",
+          "ganzhi": "庚申",
+          "branch": "申",
+          "element": "金",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "玄武",
+          "bianYao": null,
+          "tags": [
+            {
+              "text": "驿马",
+              "type": "info"
+            }
+          ],
+          "wangShuai": "休 (我生月为休)",
+          "shenSha": [
+            "驿马"
+          ]
+        },
+        {
+          "index": 6,
+          "yinYang": "阴",
+          "isMoving": false,
+          "relative": "妻财",
+          "ganzhi": "庚戌",
+          "branch": "戌",
+          "element": "土",
+          "isShi": false,
+          "isYing": false,
+          "liuShen": "青龙",
+          "bianYao": null,
+          "tags": [],
+          "wangShuai": "囚 (我克月为囚)",
+          "shenSha": []
+        }
+      ],
+      "yongShenKey": "子孙",
+      "hasMoving": true,
+      "patterns": [
+        "六合",
+        "化来",
+        "化空"
+      ]
+    },
+    "tags": {
+      "chapterId": "ch_040",
+      "volume": "卷之二·深造之论",
+      "keyPoints": [
+        "子孙三现，都生世爻，取哪一现断应期？野鹤选了逢月破的那一现（巳火），又一次印证\"两现/三现用旬空月破\"的原则，不是取临日建静而不破的那个（午火）",
+        "这条断语并非孤立猜测，而是同一件事此前已有本人自占、其弟占兄两卦先应验巳年在先，此卦是第三次交叉印证——不留心记得前两卦，单看这一卦本身，很可能会错断成午年"
+      ],
+      "eventType": "疾病",
+      "verified": "应验",
+      "yongShen": "子孙",
+      "yongShenStatus": [
+        "月破"
+      ],
+      "guaName": "雷地豫之雷泽归妹",
+      "guaPalace": "震宫",
+      "patterns": [
+        "六合",
+        "化来",
+        "化空"
+      ],
+      "movingCount": "二爻动",
+      "shiYingPosition": "世初应四"
+    },
+    "summary": "母占子何时脱厄：子孙三现皆生世爻，野鹤舍临日建不破的午火，取逢月破的巳火断巳年脱厄，果然应验——这个取舍并非孤立猜测，而是同一件事之前两卦（本人自占、弟占兄）已先印证巳年，三卦合参才敢确定，是本章\"两现/三现用旬空月破\"原则的又一实证。",
+    "disputed": {
+      "isDisputed": true,
+      "note": "本例原属 case_090 raw_text 尾部（因日期格式\"如：亥月 丙午日\"未被切分脚本识别为新案例而被吞并），单独整理为 case_090b，diagram/board 均为手工从原文重建。"
+    }
   }
 ]
