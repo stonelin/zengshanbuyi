@@ -23,7 +23,7 @@ import {
   Sliders
 } from 'lucide-react';
 
-export default function PaipanWorkbench({ isNoviceMode, onSelectConcept }) {
+export default function PaipanWorkbench({ onSelectConcept }) {
   const [activeMode, setActiveMode] = useState('coins'); // 'coins' | 'manual'
   
   // 排盘参数配置
@@ -300,15 +300,12 @@ export default function PaipanWorkbench({ isNoviceMode, onSelectConcept }) {
                 })}
               </div>
 
-              {/* 小白模式提示卡 */}
-              {isNoviceMode && (
-                <div className="mt-3 pt-2 border-t border-stone-200/60 text-[11px] text-stone-600 leading-relaxed flex items-start gap-1.5">
-                  <Info className="w-3.5 h-3.5 text-stone-400 shrink-0 mt-0.5" />
-                  <span>
-                    💡 <strong>铜钱口诀</strong>：一背为少阳(⚊单)，两背为少阴(⚋拆)，三背为老阳(⚊◯重动变阴)，全字为老阴(⚋✕交动变阳)。
-                  </span>
-                </div>
-              )}
+              <div className="mt-3 pt-2 border-t border-stone-200/60 text-[11px] text-stone-600 leading-relaxed flex items-start gap-1.5">
+                <Info className="w-3.5 h-3.5 text-stone-400 shrink-0 mt-0.5" />
+                <span>
+                  💡 <strong>铜钱口诀</strong>：一背为少阳(⚊单)，两背为少阴(⚋拆)，三背为老阳(⚊◯重动变阴)，全字为老阴(⚋✕交动变阳)。
+                </span>
+              </div>
             </div>
 
           </div>

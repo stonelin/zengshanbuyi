@@ -1,18 +1,14 @@
 import React from 'react';
-import { Compass, BookOpen, Search, Award, Sparkles } from 'lucide-react';
+import { Compass, BookOpen, Search } from 'lucide-react';
 
-export default function Header({ 
-  activeTab, 
-  setActiveTab, 
-  isNoviceMode, 
-  setIsNoviceMode, 
-  onOpenSearch 
+export default function Header({
+  activeTab,
+  setActiveTab,
+  onOpenSearch
 }) {
   const navTabs = [
     { id: 'paipan', label: '智能排盘', icon: Compass },
-    { id: 'reader', label: '典籍精读', icon: BookOpen },
-    { id: 'cases', label: '盲推探案', icon: Search },
-    { id: 'mastery', label: '认知进阶', icon: Award }
+    { id: 'reader', label: '典籍精读', icon: BookOpen }
   ];
 
   return (
@@ -79,21 +75,6 @@ export default function Header({
               <kbd className="hidden lg:inline-block px-1 py-0.2 text-[10px] font-mono bg-stone-100 border border-stone-200 rounded text-stone-400">
                 ⌘K
               </kbd>
-            </button>
-
-            {/* Novice Mode Switch */}
-            <button
-              onClick={() => setIsNoviceMode(!isNoviceMode)}
-              className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-medium border transition-all cursor-pointer whitespace-nowrap ${
-                isNoviceMode
-                  ? 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-2xs ring-1 ring-emerald-500/20'
-                  : 'bg-white text-stone-600 border-[#EAE6DC] hover:bg-stone-50'
-              }`}
-              title="切换小白友好模式"
-            >
-              <Sparkles className={`w-3.5 h-3.5 ${isNoviceMode ? 'text-emerald-600' : 'text-stone-400'}`} />
-              <span className="hidden sm:inline">小白模式</span>
-              <span className={`w-1.5 h-1.5 rounded-full ${isNoviceMode ? 'bg-emerald-500' : 'bg-stone-300'}`}></span>
             </button>
 
           </div>

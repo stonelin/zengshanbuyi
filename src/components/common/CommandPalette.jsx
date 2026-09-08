@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Search, X, BookOpen, Compass, Award, ArrowRight } from 'lucide-react';
 import chaptersData from '../../data/chapters.json';
-import casesData from '../../data/cases.json';
 import conceptsData from '../../data/concepts.json';
 
-export default function CommandPalette({ 
-  isOpen, 
-  onClose, 
-  onSelectChapter, 
-  onSelectCase, 
+export default function CommandPalette({
+  isOpen,
+  onClose,
+  onSelectChapter,
   onSelectConcept,
-  onSwitchTab 
+  onSwitchTab
 }) {
   const [query, setQuery] = useState('');
 
@@ -41,14 +39,6 @@ export default function CommandPalette({
     (ch.summary && ch.summary.toLowerCase().includes(q))
   ).slice(0, 4) : [];
 
-  // 筛选案例
-  const matchedCases = q ? casesData.filter(c => 
-    (c.title && c.title.toLowerCase().includes(q)) || 
-    (c.question && c.question.toLowerCase().includes(q)) ||
-    (c.gua_name && c.gua_name.toLowerCase().includes(q)) ||
-    (c.verdict && c.verdict.toLowerCase().includes(q))
-  ).slice(0, 5) : [];
-
   // 筛选概念
   const matchedConcepts = q ? conceptsData.filter(cp => 
     cp.name.toLowerCase().includes(q) || 
@@ -70,7 +60,7 @@ export default function CommandPalette({
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="搜索典籍篇章、400+实战卦例、六爻术语法则 (如: 旬空, 官运, 火地晋)..."
+            placeholder="搜索典籍篇章、六爻术语法则 (如: 旬空, 官运, 火地晋)..."
             className="w-full bg-transparent text-sm sm:text-base text-stone-900 placeholder-stone-400 focus:outline-none"
             autoFocus
           />
@@ -105,13 +95,13 @@ export default function CommandPalette({
                   </div>
                 </button>
                 <button
-                  onClick={() => { onSwitchTab('cases'); onClose(); }}
+                  onClick={() => { onSwitchTab('reader'); onClose(); }}
                   className="flex items-center gap-2.5 p-3 rounded-xl bg-stone-50 hover:bg-amber-50/60 border border-stone-200/60 text-left text-sm transition-all"
                 >
-                  <Search className="w-4 h-4 text-[#C0392B]" />
+                  <BookOpen className="w-4 h-4 text-[#C0392B]" />
                   <div>
-                    <div className="font-bold text-stone-800">盲推探案实战馆</div>
-                    <div className="text-xs text-stone-500">400+ 古籍案例断卦解谜</div>
+                    <div className="font-bold text-stone-800">典籍精读</div>
+                    <div className="text-xs text-stone-500">原文、直译与讲解</div>
                   </div>
                 </button>
               </div>
@@ -181,34 +171,8 @@ export default function CommandPalette({
             </div>
           )}
 
-          {/* 案例结果 */}
-          {matchedCases.length > 0 && (
-            <div>
-              <div className="text-xs font-semibold text-stone-600 mb-2 flex items-center gap-1.5">
-                <Search className="w-3.5 h-3.5" /> 实战卦例 ({matchedCases.length})
-              </div>
-              <div className="space-y-1">
-                {matchedCases.map((c) => (
-                  <button
-                    key={c.id}
-                    onClick={() => { onSelectCase(c.id); onClose(); }}
-                    className="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-stone-100 text-left text-xs transition-colors group"
-                  >
-                    <div className="truncate">
-                      <span className="font-bold text-stone-900 group-hover:text-[#C0392B] mr-2">
-                        {c.title || c.gua_name}
-                      </span>
-                      <span className="text-stone-500">{c.question || c.month + ' ' + c.day}</span>
-                    </div>
-                    <span className="text-[#C0392B] text-[11px] shrink-0 ml-2 font-medium">盲推探案 →</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
           {/* 未匹配到结果 */}
-          {q && matchedChapters.length === 0 && matchedCases.length === 0 && matchedConcepts.length === 0 && (
+          {q && matchedChapters.length === 0 && matchedConcepts.length === 0 && (
             <div className="py-12 text-center text-stone-400 text-sm">
               未找到与 “{query}” 匹配的内容，尝试换个词或者输入拼音搜索。
             </div>

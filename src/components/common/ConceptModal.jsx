@@ -1,12 +1,11 @@
 import React from 'react';
-import { X, BookOpen, Search, Compass, ExternalLink, Sparkles } from 'lucide-react';
-import { getRelatedChaptersForConcept, getRelatedCasesForConcept } from '../../lib/conceptService';
+import { X, BookOpen, Compass, ExternalLink, Sparkles } from 'lucide-react';
+import { getRelatedChaptersForConcept } from '../../lib/conceptService';
 
-export default function ConceptModal({ concept, onClose, onSelectChapter, onSelectCase }) {
+export default function ConceptModal({ concept, onClose, onSelectChapter }) {
   if (!concept) return null;
 
   const relatedChapters = getRelatedChaptersForConcept(concept);
-  const relatedCases = getRelatedCasesForConcept(concept);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/50 backdrop-blur-sm animate-in fade-in duration-200">
@@ -92,33 +91,6 @@ export default function ConceptModal({ concept, onClose, onSelectChapter, onSele
                 >
                   <span className="font-medium text-stone-800 group-hover:text-[#C0392B] truncate">{ch.title}</span>
                   <ExternalLink className="w-3.5 h-3.5 text-stone-400 group-hover:text-[#C0392B] shrink-0" />
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* 关联典型实战卦例 */}
-        {relatedCases.length > 0 && (
-          <div className="mt-6">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2 flex items-center gap-1">
-              <Search className="w-3.5 h-3.5" /> 关联实战卦例 ({relatedCases.length})
-            </h4>
-            <div className="space-y-2">
-              {relatedCases.map((c) => (
-                <button
-                  key={c.id}
-                  onClick={() => {
-                    onClose();
-                    if (onSelectCase) onSelectCase(c.id);
-                  }}
-                  className="w-full flex items-center justify-between p-2.5 text-left rounded-lg bg-stone-50 hover:bg-stone-100 border border-stone-200/60 transition-all text-xs group"
-                >
-                  <div className="truncate">
-                    <span className="font-bold text-stone-900 group-hover:text-[#C0392B] mr-2">[{c.title || c.gua_name}]</span>
-                    <span className="text-stone-600">{c.question || c.month + ' ' + c.day}</span>
-                  </div>
-                  <span className="text-[#C0392B] text-[11px] font-medium shrink-0 ml-2 group-hover:underline">去盲推 →</span>
                 </button>
               ))}
             </div>

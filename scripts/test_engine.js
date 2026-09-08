@@ -15,8 +15,6 @@ import {
 import chaptersData from '../src/data/chapters.json' with { type: 'json' };
 import casesData from '../src/data/cases.json' with { type: 'json' };
 import conceptsData from '../src/data/concepts.json' with { type: 'json' };
-import quizzesData from '../src/data/quizzes.json' with { type: 'json' };
-import knowledgeTreeData from '../src/data/knowledge_tree.json' with { type: 'json' };
 
 const bugsFound = [];
 
@@ -121,16 +119,6 @@ casesData.forEach(c => {
   }
 });
 console.log(`- 案例关联章节有效性: ${casesData.length - brokenChapterLinks} / ${casesData.length}`);
-
-quizzesData.forEach(q => {
-  if (q.options.length < 2) {
-    bugsFound.push(`[BUG-07] 题目 ${q.id} 选项少于 2 个`);
-  }
-  if (q.correct_index < 0 || q.correct_index >= q.options.length) {
-    bugsFound.push(`[BUG-08] 题目 ${q.id} correct_index 超出选项范围`);
-  }
-});
-console.log(`✅ 题库题目选项与答案索引校验通过 (${quizzesData.length}/${quizzesData.length})`);
 
 // 总结
 console.log('\n====================================================');

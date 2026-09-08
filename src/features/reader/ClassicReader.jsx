@@ -1,14 +1,12 @@
 import React, { useState, useMemo } from 'react';
 import chaptersData from '../../data/chapters.json';
-import casesData from '../../data/cases.json';
 import { CORE_CONCEPT_NAMES } from '../../lib/conceptService';
-import { 
-  BookOpen, 
-  Search, 
-  ChevronRight, 
-  Sparkles, 
-  FileText, 
-  ExternalLink, 
+import {
+  BookOpen,
+  Search,
+  ChevronRight,
+  Sparkles,
+  FileText,
   HelpCircle,
   Flame,
   Bookmark,
@@ -16,12 +14,10 @@ import {
   Compass
 } from 'lucide-react';
 
-export default function ClassicReader({ 
-  selectedChapterId, 
-  onSelectChapter, 
-  onSelectCase, 
-  onSelectConcept, 
-  isNoviceMode 
+export default function ClassicReader({
+  selectedChapterId,
+  onSelectChapter,
+  onSelectConcept
 }) {
   const [chapterSearch, setChapterSearch] = useState('');
   const [selectedVolumeFilter, setSelectedVolumeFilter] = useState('ALL');
@@ -45,12 +41,6 @@ export default function ClassicReader({
       return matchVolume && matchSearch;
     });
   }, [selectedVolumeFilter, chapterSearch]);
-
-  // 本章关联的卦例
-  const linkedCases = useMemo(() => {
-    if (!currentChapter) return [];
-    return casesData.filter(c => c.chapter_id === currentChapter.id || (currentChapter.case_ids && currentChapter.case_ids.includes(c.id)));
-  }, [currentChapter]);
 
   // 渲染带有概念穿透高亮的正文 (按长度降序排列，优先匹配较长术语)
   const sortedConceptNames = useMemo(() => {
@@ -295,38 +285,6 @@ export default function ClassicReader({
               )}
             </div>
           </div>
-
-          {/* 本章关联实战卦例 */}
-          {linkedCases.length > 0 && (
-            <div className="pt-4 border-t border-stone-200">
-              <div className="flex items-center justify-between mb-3">
-                <h4 className="text-sm font-bold font-serif-sc text-stone-900 flex items-center gap-2">
-                  <span>🔍 本章关联实战卦例 ({linkedCases.length})</span>
-                </h4>
-                <span className="text-xs text-stone-400">点击直达盲推探案</span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {linkedCases.map((c) => (
-                  <button
-                    key={c.id}
-                    onClick={() => onSelectCase(c.id)}
-                    className="flex flex-col text-left p-3.5 rounded-xl bg-[#FBF9F5] hover:bg-amber-50/70 border border-[#EAE6DC] hover:border-amber-300 transition-all group shadow-2xs cursor-pointer"
-                  >
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-bold text-xs text-stone-900 group-hover:text-[#C0392B]">
-                        {c.title || c.gua_name}
-                      </span>
-                      <ExternalLink className="w-3.5 h-3.5 text-stone-400 group-hover:text-[#C0392B]" />
-                    </div>
-                    <p className="text-[11px] text-stone-500 line-clamp-1">
-                      {c.question || c.month + ' ' + c.day}
-                    </p>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
 
         </div>
 

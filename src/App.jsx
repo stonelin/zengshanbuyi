@@ -4,17 +4,12 @@ import CommandPalette from './components/common/CommandPalette';
 import ConceptModal from './components/common/ConceptModal';
 import PaipanWorkbench from './features/paipan/PaipanWorkbench';
 import ClassicReader from './features/reader/ClassicReader';
-import CaseDeductionHub from './features/cases/CaseDeductionHub';
-import KnowledgeMastery from './features/mastery/KnowledgeMastery';
 import { getConceptByIdOrName } from './lib/conceptService';
-import { Compass, BookOpen, Search, Award } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('paipan');
   const [selectedChapterId, setSelectedChapterId] = useState('ch_001');
-  const [selectedCaseId, setSelectedCaseId] = useState('case_001');
   const [activeConcept, setActiveConcept] = useState(null);
-  const [isNoviceMode, setIsNoviceMode] = useState(true);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   // 全局快捷键 ⌘K / Ctrl+K 监听
@@ -36,12 +31,6 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSelectCase = (caseId) => {
-    setSelectedCaseId(caseId);
-    setActiveTab('cases');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const handleSelectConcept = (conceptKey) => {
     const cp = getConceptByIdOrName(conceptKey);
     if (cp) {
@@ -56,8 +45,6 @@ export default function App() {
       <Header
         activeTab={activeTab}
         setActiveTab={setActiveTab}
-        isNoviceMode={isNoviceMode}
-        setIsNoviceMode={setIsNoviceMode}
         onOpenSearch={() => setIsSearchOpen(true)}
       />
 
@@ -65,7 +52,6 @@ export default function App() {
       <main className="flex-1">
         {activeTab === 'paipan' && (
           <PaipanWorkbench
-            isNoviceMode={isNoviceMode}
             onSelectConcept={handleSelectConcept}
           />
         )}
@@ -74,28 +60,7 @@ export default function App() {
           <ClassicReader
             selectedChapterId={selectedChapterId}
             onSelectChapter={handleSelectChapter}
-            onSelectCase={handleSelectCase}
             onSelectConcept={handleSelectConcept}
-            isNoviceMode={isNoviceMode}
-          />
-        )}
-
-        {activeTab === 'cases' && (
-          <CaseDeductionHub
-            selectedCaseId={selectedCaseId}
-            onSelectCase={handleSelectCase}
-            onSelectChapter={handleSelectChapter}
-            onSelectConcept={handleSelectConcept}
-            isNoviceMode={isNoviceMode}
-          />
-        )}
-
-        {activeTab === 'mastery' && (
-          <KnowledgeMastery
-            onSelectChapter={handleSelectChapter}
-            onSelectCase={handleSelectCase}
-            onSelectConcept={handleSelectConcept}
-            isNoviceMode={isNoviceMode}
           />
         )}
       </main>
@@ -109,7 +74,7 @@ export default function App() {
             <span>野鹤宗风传习</span>
           </div>
           <p>
-            以现代认知脚手架赋能易学典籍研习 · 400+ 案例探案盲推 · 浑天甲子纳甲推演显微镜
+            自用研习工具 · 排盘推演 · 典籍精读
           </p>
           <div className="text-[11px] text-stone-400">
             Based on 《增删卜易》李文辉序定本 · 全书结构化数据库驱动
@@ -122,7 +87,6 @@ export default function App() {
         concept={activeConcept}
         onClose={() => setActiveConcept(null)}
         onSelectChapter={handleSelectChapter}
-        onSelectCase={handleSelectCase}
       />
 
       {/* 全局 Command Palette 搜索框 (⌘K) */}
@@ -130,7 +94,6 @@ export default function App() {
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
         onSelectChapter={handleSelectChapter}
-        onSelectCase={handleSelectCase}
         onSelectConcept={handleSelectConcept}
         onSwitchTab={setActiveTab}
       />
