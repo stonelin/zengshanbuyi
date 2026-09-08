@@ -140,10 +140,13 @@ export function detectSanHeGroups(branchesInPlay) {
     .map(g => `三合${g.element}局`);
 }
 
-// 墓库地支：仅金木水火四行有明确共识；土行墓库归属各派不一（辰/戌两说皆有），存疑不判
-export const MUKU_MAP = {
-  '水': '辰', '火': '戌', '金': '丑', '木': '未'
-};
+// 十二长生：野鹤老人明确只验证"长生、旺、墓、绝"四项，其余八项（沐浴冠带临官衰病胎养）
+// "不必用也"，所以只实现这四个。水土同宫寄生（"生旺墓绝章"原文明确给出的四张表）。
+// 土的墓库此前因"辰/戌两说皆有"存疑不判，现由本章原文确认水土同寄，墓在辰，一并订正。
+export const CHANGSHENG_MAP = { '金': '巳', '木': '亥', '火': '寅', '水': '申', '土': '申' };
+export const DI_WANG_MAP = { '金': '酉', '木': '卯', '火': '午', '水': '子', '土': '子' };
+export const MUKU_MAP = { '金': '丑', '木': '未', '火': '戌', '水': '辰', '土': '辰' };
+export const JUE_MAP = { '金': '寅', '木': '申', '火': '亥', '水': '巳', '土': '巳' };
 
 export function isRuMu(yaoElement, referenceBranch) {
   const muku = MUKU_MAP[yaoElement];
@@ -364,6 +367,9 @@ export function assemblePaipanBoard({
     if (dayHe === yaoBranch) tags.push({ text: '日合', type: 'info' });
     if (!isMoving && dayClash === yaoBranch && !xunKong.includes(yaoBranch)) tags.push({ text: '暗动', type: 'primary' });
     if (isRuMu(yaoElement, dayBranch)) tags.push({ text: '入墓(日墓)', type: 'warning' });
+    if (CHANGSHENG_MAP[yaoElement] === dayBranch) tags.push({ text: '长生(日)', type: 'success' });
+    if (DI_WANG_MAP[yaoElement] === dayBranch) tags.push({ text: '帝旺(日)', type: 'success' });
+    if (JUE_MAP[yaoElement] === dayBranch) tags.push({ text: '绝(日)', type: 'danger' });
     if (bLine.is_shi) tags.push({ text: '世爻', type: 'primary' });
     if (bLine.is_ying) tags.push({ text: '应爻', type: 'info' });
     if (bLine.relative === yongShenKey) tags.push({ text: '用神', type: 'success' });
