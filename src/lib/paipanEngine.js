@@ -517,24 +517,41 @@ export function resolveCaseBoard(caseItem) {
     if (bMatch) dayBranch = bMatch[1];
   }
 
-  // 2. 匹配本卦与变卦
+  // 2. 匹配本卦与变卦：优先从 diagram 文本里的"X宫：Y"行直接读全名——这是原文自带、最可靠的来源。
+  // 案例标题"得"X之Y""里的 X/Y 有时只是宫位简写（如"巽"实指本宫首卦"巽为风"），不能当全名直接查，
+  // findHexagramByName 对这种简写找不到精确匹配时会静默兜底成 allHexagrams[0]（乾为天），
+  // 所以这里不经过它，自己做"精确匹配→模糊匹配→兜底"三段式。
   let benHex = null;
-  const primaryName = caseItem.primary_gua || caseItem.gua_name || '';
-  if (primaryName) {
-    benHex = findHexagramByName(primaryName);
-    if (!benHex) {
-      // 模糊匹配
+  let bianHex = null;
+  const palaceLineMatches = caseItem.diagram
+    ? [...caseItem.diagram.matchAll(/(?:乾|坎|艮|震|巽|离|坤|兑)宫[：:]\s*([^\n（(]+)/g)]
+    : [];
+  if (palaceLineMatches.length > 0) {
+    const benName = palaceLineMatches[0][1].trim();
+    benHex = allHexagrams.find(h => h.name === benName || h.full_name === benName);
+    if (palaceLineMatches.length > 1) {
+      const bianName = palaceLineMatches[1][1].trim();
+      bianHex = allHexagrams.find(h => h.name === bianName || h.full_name === bianName);
+    }
+  }
+
+  if (!benHex) {
+    const primaryName = caseItem.primary_gua || caseItem.gua_name || '';
+    if (primaryName) {
       const clean = primaryName.replace(/之.*/, '').replace(/卦$/, '').trim();
-      benHex = allHexagrams.find(h => h.name.includes(clean) || clean.includes(h.name) || h.full_name.includes(clean));
+      benHex = allHexagrams.find(h => h.name === clean || h.full_name === clean)
+        || allHexagrams.find(h => h.name.includes(clean) || clean.includes(h.name) || h.full_name.includes(clean));
     }
   }
   if (!benHex) benHex = allHexagrams[0];
 
-  let bianHex = null;
-  const changedName = caseItem.changed_gua || (caseItem.gua_name && caseItem.gua_name.includes('之') ? caseItem.gua_name.split('之')[1] : '');
-  if (changedName) {
-    const cleanChanged = changedName.replace(/卦$/, '').trim();
-    bianHex = allHexagrams.find(h => h.name.includes(cleanChanged) || cleanChanged.includes(h.name) || h.full_name.includes(cleanChanged));
+  if (!bianHex) {
+    const changedName = caseItem.changed_gua || (caseItem.gua_name && caseItem.gua_name.includes('之') ? caseItem.gua_name.split('之')[1] : '');
+    if (changedName) {
+      const cleanChanged = changedName.replace(/卦$/, '').trim();
+      bianHex = allHexagrams.find(h => h.name === cleanChanged || h.full_name === cleanChanged)
+        || allHexagrams.find(h => h.name.includes(cleanChanged) || cleanChanged.includes(h.name) || h.full_name.includes(cleanChanged));
+    }
   }
 
   // 3. 判定动爻

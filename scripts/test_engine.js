@@ -7,6 +7,7 @@ import {
   getLiuShenList,
   tossThreeCoins,
   assemblePaipanBoard,
+  resolveCaseBoard,
   resolveYongShen,
   HEAVENLY_STEMS,
   EARTHLY_BRANCHES,
@@ -16,8 +17,9 @@ import {
   LU_SHEN_MAP,
   YI_MA_MAP
 } from '../src/lib/paipanEngine.js';
-import { boardSchema, yongShenResolutionSchema } from '../src/lib/schema.js';
+import { boardSchema, yongShenResolutionSchema, caseSchema } from '../src/lib/schema.js';
 import chaptersData from '../src/data/chapters.json' with { type: 'json' };
+import casesV2Data from '../src/data/cases_v2.json' with { type: 'json' };
 import casesData from '../src/data/cases.json' with { type: 'json' };
 import conceptsData from '../src/data/concepts.json' with { type: 'json' };
 
@@ -180,6 +182,45 @@ casesData.forEach(c => {
   }
 });
 console.log(`- 案例关联章节有效性: ${casesData.length - brokenChapterLinks} / ${casesData.length}`);
+
+// 8. 已人工校对的实例库回归测试（spec 4.3）：cases_v2.json 里每条都已对照原文核实过
+// 用神取法/关键格局，把这些已知正确的结果反过来当断言，防止引擎改动悄悄改变结论。
+// resolveCaseBoard() 对 diagram 里含两次起卦的条目（如手工构建 board 的 case_007）
+// 会取错卦，这类条目在录入时已经手工修正 board，不能反过来验证 resolveCaseBoard 本身，
+// 故排除在自动回归之外，仅保留 caseSchema 结构校验。
+console.log('\n--- 测试项 8: 已校对实例库回归测试（cases_v2.json） ---');
+const MANUAL_BOARD_CASE_IDS = new Set(['case_007']);
+let caseRegressionErrors = 0;
+casesV2Data.forEach(verified => {
+  const schemaCheck = caseSchema.safeParse(verified);
+  if (!schemaCheck.success) {
+    bugsFound.push(`[BUG-14] ${verified.id} 不符合 caseSchema: ${JSON.stringify(schemaCheck.error.issues)}`);
+    caseRegressionErrors++;
+    return;
+  }
+  if (MANUAL_BOARD_CASE_IDS.has(verified.id)) return;
+
+  const rawCase = casesData.find(c => c.id === verified.id);
+  if (!rawCase) {
+    bugsFound.push(`[BUG-15] ${verified.id} 在 cases_v2.json 中存在，但 cases.json 里找不到对应原始草稿`);
+    caseRegressionErrors++;
+    return;
+  }
+  const freshBoard = resolveCaseBoard(rawCase);
+  if (freshBoard.benGua.full_name !== verified.board.benGua.full_name || (freshBoard.bianGua?.full_name || null) !== (verified.board.bianGua?.full_name || null)) {
+    bugsFound.push(`[BUG-16] ${verified.id} 引擎重算卦名与已校对结果不一致: 期望 ${verified.board.benGua.full_name}之${verified.board.bianGua?.full_name}，实际 ${freshBoard.benGua.full_name}之${freshBoard.bianGua?.full_name}`);
+    caseRegressionErrors++;
+  }
+  const expectedPatterns = [...verified.board.patterns].sort().join(',');
+  const actualPatterns = [...freshBoard.patterns].sort().join(',');
+  if (expectedPatterns !== actualPatterns) {
+    bugsFound.push(`[BUG-17] ${verified.id} 引擎重算格局与已校对结果不一致: 期望 [${expectedPatterns}]，实际 [${actualPatterns}]`);
+    caseRegressionErrors++;
+  }
+});
+if (caseRegressionErrors === 0) {
+  console.log(`✅ ${casesV2Data.length} 条已校对实例全部通过 caseSchema 校验与引擎重算回归 (${casesV2Data.length - MANUAL_BOARD_CASE_IDS.size} 条参与卦名/格局重算比对)`);
+}
 
 // 总结
 console.log('\n====================================================');
