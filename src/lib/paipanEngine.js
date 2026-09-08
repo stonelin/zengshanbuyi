@@ -554,20 +554,21 @@ export function resolveCaseBoard(caseItem) {
     }
   }
 
-  // 3. 判定动爻
+  // 3. 判定动爻：本卦与变卦阴阳不同之爻即为动爻，这是唯一可靠的判定方式。
+  // 不再退回扫描 diagram 文本里的"○/×/动/→"符号——古籍"变出式"写法会把变卦全部六爻都
+  // 写出来，只有真正发动的爻旁才有符号，但符号本身在扫描时经常连带命中相邻的六神/爻文字，
+  // 产生假阳性，导致按这些误判的动爻反推出来的变卦跟 diagram 里明写的变卦对不上（曾在
+  // case_019 上实测到：明明写的是"屯之震"，却被误判出多余动爻，反推成了"雷地豫"）。
+  // 只有在完全没有 bianHex 可比对时（真正的静卦、无变卦），才用文本扫描兜底。
   const rawLines = benHex.lines.map((line, idx) => {
     let isMoving = false;
     if (bianHex) {
-      // 变卦与本卦阴阳不同的爻为动爻
       const bianLine = bianHex.lines[idx];
       if (bianLine && bianLine.yin_yang !== line.yin_yang) {
         isMoving = true;
       }
-    }
-    // 检查 diagram 文本中是否有动爻指示 (○→ 或 ×→)
-    if (caseItem.diagram) {
+    } else if (caseItem.diagram) {
       const diagLines = caseItem.diagram.split('\n');
-      // diagram 从上爻至初爻 或 初爻至上爻 检查
       const reversedDiag = [...diagLines].reverse();
       const targetLineText = reversedDiag[idx] || '';
       if (targetLineText.includes('○') || targetLineText.includes('×') || targetLineText.includes('动') || targetLineText.includes('→')) {
