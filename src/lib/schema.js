@@ -101,7 +101,7 @@ const dateGanzhiSchema = z.object({
 
 // 已实现的格局类型（不含反吟/伏吟——宫位对冲规则把握不足，留待用实例校对后再补）。
 // 三合局按命中五行标注具体名称，故 patterns 不做严格 enum 校验，仅以此列表作为参考。
-export const PATTERN_TYPES = ['六合', '六冲', '六冲变六合', '六合变六合', '六冲变六冲', '三合水局', '三合木局', '三合火局', '三合金局', '化空', '化墓', '化合', '化冲'];
+export const PATTERN_TYPES = ['六合', '六冲', '六冲变六合', '六合变六合', '六冲变六冲', '六合变六冲', '反吟(爻)', '三合水局', '三合木局', '三合火局', '三合金局', '化空', '化墓', '化合', '化冲'];
 
 export const boardSchema = z.object({
   question: z.string(),

@@ -412,19 +412,26 @@ export function assemblePaipanBoard({
   return board;
 }
 
-// 格局判断（六合六冲/三合局/化空化墓/化合化冲/日辰生克冲合）。
-// 卦反吟、卦伏吟未实现：其宫位对冲判定规则把握不足，留待用实例校对后再补，避免编造错误公式。
+// 格局判断（六合六冲含变卦/三合局/化空化墓/化合化冲/爻反吟/日辰生克冲合）。
+// 卦反吟、卦伏吟（整卦层面的宫位对冲/同位）未实现：其判定规则把握不足，留待用实例校对后再补，
+// 避免编造错误公式。爻反吟（单爻本变相冲）已确认就是"化冲"，已覆盖。
 export function resolvePatterns(board) {
   const patterns = [];
 
   if (board.benGua.is_six_combine) patterns.push('六合');
   if (board.benGua.is_six_clash) patterns.push('六冲');
 
-  // 含变卦：原著反复强调"六冲变六合""六合变六合"是断吉凶的关键格局（不看用神，径以此断）
+  // 含变卦：原著反复强调"六冲变六合""六合变六冲"是断吉凶的关键格局（不看用神，径以此断）
   if (board.bianGua) {
     if (board.benGua.is_six_clash && board.bianGua.is_six_combine) patterns.push('六冲变六合');
     if (board.benGua.is_six_combine && board.bianGua.is_six_combine) patterns.push('六合变六合');
     if (board.benGua.is_six_clash && board.bianGua.is_six_clash) patterns.push('六冲变六冲');
+    if (board.benGua.is_six_combine && board.bianGua.is_six_clash) patterns.push('六合变六冲');
+  }
+
+  // 爻反吟：本爻与变爻地支相冲（原文"化卯相冲，乃反吟之卦"即此，与"动爻变冲者"同指一事）
+  if (board.yaos.some(y => y.bianYao?.heChong === '化冲') && !patterns.includes('反吟(爻)')) {
+    patterns.push('反吟(爻)');
   }
 
   const branchesInPlay = board.yaos.flatMap(y => [y.branch, y.bianYao?.branch].filter(Boolean));
