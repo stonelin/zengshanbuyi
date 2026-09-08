@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, X, BookOpen, Compass, Library, ArrowRight } from 'lucide-react';
+import { Search, X, BookOpen, Compass, Library, BookMarked, ArrowRight } from 'lucide-react';
 import chaptersData from '../../data/chapters.json';
 import termsData from '../../data/terms.json';
 
@@ -85,6 +85,16 @@ export default function CommandPalette({
                 ⚡ 快捷功能通道
               </div>
               <div className="grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => { onSwitchTab('cases'); onClose(); }}
+                  className="flex items-center gap-2.5 p-3 rounded-xl bg-stone-50 hover:bg-amber-50/60 border border-stone-200/60 text-left text-sm transition-all"
+                >
+                  <BookMarked className="w-4 h-4 text-[#C0392B]" />
+                  <div>
+                    <div className="font-bold text-stone-800">实例库</div>
+                    <div className="text-xs text-stone-500">按标签筛选古籍实例</div>
+                  </div>
+                </button>
                 <button
                   onClick={() => { onSwitchTab('paipan'); onClose(); }}
                   className="flex items-center gap-2.5 p-3 rounded-xl bg-stone-50 hover:bg-amber-50/60 border border-stone-200/60 text-left text-sm transition-all"

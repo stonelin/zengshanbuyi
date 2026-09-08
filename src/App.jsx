@@ -5,6 +5,7 @@ import TermModal from './components/common/TermModal';
 import PaipanWorkbench from './features/paipan/PaipanWorkbench';
 import ClassicReader from './features/reader/ClassicReader';
 import RecordCastingHub from './features/records/RecordCastingHub';
+import CaseLibrary from './features/cases/CaseLibrary';
 import TermsOverview from './features/terms/TermsOverview';
 import { getTermByIdOrName } from './lib/termService';
 
@@ -59,6 +60,10 @@ export default function App() {
         )}
 
         {activeTab === 'records' && <RecordCastingHub />}
+
+        {activeTab === 'cases' && (
+          <CaseLibrary onSelectTerm={handleSelectTerm} onSelectChapter={handleSelectChapter} />
+        )}
 
         {activeTab === 'reader' && (
           <ClassicReader
