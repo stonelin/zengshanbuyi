@@ -7,9 +7,13 @@ export function resolveGanzhiFromDate(date) {
   const lunar = Lunar.fromDate(date);
   return {
     yearGanzhi: lunar.getYearGanExact() + lunar.getYearZhiExact(),
+    // 月干支同样取节气口径（getMonthInGanZhiExact），与 monthBranch 同源
+    monthGanzhi: lunar.getMonthInGanZhiExact(),
     monthBranch: lunar.getMonthZhiExact(),
     dayStem: lunar.getDayGanExact(),
     dayBranch: lunar.getDayZhiExact(),
-    dayGanzhi: lunar.getDayGanExact() + lunar.getDayZhiExact()
+    dayGanzhi: lunar.getDayGanExact() + lunar.getDayZhiExact(),
+    // 农历日期（闰月由 getMonth() 为负判定），仅作展示，排盘一律用上面的干支
+    lunarDate: `${lunar.getYearInChinese()}年${lunar.getMonth() < 0 ? '闰' : ''}${lunar.getMonthInChinese()}月${lunar.getDayInChinese()}`
   };
 }

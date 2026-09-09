@@ -2,7 +2,7 @@ import React from 'react';
 import { X, BookOpen, Compass, ExternalLink, ScrollText } from 'lucide-react';
 import { getRelatedChaptersForTerm, getRelatedCasesForTerm, getRelatedTermsForTerm } from '../../lib/termService';
 
-export default function TermModal({ term, onClose, onSelectChapter, onSelectTerm }) {
+export default function TermModal({ term, onClose, onSelectChapter, onSelectTerm, onSelectCase }) {
   if (!term) return null;
 
   const relatedChapters = getRelatedChaptersForTerm(term);
@@ -82,10 +82,20 @@ export default function TermModal({ term, onClose, onSelectChapter, onSelectTerm
             </h4>
             <div className="space-y-1.5">
               {relatedCases.map((c) => (
-                <div key={c.id} className="p-2.5 rounded-lg bg-stone-50 border border-stone-200/60 text-xs">
-                  <div className="font-medium text-stone-800">{c.title}</div>
+                <button
+                  key={c.id}
+                  onClick={() => { if (onSelectCase) { onClose(); onSelectCase(c.id); } }}
+                  disabled={!onSelectCase}
+                  className={`w-full text-left p-2.5 rounded-lg bg-stone-50 border border-stone-200/60 text-xs transition-all group ${
+                    onSelectCase ? 'hover:bg-amber-50/80 hover:border-[#C0392B]/30 cursor-pointer' : ''
+                  }`}
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-medium text-stone-800 group-hover:text-[#C0392B]">{c.title}</span>
+                    {onSelectCase && <ExternalLink className="w-3.5 h-3.5 text-stone-400 group-hover:text-[#C0392B] shrink-0" />}
+                  </div>
                   <div className="text-stone-500 mt-0.5 line-clamp-2">{c.summary}</div>
-                </div>
+                </button>
               ))}
             </div>
           </div>

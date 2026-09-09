@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
-import { X, BookOpen, ScrollText, AlertTriangle, ChevronDown, ChevronUp } from 'lucide-react';
+import { X, BookOpen, ScrollText, AlertTriangle, ChevronDown, ChevronUp, Copy, Check } from 'lucide-react';
 import PaipanCardLayout from '../../components/common/PaipanCardLayout';
 import { getRelatedTermsForCase } from '../../lib/caseService';
+import { formatCaseText } from '../../lib/boardTextExport';
+import { copyTextToClipboard } from '../../lib/clipboard';
 
 export default function CaseDetailModal({ caseItem, onClose, onSelectTerm, onSelectChapter }) {
   const [isDiagramOpen, setIsDiagramOpen] = useState(false);
+  const [copyState, setCopyState] = useState('idle'); // idle | done | failed
   if (!caseItem) return null;
+
+  const handleCopy = async () => {
+    const ok = await copyTextToClipboard(formatCaseText(caseItem));
+    setCopyState(ok ? 'done' : 'failed');
+    setTimeout(() => setCopyState('idle'), 2000);
+  };
 
   const relatedTerms = getRelatedTermsForCase(caseItem);
   const verified = caseItem.tags?.verified;
@@ -40,12 +49,28 @@ export default function CaseDetailModal({ caseItem, onClose, onSelectTerm, onSel
               </button>
             )}
           </div>
-          <button
-            onClick={onClose}
-            className="p-1.5 text-stone-400 hover:text-stone-700 hover:bg-stone-100 rounded-lg transition-colors shrink-0"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-1.5 shrink-0">
+            <button
+              onClick={handleCopy}
+              title="复制原文与盘面（纯文本，便于粘给其他 AI 追问）"
+              className={`flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium rounded-lg border transition-colors cursor-pointer ${
+                copyState === 'done'
+                  ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                  : copyState === 'failed'
+                    ? 'bg-red-50 text-red-700 border-red-200'
+                    : 'bg-stone-50 text-stone-600 border-stone-200 hover:bg-stone-100 hover:text-stone-900'
+              }`}
+            >
+              {copyState === 'done' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+              {copyState === 'done' ? '已复制' : copyState === 'failed' ? '复制失败' : '复制'}
+            </button>
+            <button
+              onClick={onClose}
+              className="p-1.5 text-stone-400 hover:text-stone-700 hover:bg-stone-100 rounded-lg transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
         <div className="p-6 md:p-8 pt-5 space-y-5">
@@ -90,7 +115,12 @@ export default function CaseDetailModal({ caseItem, onClose, onSelectTerm, onSel
           </div>
 
           {/* 盘面卡片 */}
-          <PaipanCardLayout board={caseItem.board} collapsibleConclusion defaultConclusionOpen />
+          <PaipanCardLayout
+            board={caseItem.board}
+            collapsibleConclusion
+            defaultConclusionOpen
+            yongShenFallback={caseItem.tags?.yongShen}
+          />
 
           {/* 小结与要点 */}
           <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/60 space-y-2">

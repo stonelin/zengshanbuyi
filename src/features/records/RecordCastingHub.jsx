@@ -43,6 +43,13 @@ export default function RecordCastingHub() {
 
   const effectiveEventType = isCustomEvent ? customEventType.trim() : eventType;
 
+  // 起卦时间对应的农历与年月日干支（月建按节气定，随输入框实时更新）
+  const castAtGanzhi = useMemo(() => {
+    const date = new Date(castAtValue);
+    if (Number.isNaN(date.getTime())) return null;
+    return resolveGanzhiFromDate(date);
+  }, [castAtValue]);
+
   const handleGenerate = () => {
     setFormError('');
     setSaveMessage('');
@@ -193,8 +200,19 @@ export default function RecordCastingHub() {
               type="datetime-local"
               value={castAtValue}
               onChange={(e) => setCastAtValue(e.target.value)}
-              className="w-full px-3 py-1.5 text-sm border border-stone-200 rounded-lg bg-stone-50"
+              onClick={(e) => e.currentTarget.showPicker?.()}
+              className="w-full px-3 py-1.5 text-sm border border-stone-200 rounded-lg bg-stone-50 cursor-pointer"
             />
+            {castAtGanzhi && (
+              <div className="mt-1.5 px-2.5 py-1.5 rounded-lg bg-[#FBF9F5] border border-[#EAE6DC] text-[11px] text-stone-600 flex flex-wrap items-center gap-x-2 gap-y-1">
+                <span>农历 <strong className="text-stone-900 font-serif-sc">{castAtGanzhi.lunarDate}</strong></span>
+                <span className="text-stone-300">|</span>
+                <span>{castAtGanzhi.yearGanzhi}年</span>
+                <span>{castAtGanzhi.monthGanzhi}月</span>
+                <span>{castAtGanzhi.dayGanzhi}日</span>
+                <span className="text-stone-400">（月建 {castAtGanzhi.monthBranch}，按节气定）</span>
+              </div>
+            )}
           </div>
         </div>
 

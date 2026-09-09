@@ -13,6 +13,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('paipan');
   const [selectedChapterId, setSelectedChapterId] = useState('ch_001');
   const [activeTerm, setActiveTerm] = useState(null);
+  const [focusCaseId, setFocusCaseId] = useState(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   // 全局快捷键 ⌘K / Ctrl+K 监听
@@ -31,6 +32,13 @@ export default function App() {
   const handleSelectChapter = (chapterId) => {
     setSelectedChapterId(chapterId);
     setActiveTab('reader');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // 跳到实例库并直接打开该实例（术语浮窗"看例子"、其他模块引用实例时用）
+  const handleSelectCase = (caseId) => {
+    setFocusCaseId(caseId);
+    setActiveTab('cases');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -62,7 +70,12 @@ export default function App() {
         {activeTab === 'records' && <RecordCastingHub />}
 
         {activeTab === 'cases' && (
-          <CaseLibrary onSelectTerm={handleSelectTerm} onSelectChapter={handleSelectChapter} />
+          <CaseLibrary
+            onSelectTerm={handleSelectTerm}
+            onSelectChapter={handleSelectChapter}
+            focusCaseId={focusCaseId}
+            onFocusCaseConsumed={() => setFocusCaseId(null)}
+          />
         )}
 
         {activeTab === 'reader' && (
@@ -99,6 +112,7 @@ export default function App() {
         onClose={() => setActiveTerm(null)}
         onSelectChapter={handleSelectChapter}
         onSelectTerm={handleSelectTerm}
+        onSelectCase={handleSelectCase}
       />
 
       {/* 全局 Command Palette 搜索框 (⌘K) */}

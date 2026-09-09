@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Search, ChevronDown, ChevronUp, X, BookMarked } from 'lucide-react';
-import { getAllCases, getCaseFacets, filterCases } from '../../lib/caseService';
+import { getAllCases, getCaseById, getCaseFacets, filterCases } from '../../lib/caseService';
 import CaseDetailModal from './CaseDetailModal';
 
 const EMPTY_FILTERS = {
@@ -45,7 +45,7 @@ function FacetChips({ options, selected, onToggle }) {
   );
 }
 
-export default function CaseLibrary({ onSelectTerm, onSelectChapter }) {
+export default function CaseLibrary({ onSelectTerm, onSelectChapter, focusCaseId, onFocusCaseConsumed }) {
   const totalCount = useMemo(() => getAllCases().length, []);
   const facets = useMemo(() => getCaseFacets(), []);
   const [filters, setFilters] = useState(EMPTY_FILTERS);
@@ -54,7 +54,20 @@ export default function CaseLibrary({ onSelectTerm, onSelectChapter }) {
   const [isFilterOpen, setIsFilterOpen] = useState(true);
 
   const results = useMemo(() => filterCases(filters, query), [filters, query]);
-  const activeCase = useMemo(() => results.find(c => c.id === activeCaseId) || null, [results, activeCaseId]);
+  // 目标实例可能不在当前筛选结果内（如从术语浮窗"看例子"跳进来），故按 id 兜底取全库
+  const activeCase = useMemo(
+    () => results.find(c => c.id === activeCaseId) || (activeCaseId ? getCaseById(activeCaseId) : null),
+    [results, activeCaseId]
+  );
+
+  // 外部指定要打开的实例：清掉筛选与搜索词，直接展开该实例详情
+  useEffect(() => {
+    if (!focusCaseId) return;
+    setFilters(EMPTY_FILTERS);
+    setQuery('');
+    setActiveCaseId(focusCaseId);
+    if (onFocusCaseConsumed) onFocusCaseConsumed();
+  }, [focusCaseId, onFocusCaseConsumed]);
 
   const activeFilterCount = Object.values(filters).reduce((sum, arr) => sum + arr.length, 0);
 
