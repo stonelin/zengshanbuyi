@@ -14,8 +14,8 @@
 
 ## 1. 现在的进度
 
-- **已完成 336 条**（`src/data/cases_v2.json` 里有 336 条记录）。
-- 已完成的 ID：`case_002` 到 `case_292`（不含 `case_001`、`case_119`，
+- **已完成 355 条**（`src/data/cases_v2.json` 里有 355 条记录）。
+- 已完成的 ID：`case_002` 到 `case_307`（不含 `case_001`、`case_119`，
   两者理由见下方"已知缺口"），加上从边界识别问题里顺手捞回来的
   "bonus"案例（完整清单见 `scripts/test_engine.js` 的
   `MANUAL_BOARD_CASE_IDS`，凡是手工构造 board 的都在这个集合里）。
