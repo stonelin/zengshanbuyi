@@ -75,7 +75,7 @@ export default function CaseLibrary({ onSelectTerm, onSelectChapter }) {
           <BookMarked className="w-5 h-5 text-[#C0392B]" /> 实例库
         </h3>
         <p className="text-xs text-stone-500 mt-1">
-          共 {totalCount} 条已校对实例（全书 323 条，持续校对中），当前筛选命中 {results.length} 条——按出处、事类、取用、盘面四组标签筛选，点开看原文与盘面。
+          共 {totalCount} 条已校对实例（全书 323 条主案例已全部录入，另含书中散见的补充案例），当前筛选命中 {results.length} 条——按出处、事类、取用、盘面四组标签筛选，点开看原文与盘面。
         </p>
       </div>
 
