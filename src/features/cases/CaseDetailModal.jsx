@@ -1,17 +1,24 @@
-import React from 'react';
-import { X, BookOpen, ScrollText, AlertTriangle } from 'lucide-react';
+import React, { useState } from 'react';
+import { X, BookOpen, ScrollText, AlertTriangle, ChevronDown, ChevronUp } from 'lucide-react';
 import PaipanCardLayout from '../../components/common/PaipanCardLayout';
 import { getRelatedTermsForCase } from '../../lib/caseService';
 
 export default function CaseDetailModal({ caseItem, onClose, onSelectTerm, onSelectChapter }) {
+  const [isDiagramOpen, setIsDiagramOpen] = useState(false);
   if (!caseItem) return null;
 
   const relatedTerms = getRelatedTermsForCase(caseItem);
   const verified = caseItem.tags?.verified;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center p-4 pt-8 sm:pt-12 bg-stone-900/50 backdrop-blur-sm overflow-y-auto animate-in fade-in duration-200">
-      <div className="relative w-full max-w-3xl bg-white border border-[#EAE6DC] rounded-2xl shadow-2xl mb-8">
+    <div
+      className="fixed inset-0 z-50 flex items-start justify-center p-4 pt-8 sm:pt-12 bg-stone-900/50 backdrop-blur-sm overflow-y-auto animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-3xl bg-white border border-[#EAE6DC] rounded-2xl shadow-2xl mb-8"
+        onClick={(e) => e.stopPropagation()}
+      >
 
         {/* 顶部标题 */}
         <div className="sticky top-0 z-10 bg-white/95 backdrop-blur-sm border-b border-stone-100 px-6 md:px-8 py-4 rounded-t-2xl flex items-start justify-between gap-3">
@@ -53,9 +60,19 @@ export default function CaseDetailModal({ caseItem, onClose, onSelectTerm, onSel
           {/* 原文 */}
           <div className="space-y-3">
             {caseItem.originalText?.diagram && (
-              <div className="p-4 rounded-xl bg-[#FBF9F5] border border-[#EAE6DC]">
-                <div className="text-[11px] font-semibold text-stone-500 mb-1.5">【卦图】</div>
-                <pre className="text-xs text-stone-800 font-serif-sc leading-relaxed whitespace-pre-wrap">{caseItem.originalText.diagram}</pre>
+              <div className="rounded-xl bg-[#FBF9F5] border border-[#EAE6DC] overflow-hidden">
+                <button
+                  onClick={() => setIsDiagramOpen(prev => !prev)}
+                  className="w-full flex items-center justify-between px-4 py-2.5 text-left cursor-pointer hover:bg-stone-100/60 transition-colors"
+                >
+                  <span className="text-[11px] font-semibold text-stone-500">
+                    【原文卦图】（结构化盘面已在下方，此处仅供逐字校对）
+                  </span>
+                  {isDiagramOpen ? <ChevronUp className="w-3.5 h-3.5 text-stone-400" /> : <ChevronDown className="w-3.5 h-3.5 text-stone-400" />}
+                </button>
+                {isDiagramOpen && (
+                  <pre className="px-4 pb-4 text-xs text-stone-800 font-serif-sc leading-relaxed whitespace-pre-wrap">{caseItem.originalText.diagram}</pre>
+                )}
               </div>
             )}
             {caseItem.originalText?.verdict && (

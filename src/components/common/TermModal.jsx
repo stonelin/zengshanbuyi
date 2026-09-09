@@ -10,8 +10,14 @@ export default function TermModal({ term, onClose, onSelectChapter, onSelectTerm
   const relatedTerms = getRelatedTermsForTerm(term);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/50 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-white border border-[#EAE6DC] rounded-2xl shadow-2xl p-6 md:p-8">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/50 backdrop-blur-sm animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-white border border-[#EAE6DC] rounded-2xl shadow-2xl p-6 md:p-8"
+        onClick={(e) => e.stopPropagation()}
+      >
 
         {/* 顶部标题与分类 */}
         <div className="flex items-start justify-between border-b border-stone-100 pb-4">

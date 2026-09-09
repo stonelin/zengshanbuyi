@@ -59,3 +59,19 @@ export function getWuxingStyle(elementOrGanzhi) {
     : getWuxingForGanzhi(elementOrGanzhi);
   return WUXING_COLOR_MAP[wuxing] || WUXING_COLOR_MAP['木'];
 }
+
+// 旺相休囚死配色：旺/相为吉色（偏绿），休/囚/死依次转暖到警示色，平为中性灰。
+// 只取 getWangXiangStatus() 返回字符串的首字判断，格式固定为 "旺 (同我为旺)" 这类。
+export const WANGSHUAI_COLOR_MAP = {
+  '旺': 'text-emerald-700 font-bold',
+  '相': 'text-teal-600 font-semibold',
+  '休': 'text-amber-600',
+  '囚': 'text-orange-600',
+  '死': 'text-red-600',
+  '平': 'text-stone-500'
+};
+
+export function getWangShuaiStyle(wangShuai) {
+  const key = wangShuai ? wangShuai[0] : '平';
+  return WANGSHUAI_COLOR_MAP[key] || WANGSHUAI_COLOR_MAP['平'];
+}

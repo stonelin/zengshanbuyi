@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { getWuxingStyle } from '../../lib/wuxingHelper';
+import { getWuxingStyle, getWangShuaiStyle } from '../../lib/wuxingHelper';
 import YaoLine from './YaoLine';
 
 const TAG_STYLES = {
@@ -34,12 +34,15 @@ export default function PaipanCardLayout({
             <h3 className="text-xl font-bold font-serif-sc text-[#1F2421] flex items-center gap-2">
               <span>{board.benGua.full_name}</span>
               <span className="text-xs px-2.5 py-0.5 rounded-md bg-stone-200 text-stone-700 font-sans font-normal">
-                {board.benGua.palace} · {board.benGua.generation}
+                {board.benGua.palace}（{board.benGua.palaceElement}）· {board.benGua.generation}
               </span>
               {board.bianGua && (
                 <>
                   <span className="text-stone-400 text-sm">之</span>
                   <span className="text-[#C0392B]">{board.bianGua.full_name}</span>
+                  <span className="text-xs px-2.5 py-0.5 rounded-md bg-red-50 text-[#C0392B] font-sans font-normal border border-red-100">
+                    {board.bianGua.palace}（{board.bianGua.palaceElement}）
+                  </span>
                 </>
               )}
             </h3>
@@ -125,7 +128,7 @@ export default function PaipanCardLayout({
                     {yao.relative}
                   </span>
                   <span className={`text-xs px-1.5 py-0.5 rounded border font-mono font-semibold ${wuxingStyle.badge}`}>
-                    {yao.ganzhi}
+                    {yao.ganzhi}{yao.element}
                   </span>
                   {yao.isShi && (
                     <span className="px-1.5 py-0.5 text-[10px] font-bold rounded bg-[#C0392B] text-white">世</span>
@@ -144,7 +147,7 @@ export default function PaipanCardLayout({
                     <>
                       <span className="text-[#C0392B] font-bold">➯</span>
                       <YaoLine yinYang={yao.bianYao.yinYang} size="sm" compact />
-                      <span className="font-medium text-stone-800">{yao.bianYao.relative}{yao.bianYao.branch}</span>
+                      <span className="font-medium text-stone-800">{yao.bianYao.relative}{yao.bianYao.branch}{yao.bianYao.element}</span>
                       {yao.bianYao.dynamicTrend && yao.bianYao.dynamicTrend !== '变爻' && (
                         <span className="text-[10px] px-1 py-0.5 rounded bg-red-100 text-[#C0392B] font-bold">
                           {yao.bianYao.dynamicTrend}
@@ -170,7 +173,7 @@ export default function PaipanCardLayout({
 
               {/* 该爻旺衰与状态标签条 */}
               <div className="mt-1.5 pl-[calc(16.66%+16.66%)] flex flex-wrap items-center gap-1">
-                <span className="text-[10px] text-stone-500">{yao.wangShuai}</span>
+                <span className={`text-[10px] ${getWangShuaiStyle(yao.wangShuai)}`}>{yao.wangShuai}</span>
                 {yao.tags.map((t, idx) => (
                   <span
                     key={idx}
