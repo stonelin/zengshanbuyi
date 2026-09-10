@@ -44,6 +44,11 @@ graph TD
   目录归属运行 rsync 的用户所有（首次部署时手动
   `sudo mkdir -p <REMOTE_PATH> && sudo chown <user>:<user> <REMOTE_PATH>`
   建好，之后 rsync 不再需要 sudo）。
+- **GitHub Pages（备用/主站点二选一）**：`.github/workflows/pages.yml` 在推送
+  master 时跑同一套回归测试并构建，发布到 Pages；`public/CNAME` 指定自定义
+  域名，故构建走根路径，不需要 `--base`。同一域名的 DNS 只能指向一处——
+  指向 Pages 时，rsync 到自建 nginx 的那份站点就不再从该域名可达（文件仍在，
+  可用另一个子域名或 IP 访问）。两条发布路径的构建产物完全一致。
 - **不支持的能力**：多设备同步（卦例记录只在起卦那台浏览器里）、自动
   备份（内容是静态构建产物，源头在 git，服务器上没有需要单独备份的
   用户数据）。如果以后要做账号系统/多端同步，才需要真正用到第 1、2 节
