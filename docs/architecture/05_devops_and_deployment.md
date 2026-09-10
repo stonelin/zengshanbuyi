@@ -10,18 +10,26 @@ localStorage 落地。第 1、2 节描述的 Docker + PostgreSQL 拓扑是最初
 
 ```mermaid
 graph TD
-    User([浏览器]) -->|HTTP:80| Nginx["Nginx (yi.example.com)"]
+    User([浏览器]) -->|HTTP:80| Nginx["Nginx (SITE_URL)"]
     Nginx --> Static["REMOTE_PATH (vite build 产物)"]
 ```
 
-- **服务器**：`REMOTE_HOST`（`~/.ssh/config` 里的别名），Ubuntu 22.04，已跑着
-  其他几个站点（`liangyi.example.com`、`liuyao.example.com` 等），本项目
-  与它们共用同一台 nginx，互不影响。
-- **nginx 配置**：`/etc/nginx/conf.d/yi.conf`（服务器上，未纳入本仓库版
-  本控制），`listen 80`，`server_name yi.example.com`，`root REMOTE_PATH`，
-  SPA 路由用 `try_files $uri $uri/ /index.html` 回退，静态资源 30 天缓存，
-  开 gzip。写法照抄同服务器上 `liangyi.conf` 的既有约定。只监听 80，
-  暂未配 HTTPS（按需再加 certbot/Caddy）。
+- **部署参数**：主机、路径、站点地址都放在仓库根目录的 `.env`（不入库，
+  见 `.env.example` 模板），`Makefile` 用 `-include .env` 读取：
+
+  ```
+  REMOTE=<ssh 目标：~/.ssh/config 里的主机别名，或 user@host>
+  REMOTE_PATH=<远程站点根目录>
+  SITE_URL=<站点地址，仅用于发布后打印>
+  ```
+
+- **服务器**：一台 Ubuntu 22.04 VPS，已跑着其他几个静态站点，本项目与
+  它们共用同一台 nginx，互不影响。
+- **nginx 配置**：`/etc/nginx/conf.d/<站点>.conf`（服务器上，未纳入本仓库
+  版本控制），`listen 80`，`server_name` 与 `root` 对应 `SITE_URL` 与
+  `REMOTE_PATH`，SPA 路由用 `try_files $uri $uri/ /index.html` 回退，
+  静态资源 30 天缓存，开 gzip。只监听 80，暂未配 HTTPS（按需再加
+  certbot/Caddy）。
 - **发布流程**：本地 `npm run build` 出 `dist/`，`rsync --delete` 全量
   同步到远程 `REMOTE_PATH/`，nginx 直接托管，不需要 reload（内容变了但
   server 配置没变）。已封装成 `Makefile`：
@@ -32,9 +40,9 @@ graph TD
   make test     # 只跑 scripts/test_engine.js 回归测试
   ```
 
-  依赖 `~/.ssh/config` 里已配置的 `REMOTE_HOST` 别名（含免密登录），以及远程
-  `REMOTE_PATH` 目录归属运行 rsync 的用户所有（首次部署时手动
-  `sudo mkdir -p REMOTE_PATH && sudo chown <user>:<user> REMOTE_PATH`
+  依赖 `.env` 里配置的 `REMOTE`（免密登录已配好），以及远程 `REMOTE_PATH`
+  目录归属运行 rsync 的用户所有（首次部署时手动
+  `sudo mkdir -p <REMOTE_PATH> && sudo chown <user>:<user> <REMOTE_PATH>`
   建好，之后 rsync 不再需要 sudo）。
 - **不支持的能力**：多设备同步（卦例记录只在起卦那台浏览器里）、自动
   备份（内容是静态构建产物，源头在 git，服务器上没有需要单独备份的
