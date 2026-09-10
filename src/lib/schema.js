@@ -225,7 +225,8 @@ export const caseSchema = z.object({
 
 export const recordSchema = z.object({
   id: z.string(),
-  createdAt: z.string(), // ISO 时间戳
+  createdAt: z.string(), // ISO 时间戳（保存时刻）
+  castAt: z.string().optional(), // 起卦时间（可回填历史时间，旧记录没有此字段）
   eventType: z.string(), // 占问事类，必填
   question: z.string().optional(), // 具体问题
   board: boardSchema, // 引擎生成的结构化盘面

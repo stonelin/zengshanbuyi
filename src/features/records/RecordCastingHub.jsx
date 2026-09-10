@@ -1,14 +1,35 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { assemblePaipanBoard, resolveLineFromBackCount, resolveYongShen } from '../../lib/paipanEngine';
+import { assemblePaipanBoard, resolveLineFromBackCount, resolveYongShen, WORLD_LINE_EVENTS } from '../../lib/paipanEngine';
 import { resolveGanzhiFromDate } from '../../lib/ganzhiCalendar';
 import { createRecord, loadRecords, saveRecord, updateRecord, deleteRecord, matchCasesForRecord } from '../../lib/recordService';
 import { castInputSchema, CASE_EVENT_TYPES } from '../../lib/schema';
 import PaipanCardLayout from '../../components/common/PaipanCardLayout';
 import YaoLine from '../../components/common/YaoLine';
 import casesData from '../../data/cases_v2.json';
-import { Dices, Save, ChevronDown, ChevronUp, Trash2 } from 'lucide-react';
+import { formatRecordText } from '../../lib/boardTextExport';
+import { copyTextToClipboard } from '../../lib/clipboard';
+import { Dices, Save, ChevronDown, ChevronUp, Trash2, Copy, Check, ExternalLink } from 'lucide-react';
+
+// 记录列表里展示用：起卦时间优先，旧记录回退到保存时间
+function formatCastTime(record) {
+  const raw = record.castAt || record.createdAt;
+  const date = raw ? new Date(raw) : null;
+  if (!date || Number.isNaN(date.getTime())) return '';
+  return date.toLocaleString('zh-CN', { hour12: false, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+}
+
+// 以世爻为用的事类（如出行）没有固定六亲用神，盘面用神位显示"以世爻为用"
+function yongShenFallbackFor(eventType, tags) {
+  return tags?.yongShen || (WORLD_LINE_EVENTS.includes(eventType) ? '世爻' : null);
+}
 
 const YAO_LABELS = ['初爻', '二爻', '三爻', '四爻', '五爻', '上爻'];
+const MATCH_PREVIEW_LIMIT = 6;
+const MATCH_GROUPS = [
+  { key: 'sameKeyPoint', label: '同要点' },
+  { key: 'sameEventAndStatus', label: '同事类 + 同用神状态' },
+  { key: 'samePatterns', label: '同格局' }
+];
 const BACK_COUNT_OPTIONS = [
   { value: 0, label: '0 背（老阴 ✕ 动）' },
   { value: 1, label: '1 背（少阳 静）' },
@@ -21,7 +42,7 @@ function toDatetimeLocalValue(date) {
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
 }
 
-export default function RecordCastingHub() {
+export default function RecordCastingHub({ onSelectCase }) {
   const [eventType, setEventType] = useState(CASE_EVENT_TYPES[0]);
   const [isCustomEvent, setIsCustomEvent] = useState(false);
   const [customEventType, setCustomEventType] = useState('');
@@ -35,6 +56,9 @@ export default function RecordCastingHub() {
 
   const [records, setRecords] = useState([]);
   const [expandedId, setExpandedId] = useState(null);
+  const [confirmDeleteId, setConfirmDeleteId] = useState(null); // 删除二次确认
+  const [editSavedId, setEditSavedId] = useState(null); // 回填保存反馈
+  const [copiedId, setCopiedId] = useState(null); // 复制反馈：'preview' 或 record.id
   const [editBuffers, setEditBuffers] = useState({}); // id -> { actualOutcome, reflection }
 
   useEffect(() => {
@@ -110,7 +134,8 @@ export default function RecordCastingHub() {
       question: preview.question,
       board: preview.board,
       resolution: preview.resolution,
-      myJudgment
+      myJudgment,
+      castAt: new Date(castAtValue).toISOString()
     });
     const next = saveRecord(record);
     setRecords(next);
@@ -145,6 +170,35 @@ export default function RecordCastingHub() {
       reflection: buf.reflection || undefined
     });
     setRecords(next);
+    setEditSavedId(record.id);
+    setTimeout(() => setEditSavedId(prev => (prev === record.id ? null : prev)), 2000);
+  };
+
+  const handleCopyRecord = async (record) => {
+    const ok = await copyTextToClipboard(
+      formatRecordText(record, yongShenFallbackFor(record.eventType, record.tags))
+    );
+    if (!ok) return;
+    setCopiedId(record.id);
+    setTimeout(() => setCopiedId(prev => (prev === record.id ? null : prev)), 2000);
+  };
+
+  const handleCopyPreview = async () => {
+    if (!preview) return;
+    const draft = {
+      eventType: preview.eventType,
+      question: preview.question,
+      board: preview.board,
+      castAt: new Date(castAtValue).toISOString(),
+      myJudgment,
+      tags: { yongShen: preview.resolution.key || undefined }
+    };
+    const ok = await copyTextToClipboard(
+      formatRecordText(draft, yongShenFallbackFor(preview.eventType, draft.tags))
+    );
+    if (!ok) return;
+    setCopiedId('preview');
+    setTimeout(() => setCopiedId(prev => (prev === 'preview' ? null : prev)), 2000);
   };
 
   return (
@@ -259,7 +313,25 @@ export default function RecordCastingHub() {
       {/* 排盘结果预览 + 存档 */}
       {preview && (
         <div className="space-y-3">
-          <PaipanCardLayout board={preview.board} />
+          <div className="flex justify-end">
+            <button
+              onClick={handleCopyPreview}
+              className={`flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium rounded-lg border transition-colors cursor-pointer ${
+                copiedId === 'preview'
+                  ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                  : 'bg-white text-stone-600 border-stone-200 hover:bg-stone-100 hover:text-stone-900'
+              }`}
+              title="复制盘面与判断（纯文本，便于粘给其他 AI 追问）"
+            >
+              {copiedId === 'preview' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+              {copiedId === 'preview' ? '已复制' : '复制盘面'}
+            </button>
+          </div>
+
+          <PaipanCardLayout
+            board={preview.board}
+            yongShenFallback={yongShenFallbackFor(preview.eventType, { yongShen: preview.resolution.key })}
+          />
 
           {preview.resolution.note && (
             <div className="px-4 py-2.5 rounded-xl bg-amber-50/70 border border-amber-200/60 text-xs text-amber-900">
@@ -268,11 +340,34 @@ export default function RecordCastingHub() {
           )}
 
           {hasAnyMatch && (
-            <div className="bg-white border border-[#EAE6DC] rounded-2xl p-4 space-y-2">
+            <div className="bg-white border border-[#EAE6DC] rounded-2xl p-4 space-y-3">
               <h4 className="text-xs font-bold text-stone-700">按标签匹配的书中实例</h4>
-              {previewMatches.sameKeyPoint.length > 0 && <p className="text-xs text-stone-600">同要点：{previewMatches.sameKeyPoint.length} 条</p>}
-              {previewMatches.sameEventAndStatus.length > 0 && <p className="text-xs text-stone-600">同事类+同用神状态：{previewMatches.sameEventAndStatus.length} 条</p>}
-              {previewMatches.samePatterns.length > 0 && <p className="text-xs text-stone-600">同格局：{previewMatches.samePatterns.length} 条</p>}
+              {MATCH_GROUPS.map(group => {
+                const list = previewMatches[group.key];
+                if (!list?.length) return null;
+                return (
+                  <div key={group.key} className="space-y-1.5">
+                    <div className="text-[11px] text-stone-500">{group.label}：{list.length} 条{list.length > MATCH_PREVIEW_LIMIT ? `（列出前 ${MATCH_PREVIEW_LIMIT} 条）` : ''}</div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                      {list.slice(0, MATCH_PREVIEW_LIMIT).map(c => (
+                        <button
+                          key={c.id}
+                          onClick={() => onSelectCase && onSelectCase(c.id)}
+                          disabled={!onSelectCase}
+                          className={`text-left px-2.5 py-1.5 rounded-lg bg-stone-50 border border-stone-200/60 text-xs transition-all group ${
+                            onSelectCase ? 'hover:bg-amber-50/80 hover:border-[#C0392B]/30 cursor-pointer' : ''
+                          }`}
+                        >
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="font-medium text-stone-800 group-hover:text-[#C0392B] truncate">{c.title}</span>
+                            {onSelectCase && <ExternalLink className="w-3 h-3 text-stone-400 group-hover:text-[#C0392B] shrink-0" />}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           )}
 
@@ -317,14 +412,33 @@ export default function RecordCastingHub() {
                       {r.board.benGua.full_name}{r.board.bianGua ? ` 之 ${r.board.bianGua.full_name}` : ''}
                       <span className="ml-2 text-xs text-stone-400 font-normal">{r.eventType}</span>
                     </div>
-                    <div className="text-xs text-stone-500 truncate">{r.question || r.board.dateGanzhi.day}</div>
+                    <div className="text-xs text-stone-500 truncate">
+                      <span className="font-mono">{formatCastTime(r)}</span>
+                      <span className="mx-1.5 text-stone-300">·</span>
+                      <span>{r.board.dateGanzhi.month} {r.board.dateGanzhi.day}日</span>
+                      {r.question && <><span className="mx-1.5 text-stone-300">·</span>{r.question}</>}
+                    </div>
                   </div>
                   {expandedId === r.id ? <ChevronUp className="w-4 h-4 text-stone-400 shrink-0" /> : <ChevronDown className="w-4 h-4 text-stone-400 shrink-0" />}
                 </button>
 
                 {expandedId === r.id && (
                   <div className="px-5 pb-5 space-y-3">
-                    <PaipanCardLayout board={r.board} />
+                    <div className="flex justify-end">
+                      <button
+                        onClick={() => handleCopyRecord(r)}
+                        className={`flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium rounded-lg border transition-colors cursor-pointer ${
+                          copiedId === r.id
+                            ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                            : 'bg-white text-stone-600 border-stone-200 hover:bg-stone-100 hover:text-stone-900'
+                        }`}
+                        title="复制这条卦例（纯文本，便于粘给其他 AI 追问）"
+                      >
+                        {copiedId === r.id ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                        {copiedId === r.id ? '已复制' : '复制卦例'}
+                      </button>
+                    </div>
+                    <PaipanCardLayout board={r.board} yongShenFallback={yongShenFallbackFor(r.eventType, r.tags)} />
                     {r.myJudgment && (
                       <p className="text-xs text-stone-600"><strong className="text-stone-800">我的判断：</strong>{r.myJudgment}</p>
                     )}
@@ -353,15 +467,37 @@ export default function RecordCastingHub() {
                       >
                         <Save className="w-3.5 h-3.5" /> 保存
                       </button>
-                      <button
-                        onClick={() => {
-                          setRecords(deleteRecord(r.id));
-                          setExpandedId(null);
-                        }}
-                        className="px-3 py-1.5 rounded-lg font-medium text-xs text-red-600 hover:bg-red-50 flex items-center gap-1.5 cursor-pointer"
-                      >
-                        <Trash2 className="w-3.5 h-3.5" /> 删除
-                      </button>
+                      {editSavedId === r.id && <span className="text-xs text-emerald-700">已保存</span>}
+
+                      {/* 删除需点两次确认：卦例存在本地，删掉找不回 */}
+                      {confirmDeleteId === r.id ? (
+                        <span className="flex items-center gap-2 text-xs">
+                          <span className="text-red-700">确定删除这条卦例？</span>
+                          <button
+                            onClick={() => {
+                              setRecords(deleteRecord(r.id));
+                              setConfirmDeleteId(null);
+                              setExpandedId(null);
+                            }}
+                            className="px-3 py-1.5 rounded-lg font-bold text-xs bg-red-600 hover:bg-red-700 text-white cursor-pointer"
+                          >
+                            确认删除
+                          </button>
+                          <button
+                            onClick={() => setConfirmDeleteId(null)}
+                            className="px-2 py-1.5 rounded-lg font-medium text-xs text-stone-500 hover:bg-stone-100 cursor-pointer"
+                          >
+                            取消
+                          </button>
+                        </span>
+                      ) : (
+                        <button
+                          onClick={() => setConfirmDeleteId(r.id)}
+                          className="px-3 py-1.5 rounded-lg font-medium text-xs text-red-600 hover:bg-red-50 flex items-center gap-1.5 cursor-pointer"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" /> 删除
+                        </button>
+                      )}
                     </div>
                   </div>
                 )}

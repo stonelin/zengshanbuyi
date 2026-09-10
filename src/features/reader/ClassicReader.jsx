@@ -1,6 +1,9 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import chaptersData from '../../data/chapters.json';
 import { CORE_TERM_NAMES } from '../../lib/termService';
+import { getAllCases } from '../../lib/caseService';
+import { formatChapterText } from '../../lib/boardTextExport';
+import { copyTextToClipboard } from '../../lib/clipboard';
 import {
   BookOpen,
   Search,
@@ -11,16 +14,21 @@ import {
   Flame,
   Bookmark,
   Scroll,
-  Compass
+  Compass,
+  Copy,
+  Check,
+  ExternalLink
 } from 'lucide-react';
 
 export default function ClassicReader({
   selectedChapterId,
   onSelectChapter,
-  onSelectConcept
+  onSelectConcept,
+  onSelectCase
 }) {
   const [chapterSearch, setChapterSearch] = useState('');
   const [selectedVolumeFilter, setSelectedVolumeFilter] = useState('ALL');
+  const [copyState, setCopyState] = useState('idle'); // idle | done | failed
 
   // 当前选中的章节对象
   const currentChapter = useMemo(() => {
@@ -42,6 +50,18 @@ export default function ClassicReader({
     });
   }, [selectedVolumeFilter, chapterSearch]);
 
+  // 本章关联实例（实例数据里带 chapterId）
+  const chapterCases = useMemo(
+    () => getAllCases().filter(c => c.chapterId && c.chapterId === currentChapter.id),
+    [currentChapter]
+  );
+
+  const handleCopyChapter = async () => {
+    const ok = await copyTextToClipboard(formatChapterText(currentChapter));
+    setCopyState(ok ? 'done' : 'failed');
+    setTimeout(() => setCopyState('idle'), 2000);
+  };
+
   // 渲染带有概念穿透高亮的正文 (按长度降序排列，优先匹配较长术语)
   const sortedConceptNames = useMemo(() => {
     return [...CORE_TERM_NAMES].sort((a, b) => b.length - a.length);
@@ -52,13 +72,19 @@ export default function ClassicReader({
     return new RegExp(`(${escaped.join('|')})`, 'g');
   }, [sortedConceptNames]);
 
+  // 同一术语每章只在首次出现处高亮：整章逐处标红会让正文难以通读。
+  // 在每次渲染开始时清空，按 JSX 渲染顺序（要旨 → 正文）依次判定。
+  const highlightedTermsRef = useRef(new Set());
+  highlightedTermsRef.current = new Set();
+
   const renderHighlightedText = (text) => {
     if (!text) return null;
 
     const parts = text.split(conceptRegex);
 
     return parts.map((part, i) => {
-      if (CORE_TERM_NAMES.includes(part)) {
+      if (CORE_TERM_NAMES.includes(part) && !highlightedTermsRef.current.has(part)) {
+        highlightedTermsRef.current.add(part);
         return (
           <button
             key={i}
@@ -182,9 +208,25 @@ export default function ClassicReader({
               </h2>
             </div>
 
-            <div className="hidden sm:flex flex-col items-center justify-center p-2 rounded-xl border border-red-200 bg-red-50/50 text-[#C0392B] select-none">
-              <span className="text-[10px] font-serif-sc font-bold">野鹤定本</span>
-              <span className="text-[9px] text-red-700/70 font-mono">李文辉序</span>
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                onClick={handleCopyChapter}
+                title="复制本章原文与导读（纯文本，便于粘给其他 AI 追问）"
+                className={`flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium rounded-lg border transition-colors cursor-pointer ${
+                  copyState === 'done'
+                    ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                    : copyState === 'failed'
+                      ? 'bg-red-50 text-red-700 border-red-200'
+                      : 'bg-stone-50 text-stone-600 border-stone-200 hover:bg-stone-100 hover:text-stone-900'
+                }`}
+              >
+                {copyState === 'done' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                {copyState === 'done' ? '已复制' : copyState === 'failed' ? '复制失败' : '复制本章'}
+              </button>
+              <div className="hidden sm:flex flex-col items-center justify-center p-2 rounded-xl border border-red-200 bg-red-50/50 text-[#C0392B] select-none">
+                <span className="text-[10px] font-serif-sc font-bold">野鹤定本</span>
+                <span className="text-[9px] text-red-700/70 font-mono">李文辉序</span>
+              </div>
             </div>
           </div>
 
@@ -213,6 +255,33 @@ export default function ClassicReader({
                     <span className="text-[#C0392B] font-bold mt-0.5">•</span>
                     <span className="leading-relaxed">{renderHighlightedText(kp)}</span>
                   </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* 本章实例：与实例库互为反向入口 */}
+          {chapterCases.length > 0 && (
+            <div>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2.5 flex items-center gap-1.5">
+                <Bookmark className="w-3.5 h-3.5" /> 本章实例（{chapterCases.length}）
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {chapterCases.map(c => (
+                  <button
+                    key={c.id}
+                    onClick={() => onSelectCase && onSelectCase(c.id)}
+                    disabled={!onSelectCase}
+                    className={`text-left p-2.5 rounded-xl bg-stone-50 border border-stone-200/60 text-xs transition-all group ${
+                      onSelectCase ? 'hover:bg-amber-50/80 hover:border-[#C0392B]/30 cursor-pointer' : ''
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-medium text-stone-800 group-hover:text-[#C0392B] truncate">{c.title}</span>
+                      {onSelectCase && <ExternalLink className="w-3.5 h-3.5 text-stone-400 group-hover:text-[#C0392B] shrink-0" />}
+                    </div>
+                    <div className="text-stone-500 mt-0.5 line-clamp-2">{c.summary}</div>
+                  </button>
                 ))}
               </div>
             </div>

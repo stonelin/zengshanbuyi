@@ -3,6 +3,8 @@ import { Search, ChevronDown, ChevronUp, X, BookMarked } from 'lucide-react';
 import { getAllCases, getCaseById, getCaseFacets, filterCases } from '../../lib/caseService';
 import CaseDetailModal from './CaseDetailModal';
 
+const PAGE_SIZE = 60;
+
 const EMPTY_FILTERS = {
   chapterTitle: [],
   eventType: [],
@@ -51,9 +53,14 @@ export default function CaseLibrary({ onSelectTerm, onSelectChapter, focusCaseId
   const [filters, setFilters] = useState(EMPTY_FILTERS);
   const [query, setQuery] = useState('');
   const [activeCaseId, setActiveCaseId] = useState(null);
-  const [isFilterOpen, setIsFilterOpen] = useState(true);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const results = useMemo(() => filterCases(filters, query), [filters, query]);
+  const visibleResults = useMemo(() => results.slice(0, visibleCount), [results, visibleCount]);
+
+  // 筛选或搜索变化后回到第一页
+  useEffect(() => { setVisibleCount(PAGE_SIZE); }, [filters, query]);
   // 目标实例可能不在当前筛选结果内（如从术语浮窗"看例子"跳进来），故按 id 兜底取全库
   const activeCase = useMemo(
     () => results.find(c => c.id === activeCaseId) || (activeCaseId ? getCaseById(activeCaseId) : null),
@@ -159,7 +166,7 @@ export default function CaseLibrary({ onSelectTerm, onSelectChapter, focusCaseId
         <div className="py-16 text-center text-stone-400 text-sm">未找到匹配的实例，换个筛选条件试试。</div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {results.map(c => (
+          {visibleResults.map(c => (
             <button
               key={c.id}
               onClick={() => setActiveCaseId(c.id)}
@@ -193,6 +200,17 @@ export default function CaseLibrary({ onSelectTerm, onSelectChapter, focusCaseId
               )}
             </button>
           ))}
+        </div>
+      )}
+
+      {visibleResults.length < results.length && (
+        <div className="flex justify-center">
+          <button
+            onClick={() => setVisibleCount(prev => prev + PAGE_SIZE)}
+            className="px-5 py-2 rounded-xl text-sm font-medium bg-white border border-[#EAE6DC] text-stone-700 hover:border-[#C0392B]/40 hover:text-[#C0392B] transition-colors cursor-pointer"
+          >
+            加载更多（已显示 {visibleResults.length} / {results.length} 条）
+          </button>
         </div>
       )}
 

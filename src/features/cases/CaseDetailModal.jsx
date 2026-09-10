@@ -148,7 +148,7 @@ export default function CaseDetailModal({ caseItem, onClose, onSelectTerm, onSel
                 {relatedTerms.map((t) => (
                   <button
                     key={t.id}
-                    onClick={() => onSelectTerm && onSelectTerm(t.id)}
+                    onClick={() => { if (onSelectTerm) { onClose(); onSelectTerm(t.id); } }}
                     className="px-3 py-1 rounded-lg text-xs bg-stone-100 hover:bg-[#C0392B]/10 hover:text-[#C0392B] border border-stone-200 text-stone-700 transition-colors cursor-pointer"
                   >
                     {t.name}

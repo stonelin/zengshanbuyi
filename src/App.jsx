@@ -67,7 +67,7 @@ export default function App() {
           />
         )}
 
-        {activeTab === 'records' && <RecordCastingHub />}
+        {activeTab === 'records' && <RecordCastingHub onSelectCase={handleSelectCase} />}
 
         {activeTab === 'cases' && (
           <CaseLibrary
@@ -83,6 +83,7 @@ export default function App() {
             selectedChapterId={selectedChapterId}
             onSelectChapter={handleSelectChapter}
             onSelectConcept={handleSelectTerm}
+            onSelectCase={handleSelectCase}
           />
         )}
 

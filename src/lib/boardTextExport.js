@@ -2,6 +2,7 @@
 // 输出为无 Markdown 修饰的等宽纯文本，字段名与站内展示口径一致。
 import { yaoPosName } from './patternExplain.js';
 import { RELATIVES } from './schema.js';
+import { resolveGanzhiFromDate } from './ganzhiCalendar.js';
 
 function yaoLineSymbol(yinYang, isMoving) {
   const body = yinYang === '阳' ? '▬▬▬▬' : '▬▬ ▬▬';
@@ -91,5 +92,39 @@ export function formatCaseText(caseItem) {
   if (tags.keyPoints?.length) blocks.push(`【要点】\n${tags.keyPoints.map(k => `· ${k}`).join('\n')}`);
   if (caseItem.disputed?.isDisputed) blocks.push(`【存疑】\n${caseItem.disputed.note || '与常规取法不一致，需留意。'}`);
 
+  return blocks.join('\n\n');
+}
+
+/** 我的卦例记录 → 纯文本：起卦时间与农历干支 + 结构化盘面 + 我的判断/应验/复盘 */
+export function formatRecordText(record, yongShenFallback = null) {
+  if (!record) return '';
+  const blocks = [];
+  const head = [`【我的卦例】${record.board?.benGua?.full_name || ''}${record.board?.bianGua ? ` 之 ${record.board.bianGua.full_name}` : ''}`];
+  head.push(`【事类】${record.eventType}`);
+  if (record.question) head.push(`【占问】${record.question}`);
+
+  const castAt = record.castAt || record.createdAt;
+  const castDate = castAt ? new Date(castAt) : null;
+  if (castDate && !Number.isNaN(castDate.getTime())) {
+    const ganzhi = resolveGanzhiFromDate(castDate);
+    head.push(`【起卦时间】${castDate.toLocaleString('zh-CN', { hour12: false })}`);
+    head.push(`【农历干支】${ganzhi.lunarDate}　${ganzhi.yearGanzhi}年 ${ganzhi.monthGanzhi}月 ${ganzhi.dayGanzhi}日`);
+  }
+  blocks.push(head.join('\n'));
+
+  if (record.board) blocks.push(`【结构化盘面】\n${formatBoardText(record.board, yongShenFallback ?? record.tags?.yongShen)}`);
+  if (record.myJudgment) blocks.push(`【我的判断（事前）】\n${record.myJudgment}`);
+  if (record.actualOutcome) blocks.push(`【应验结果】\n${record.actualOutcome}`);
+  if (record.reflection) blocks.push(`【复盘】\n${record.reflection}`);
+  return blocks.join('\n\n');
+}
+
+/** 典籍章节 → 纯文本：卷次、白话导读、研读要旨、古籍原文 */
+export function formatChapterText(chapter) {
+  if (!chapter) return '';
+  const blocks = [`【章节】${chapter.title}`, `【出处】《增删卜易》${chapter.volume}${chapter.category ? ` · ${chapter.category}` : ''}`];
+  if (chapter.summary) blocks.push(`【白话导读】\n${chapter.summary}`);
+  if (chapter.key_points?.length) blocks.push(`【研读要旨】\n${chapter.key_points.map(k => `· ${k}`).join('\n')}`);
+  if (chapter.full_text) blocks.push(`【古籍原文】\n${chapter.full_text}`);
   return blocks.join('\n\n');
 }

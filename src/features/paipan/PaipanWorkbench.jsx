@@ -5,7 +5,9 @@ import {
   ALL_HEXAGRAMS,
   HEAVENLY_STEMS,
   EARTHLY_BRANCHES,
-  findHexagramByName
+  BRANCH_WUXING,
+  findHexagramByName,
+  getMonthBrokenBranch
 } from '../../lib/paipanEngine';
 import YaoLine from '../../components/common/YaoLine';
 import PaipanCardLayout from '../../components/common/PaipanCardLayout';
@@ -44,19 +46,24 @@ export default function PaipanWorkbench({ onSelectConcept }) {
   // 选中的爻（用于生克显微镜）
   const [activeYaoIndex, setActiveYaoIndex] = useState(4);
 
-  // 初始化一次默认排盘
+  // 初始化一次默认排盘：直接由默认卦名装卦，保证下拉显示的卦与盘面一致
   useEffect(() => {
     if (coinSteps.length === 0) {
-      setCoinSteps([
-        { yinYang: '阴', isMoving: false },
-        { yinYang: '阴', isMoving: false },
-        { yinYang: '阴', isMoving: false },
-        { yinYang: '阳', isMoving: true }, // 四爻老阳动
-        { yinYang: '阴', isMoving: false },
-        { yinYang: '阳', isMoving: false }
-      ]);
+      const hex = findHexagramByName(selectedHexName);
+      if (hex) {
+        setCoinSteps(hex.lines.map((l, idx) => ({ yinYang: l.yin_yang, isMoving: manualMovingLines[idx] })));
+      }
     }
   }, []);
+
+  // 切到手动模式时若六爻不全（如刚重置过摇卦），按当前选中的卦名补齐
+  useEffect(() => {
+    if (activeMode !== 'manual' || coinSteps.length === 6) return;
+    const hex = findHexagramByName(selectedHexName);
+    if (hex) {
+      setCoinSteps(hex.lines.map((l, idx) => ({ yinYang: l.yin_yang, isMoving: manualMovingLines[idx] })));
+    }
+  }, [activeMode]);
 
   // 执行一次摇铜钱
   const handleTossCoin = () => {
@@ -91,28 +98,13 @@ export default function PaipanWorkbench({ onSelectConcept }) {
     setCoinSteps(newSteps);
   };
 
-  // 组装当前看板数据
-  const currentLines = coinSteps.length === 6 
-    ? coinSteps 
-    : [
-        { yinYang: '阴', isMoving: false },
-        { yinYang: '阴', isMoving: false },
-        { yinYang: '阴', isMoving: false },
-        { yinYang: '阳', isMoving: true },
-        { yinYang: '阴', isMoving: false },
-        { yinYang: '阳', isMoving: false }
-      ];
+  // 组装当前看板数据：六爻未装齐时不出盘（避免拿一个硬编码卦象冒充用户的卦）
+  const isBoardReady = coinSteps.length === 6;
+  const boardData = isBoardReady
+    ? assemblePaipanBoard({ rawLines: coinSteps, monthBranch, dayStem, dayBranch, question, yongShenKey })
+    : null;
 
-  const boardData = assemblePaipanBoard({
-    rawLines: currentLines,
-    monthBranch,
-    dayStem,
-    dayBranch,
-    question,
-    yongShenKey
-  });
-
-  const activeYao = boardData.yaos.find(y => y.index === activeYaoIndex) || boardData.yaos[0];
+  const activeYao = boardData ? (boardData.yaos.find(y => y.index === activeYaoIndex) || boardData.yaos[0]) : null;
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
@@ -311,45 +303,50 @@ export default function PaipanWorkbench({ onSelectConcept }) {
         </div>
       )}
 
-      {/* 模式 B：手动指定干支与卦象 */}
-      {activeMode === 'manual' && (
-        <div className="bg-white border border-[#EAE6DC] rounded-2xl p-5 shadow-sm space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            
-            {/* 月令选择 */}
-            <div>
-              <label className="block text-xs font-semibold text-stone-600 mb-1">月令 (月将):</label>
+      {/* 天时设定：两种起卦模式共用（摇卦同样要能定月建与日辰） */}
+      <div className="bg-white border border-[#EAE6DC] rounded-2xl p-5 shadow-sm">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* 月令选择：每个选项显示该月自身所冲之支 */}
+          <div>
+            <label className="block text-xs font-semibold text-stone-600 mb-1">月令 (月建):</label>
+            <select
+              value={monthBranch}
+              onChange={(e) => setMonthBranch(e.target.value)}
+              className="w-full px-3 py-1.5 text-sm border border-stone-200 rounded-lg bg-stone-50"
+            >
+              {EARTHLY_BRANCHES.map(b => (
+                <option key={b} value={b}>{b}月 (破{getMonthBrokenBranch(b)})</option>
+              ))}
+            </select>
+          </div>
+
+          {/* 日干支选择 */}
+          <div>
+            <label className="block text-xs font-semibold text-stone-600 mb-1">日辰干支:</label>
+            <div className="flex gap-2">
               <select
-                value={monthBranch}
-                onChange={(e) => setMonthBranch(e.target.value)}
-                className="w-full px-3 py-1.5 text-sm border border-stone-200 rounded-lg bg-stone-50"
+                value={dayStem}
+                onChange={(e) => setDayStem(e.target.value)}
+                className="w-1/2 px-2 py-1.5 text-sm border border-stone-200 rounded-lg bg-stone-50"
               >
-                {EARTHLY_BRANCHES.map(b => (
-                  <option key={b} value={b}>{b}月 (破{boardData.dateGanzhi.monthBroken})</option>
-                ))}
+                {HEAVENLY_STEMS.map(s => <option key={s} value={s}>{s}日</option>)}
+              </select>
+              <select
+                value={dayBranch}
+                onChange={(e) => setDayBranch(e.target.value)}
+                className="w-1/2 px-2 py-1.5 text-sm border border-stone-200 rounded-lg bg-stone-50"
+              >
+                {EARTHLY_BRANCHES.map(b => <option key={b} value={b}>{b}日</option>)}
               </select>
             </div>
+          </div>
+        </div>
+      </div>
 
-            {/* 日干支选择 */}
-            <div>
-              <label className="block text-xs font-semibold text-stone-600 mb-1">日辰干支:</label>
-              <div className="flex gap-2">
-                <select
-                  value={dayStem}
-                  onChange={(e) => setDayStem(e.target.value)}
-                  className="w-1/2 px-2 py-1.5 text-sm border border-stone-200 rounded-lg bg-stone-50"
-                >
-                  {HEAVENLY_STEMS.map(s => <option key={s} value={s}>{s}日</option>)}
-                </select>
-                <select
-                  value={dayBranch}
-                  onChange={(e) => setDayBranch(e.target.value)}
-                  className="w-1/2 px-2 py-1.5 text-sm border border-stone-200 rounded-lg bg-stone-50"
-                >
-                  {EARTHLY_BRANCHES.map(b => <option key={b} value={b}>{b}日</option>)}
-                </select>
-              </div>
-            </div>
+      {/* 模式 B：手动指定卦象 */}
+      {activeMode === 'manual' && (
+        <div className="bg-white border border-[#EAE6DC] rounded-2xl p-5 shadow-sm space-y-4">
+          <div className="grid grid-cols-1 gap-4">
 
             {/* 64卦快速选择 */}
             <div>
@@ -403,11 +400,20 @@ export default function PaipanWorkbench({ onSelectConcept }) {
         
         {/* 左侧/主栏：排盘大看板 (7 cols) */}
         <div className="lg:col-span-7 flex flex-col gap-2">
-          <PaipanCardLayout
-            board={boardData}
-            activeYaoIndex={activeYaoIndex}
-            onYaoClick={(yao) => setActiveYaoIndex(yao.index)}
-          />
+          {isBoardReady ? (
+            <PaipanCardLayout
+              board={boardData}
+              activeYaoIndex={activeYaoIndex}
+              onYaoClick={(yao) => setActiveYaoIndex(yao.index)}
+            />
+          ) : (
+            <div className="bg-white border border-dashed border-[#EAE6DC] rounded-2xl p-10 text-center">
+              <p className="text-sm font-bold font-serif-sc text-stone-700">尚未装齐六爻</p>
+              <p className="text-xs text-stone-500 mt-1.5">
+                已掷 {coinSteps.length} / 6 爻，摇满六爻后自动出盘；也可切到「指定干支与卦象」直接选卦。
+              </p>
+            </div>
+          )}
           <div className="px-1 flex items-center justify-between text-xs text-stone-500">
             <span>💡 提示：点击任意一行爻象，右侧将自动展开生克显微镜深度推演。</span>
             <span className="font-mono text-stone-400">八宫纳甲定本</span>
@@ -417,6 +423,12 @@ export default function PaipanWorkbench({ onSelectConcept }) {
         {/* 右侧：生克推演显微镜 (5 cols) */}
         <div className="lg:col-span-5 bg-white border border-[#EAE6DC] rounded-2xl shadow-sm p-6 flex flex-col justify-between">
           
+          {!activeYao ? (
+            <div className="py-12 text-center">
+              <p className="text-sm font-bold font-serif-sc text-stone-700">等待装卦</p>
+              <p className="text-xs text-stone-500 mt-1.5">六爻装齐后，这里会展开该爻的生克推演。</p>
+            </div>
+          ) : (
           <div>
             {/* 显微镜头部 */}
             <div className="flex items-center justify-between border-b border-stone-100 pb-3">
@@ -463,7 +475,7 @@ export default function PaipanWorkbench({ onSelectConcept }) {
                       ⚠️ 逢月破！与月建相冲，力量大伤。若休囚无气则为真空破，纵动也难当。
                     </span>
                   ) : (
-                    `月建为${boardData.dateGanzhi.monthBranch}木，对该爻五行${activeYao.element}具有生克主权。`
+                    `月建为${boardData.dateGanzhi.monthBranch}${BRANCH_WUXING[boardData.dateGanzhi.monthBranch]}，对该爻五行${activeYao.element}具有生克主权。`
                   )}
                 </p>
               </div>
@@ -520,6 +532,7 @@ export default function PaipanWorkbench({ onSelectConcept }) {
 
             </div>
           </div>
+          )}
 
           {/* 关联法则跳转 */}
           <div className="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between text-xs">

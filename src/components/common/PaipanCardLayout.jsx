@@ -122,7 +122,7 @@ export default function PaipanCardLayout({
             {board.patterns.map((p, idx) => {
               const detail = explainPattern(p, board);
               return (
-                <Tooltip key={idx} placement="bottom" content={detail ? <ExplainBody title={p} detail={detail} /> : null}>
+                <Tooltip key={idx} placement="bottom" align="start" content={detail ? <ExplainBody title={p} detail={detail} /> : null}>
                   <span
                     className={`px-2.5 py-1 rounded-full text-xs font-semibold bg-stone-100 text-stone-700 border border-stone-200 ${
                       detail ? 'cursor-help border-dashed hover:bg-stone-200' : ''
@@ -150,16 +150,24 @@ export default function PaipanCardLayout({
             <div
               key={yao.index}
               onClick={() => onYaoClick && onYaoClick(yao)}
-              className={`px-3 py-2 rounded-xl transition-all border flex items-start gap-2 sm:gap-3 ${onYaoClick ? 'cursor-pointer' : ''} ${
+              className={`relative overflow-hidden ${yao.isShi || yao.isYing ? 'pl-5' : 'pl-3'} pr-3 py-2 rounded-xl transition-all border flex items-start gap-2 sm:gap-3 ${onYaoClick ? 'cursor-pointer' : ''} ${
                 isSelected
                   ? 'bg-amber-50/80 border-amber-300 ring-2 ring-amber-400/40 shadow-xs'
                   : yao.isShi
-                    ? 'bg-[#C0392B]/[0.05] border-stone-200/60 border-l-4 border-l-[#C0392B] hover:bg-[#C0392B]/[0.09]'
+                    ? 'bg-[#C0392B]/[0.05] border-stone-200/60 hover:bg-[#C0392B]/[0.09]'
                     : yao.isYing
-                      ? 'bg-amber-500/[0.06] border-stone-200/60 border-l-4 border-l-amber-500 hover:bg-amber-500/[0.11]'
+                      ? 'bg-amber-500/[0.06] border-stone-200/60 hover:bg-amber-500/[0.11]'
                       : 'bg-stone-50/60 border-stone-200/60 hover:bg-stone-100/70'
               }`}
             >
+              {/* 世应标识竖条：与选中高亮并存 */}
+              {(yao.isShi || yao.isYing) && (
+                <span
+                  aria-hidden
+                  className={`absolute left-0 top-0 bottom-0 w-1 ${yao.isShi ? 'bg-[#C0392B]' : 'bg-amber-500'}`}
+                />
+              )}
+
               {/* 六神：固定窄列 */}
               <div className={`w-9 shrink-0 pt-0.5 text-[11px] font-semibold text-center leading-tight ${
                 yao.isShi ? 'text-[#C0392B]' : yao.isYing ? 'text-amber-700' : 'text-stone-500'
@@ -179,7 +187,7 @@ export default function PaipanCardLayout({
               )}
 
               {/* 主体：本卦爻象 + 变卦同排，旺衰标签自动对齐到爻象左缘 */}
-              <div className="flex-1 min-w-0 flex flex-col gap-1">
+              <div className="flex-1 min-w-0 max-w-[34rem] flex flex-col gap-1">
                 <div className="flex items-center gap-x-2 gap-y-1 flex-wrap">
                   <YaoLine yinYang={yao.yinYang} isMoving={yao.isMoving} size="md" />
                   <span className={`text-sm shrink-0 ${
@@ -230,7 +238,7 @@ export default function PaipanCardLayout({
 
                 {/* 该爻旺衰与状态标签条 */}
                 <div className="flex flex-wrap items-center gap-1">
-                  <Tooltip content={wsDetail ? <ExplainBody title={wsReason ? `${wsLabel}（${wsReason}）` : wsLabel} detail={wsDetail} /> : null}>
+                  <Tooltip align="start" content={wsDetail ? <ExplainBody title={wsReason ? `${wsLabel}（${wsReason}）` : wsLabel} detail={wsDetail} /> : null}>
                     <span className={`text-[11px] ${wsDetail ? 'cursor-help border-b border-dotted border-stone-300' : ''} ${getWangShuaiStyle(yao.wangShuai)}`}>
                       {wsLabel}
                     </span>
@@ -238,7 +246,7 @@ export default function PaipanCardLayout({
                   {yao.tags.map((t, idx) => {
                     const tagDetail = explainYaoTag(t.text, yao, board);
                     return (
-                      <Tooltip key={idx} content={tagDetail ? <ExplainBody title={t.text} detail={tagDetail} /> : null}>
+                      <Tooltip key={idx} align="start" content={tagDetail ? <ExplainBody title={t.text} detail={tagDetail} /> : null}>
                         <span
                           className={`px-1.5 py-0.5 rounded text-[10px] font-semibold border ${TAG_STYLES[t.type] || TAG_STYLES.info} ${
                             tagDetail ? 'cursor-help' : ''

@@ -1,5 +1,8 @@
 import React from 'react';
 import { Compass, BookOpen, NotebookPen, Search, Library, BookMarked } from 'lucide-react';
+import { getAllCases } from '../../lib/caseService';
+
+const CASE_COUNT = getAllCases().length;
 
 export default function Header({
   activeTab,
@@ -37,7 +40,7 @@ export default function Header({
                 </span>
               </div>
               <p className="text-[10px] text-stone-500 hidden md:block whitespace-nowrap">
-                野鹤宗风 · 400+ 古籍卦例动态推演
+                野鹤宗风 · {CASE_COUNT} 例古籍卦例动态推演
               </p>
             </div>
           </div>

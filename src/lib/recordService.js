@@ -57,10 +57,11 @@ export function deriveTagsFromBoard(board, eventType, resolution) {
 }
 
 // 组装一条完整的 record（未持久化）
-export function createRecord({ eventType, question, board, resolution, myJudgment }) {
+export function createRecord({ eventType, question, board, resolution, myJudgment, castAt }) {
   return {
     id: `rec_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
     createdAt: new Date().toISOString(),
+    castAt: castAt || undefined,
     eventType,
     question: question || undefined,
     board,
