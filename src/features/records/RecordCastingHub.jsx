@@ -4,6 +4,7 @@ import { resolveGanzhiFromDate } from '../../lib/ganzhiCalendar';
 import { createRecord, loadRecords, saveRecord, updateRecord, deleteRecord, matchCasesForRecord } from '../../lib/recordService';
 import { castInputSchema, CASE_EVENT_TYPES } from '../../lib/schema';
 import PaipanCardLayout from '../../components/common/PaipanCardLayout';
+import LunarDateTimePicker, { toLocalValue } from '../../components/common/LunarDateTimePicker';
 import YaoLine from '../../components/common/YaoLine';
 import casesData from '../../data/cases_v2.json';
 import { formatRecordText } from '../../lib/boardTextExport';
@@ -37,17 +38,12 @@ const BACK_COUNT_OPTIONS = [
   { value: 3, label: '3 背（老阳 ◯ 动）' }
 ];
 
-function toDatetimeLocalValue(date) {
-  const pad = n => String(n).padStart(2, '0');
-  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
-}
-
 export default function RecordCastingHub({ onSelectCase }) {
   const [eventType, setEventType] = useState(CASE_EVENT_TYPES[0]);
   const [isCustomEvent, setIsCustomEvent] = useState(false);
   const [customEventType, setCustomEventType] = useState('');
   const [question, setQuestion] = useState('');
-  const [castAtValue, setCastAtValue] = useState(() => toDatetimeLocalValue(new Date()));
+  const [castAtValue, setCastAtValue] = useState(() => toLocalValue(new Date()));
   const [tosses, setTosses] = useState([null, null, null, null, null, null]);
   const [myJudgment, setMyJudgment] = useState('');
   const [formError, setFormError] = useState('');
@@ -250,13 +246,7 @@ export default function RecordCastingHub({ onSelectCase }) {
 
           <div>
             <label className="block text-xs font-semibold text-stone-600 mb-1">起卦时间:</label>
-            <input
-              type="datetime-local"
-              value={castAtValue}
-              onChange={(e) => setCastAtValue(e.target.value)}
-              onClick={(e) => e.currentTarget.showPicker?.()}
-              className="w-full px-3 py-1.5 text-sm border border-stone-200 rounded-lg bg-stone-50 cursor-pointer"
-            />
+            <LunarDateTimePicker value={castAtValue} onChange={setCastAtValue} />
             {castAtGanzhi && (
               <div className="mt-1.5 px-2.5 py-1.5 rounded-lg bg-[#FBF9F5] border border-[#EAE6DC] text-[11px] text-stone-600 flex flex-wrap items-center gap-x-2 gap-y-1">
                 <span>农历 <strong className="text-stone-900 font-serif-sc">{castAtGanzhi.lunarDate}</strong></span>
