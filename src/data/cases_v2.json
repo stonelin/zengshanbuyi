@@ -367,7 +367,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -757,7 +757,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -1156,7 +1156,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -1571,7 +1571,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -1990,7 +1990,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "三合金局",
@@ -2723,7 +2723,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": false,
       "patterns": []
     },
@@ -3143,7 +3143,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -3429,7 +3429,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": false,
       "patterns": []
     },
@@ -3833,7 +3833,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "三合火局"
@@ -4249,7 +4249,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -4659,7 +4659,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "兄弟",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -5067,7 +5067,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -5374,7 +5374,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "兄弟",
       "hasMoving": false,
       "patterns": []
     },
@@ -5770,7 +5770,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -6180,7 +6180,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -6594,7 +6594,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -7012,7 +7012,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "兄弟",
       "hasMoving": true,
       "patterns": [
         "三合水局",
@@ -7823,7 +7823,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -8213,7 +8213,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -8516,7 +8516,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": [
         "六合"
@@ -8952,7 +8952,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "变生"
@@ -9365,7 +9365,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -9766,7 +9766,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -10074,7 +10074,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": false,
       "patterns": []
     },
@@ -10513,7 +10513,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -10913,7 +10913,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -11317,7 +11317,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -11744,7 +11744,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "三合木局"
@@ -12131,7 +12131,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -12429,7 +12429,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": false,
       "patterns": []
     },
@@ -12846,7 +12846,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -13275,7 +13275,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "三合火局",
@@ -13559,7 +13559,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": [
         "六冲",
@@ -13844,7 +13844,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": false,
       "patterns": [
         "六冲",
@@ -14274,7 +14274,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -14709,7 +14709,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -15139,7 +15139,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -15569,7 +15569,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "三合金局",
@@ -15956,7 +15956,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -16364,7 +16364,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化来"
@@ -16821,7 +16821,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -17244,7 +17244,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -17647,7 +17647,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -18081,7 +18081,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -18484,7 +18484,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -18902,7 +18902,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -19310,7 +19310,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -19767,7 +19767,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -21797,7 +21797,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -22198,7 +22198,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -22600,7 +22600,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -23009,7 +23009,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -23313,7 +23313,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": false,
       "patterns": [
         "三合金局"
@@ -23630,7 +23630,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": false,
       "patterns": [
         "六合"
@@ -23937,7 +23937,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": false,
       "patterns": [
         "三合水局"
@@ -24268,7 +24268,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": false,
       "patterns": []
     },
@@ -25052,7 +25052,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -25462,7 +25462,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -25845,7 +25845,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -26229,7 +26229,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -26661,7 +26661,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -27092,7 +27092,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -27528,7 +27528,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -27932,7 +27932,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -28325,7 +28325,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -28715,7 +28715,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -29107,7 +29107,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -29496,7 +29496,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -29939,7 +29939,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "变生",
@@ -30340,7 +30340,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -30725,7 +30725,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -31140,7 +31140,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -31542,7 +31542,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -31947,7 +31947,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "兄弟",
       "hasMoving": true,
       "patterns": []
     },
@@ -32325,7 +32325,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "变生",
@@ -32719,7 +32719,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -33125,7 +33125,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -33558,7 +33558,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -33982,7 +33982,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "变生",
@@ -34367,7 +34367,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -34809,7 +34809,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "变生",
@@ -35108,7 +35108,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": []
     },
@@ -35534,7 +35534,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -35954,7 +35954,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -36366,7 +36366,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -36751,7 +36751,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -37149,7 +37149,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -37905,7 +37905,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": false,
       "patterns": []
     },
@@ -38304,7 +38304,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -39027,7 +39027,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": false,
       "patterns": []
     },
@@ -39460,7 +39460,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -39863,7 +39863,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -40161,7 +40161,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": []
     },
@@ -40524,7 +40524,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -40928,7 +40928,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -41359,7 +41359,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -41790,7 +41790,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -42188,7 +42188,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "变生",
@@ -42602,7 +42602,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "三合木局"
@@ -43009,7 +43009,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -43426,7 +43426,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -43825,7 +43825,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -44212,7 +44212,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": []
     },
@@ -44629,7 +44629,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化去"
@@ -45050,7 +45050,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化去"
@@ -45443,7 +45443,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -45864,7 +45864,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -46279,7 +46279,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -46692,7 +46692,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "三合水局",
@@ -47095,7 +47095,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -47502,7 +47502,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化来"
@@ -47907,7 +47907,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -48204,7 +48204,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": false,
       "patterns": [
         "三合金局"
@@ -48609,7 +48609,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -49009,7 +49009,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": []
     },
@@ -49398,7 +49398,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -49801,7 +49801,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -50587,7 +50587,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "变生",
@@ -50973,7 +50973,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "变生"
@@ -51373,7 +51373,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -51681,7 +51681,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": false,
       "patterns": []
     },
@@ -52510,7 +52510,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -52902,7 +52902,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -53306,7 +53306,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -53719,7 +53719,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -54131,7 +54131,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "三合木局"
@@ -54526,7 +54526,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -54799,7 +54799,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": false,
       "patterns": [
         "六冲",
@@ -55089,7 +55089,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": [
         "三合水局"
@@ -55904,7 +55904,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -56307,7 +56307,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -56716,7 +56716,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -57105,7 +57105,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": []
     },
@@ -57487,7 +57487,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -57887,7 +57887,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -58298,7 +58298,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -58694,7 +58694,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -59077,7 +59077,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -59474,7 +59474,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -59899,7 +59899,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -60335,7 +60335,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -60750,7 +60750,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -61153,7 +61153,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "兄弟",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -61570,7 +61570,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "变生"
@@ -61985,7 +61985,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -62387,7 +62387,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -62799,7 +62799,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "变生",
@@ -63201,7 +63201,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化来"
@@ -63601,7 +63601,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -63998,7 +63998,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -64441,7 +64441,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "兄弟",
       "hasMoving": true,
       "patterns": [
         "化来"
@@ -64843,7 +64843,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -65120,7 +65120,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": false,
       "patterns": [
         "六冲",
@@ -65515,7 +65515,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -65800,7 +65800,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": [
         "三合水局"
@@ -66182,7 +66182,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -66580,7 +66580,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -66970,7 +66970,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -67396,7 +67396,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -67811,7 +67811,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -68265,7 +68265,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -68663,7 +68663,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -69064,7 +69064,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -69494,7 +69494,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "变生",
@@ -69892,7 +69892,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": []
     },
@@ -70314,7 +70314,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -70739,7 +70739,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -71154,7 +71154,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -71459,7 +71459,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": false,
       "patterns": [
         "六冲",
@@ -71865,7 +71865,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -72256,7 +72256,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -72689,7 +72689,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -73091,7 +73091,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -73507,7 +73507,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -73951,7 +73951,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "变生",
@@ -74384,7 +74384,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -74792,7 +74792,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -75201,7 +75201,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -75609,7 +75609,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "三合水局",
@@ -76028,7 +76028,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -76447,7 +76447,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -76886,7 +76886,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -77291,7 +77291,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -77721,7 +77721,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -78109,7 +78109,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "化空"
@@ -78405,7 +78405,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": false,
       "patterns": []
     },
@@ -78677,7 +78677,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": false,
       "patterns": [
         "六合"
@@ -78972,7 +78972,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": false,
       "patterns": [
         "六冲",
@@ -79380,7 +79380,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "兄弟",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -79785,7 +79785,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "兄弟",
       "hasMoving": true,
       "patterns": []
     },
@@ -80188,7 +80188,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -80602,7 +80602,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -81042,7 +81042,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -81465,7 +81465,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -81859,7 +81859,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "变生"
@@ -82137,7 +82137,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": false,
       "patterns": [
         "六冲",
@@ -82432,7 +82432,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": false,
       "patterns": []
     },
@@ -82824,7 +82824,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -83234,7 +83234,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "兄弟",
       "hasMoving": true,
       "patterns": [
         "三合木局",
@@ -83618,7 +83618,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -84010,7 +84010,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -84319,7 +84319,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": false,
       "patterns": []
     },
@@ -84712,7 +84712,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -85144,7 +85144,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -85540,7 +85540,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -85823,7 +85823,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": false,
       "patterns": [
         "三合水局"
@@ -86113,7 +86113,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": false,
       "patterns": [
         "六合"
@@ -86540,7 +86540,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -86923,7 +86923,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -87229,7 +87229,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": []
     },
@@ -87634,7 +87634,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -88076,7 +88076,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -88505,7 +88505,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -88930,7 +88930,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -89320,7 +89320,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -89713,7 +89713,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -90145,7 +90145,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "三合火局",
@@ -90545,7 +90545,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化去"
@@ -90957,7 +90957,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化去"
@@ -91360,7 +91360,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化来"
@@ -91657,7 +91657,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": []
     },
@@ -91965,7 +91965,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": []
     },
@@ -92248,7 +92248,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": [
         "六冲",
@@ -92631,7 +92631,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -93053,7 +93053,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -93470,7 +93470,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -93844,7 +93844,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -94308,7 +94308,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -94734,7 +94734,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -95180,7 +95180,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -95580,7 +95580,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -95879,7 +95879,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": false,
       "patterns": []
     },
@@ -96277,7 +96277,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -96678,7 +96678,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "兄弟",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -97072,7 +97072,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -97476,7 +97476,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "兄弟",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -97791,7 +97791,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": false,
       "patterns": [
         "六合"
@@ -98223,7 +98223,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -98629,7 +98629,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -99039,7 +99039,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -99334,7 +99334,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": false,
       "patterns": [
         "六合"
@@ -99767,7 +99767,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -100151,7 +100151,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -100586,7 +100586,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -100989,7 +100989,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -101438,7 +101438,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -101832,7 +101832,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化去"
@@ -102243,7 +102243,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -102628,7 +102628,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -102928,7 +102928,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": false,
       "patterns": []
     },
@@ -103358,7 +103358,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -103803,7 +103803,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "三合金局"
@@ -104094,7 +104094,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": [
         "六合"
@@ -104518,7 +104518,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -104920,7 +104920,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -105352,7 +105352,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -105803,7 +105803,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "变生",
@@ -106255,7 +106255,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "变生",
@@ -106669,7 +106669,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "变生",
@@ -106961,7 +106961,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": false,
       "patterns": []
     },
@@ -107265,7 +107265,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": false,
       "patterns": [
         "三合水局"
@@ -107660,7 +107660,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": []
     },
@@ -108052,7 +108052,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "化墓"
@@ -108458,7 +108458,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "变生",
@@ -108749,7 +108749,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": false,
       "patterns": []
     },
@@ -109027,7 +109027,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": [
         "六冲",
@@ -109421,7 +109421,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -109805,7 +109805,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -110216,7 +110216,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -110598,7 +110598,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -110896,7 +110896,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": false,
       "patterns": [
         "六合"
@@ -111304,7 +111304,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -111701,7 +111701,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -112105,7 +112105,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "兄弟",
       "hasMoving": true,
       "patterns": [
         "三合火局",
@@ -112512,7 +112512,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "化去"
@@ -112954,7 +112954,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -113407,7 +113407,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -113870,7 +113870,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "反吟(爻)",
@@ -114318,7 +114318,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化来"
@@ -114602,7 +114602,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": false,
       "patterns": [
         "三合木局"
@@ -115014,7 +115014,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -115307,7 +115307,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": false,
       "patterns": []
     },
@@ -115768,7 +115768,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -116165,7 +116165,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -116542,7 +116542,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -116822,7 +116822,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": false,
       "patterns": []
     },
@@ -117122,7 +117122,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": false,
       "patterns": []
     },
@@ -117420,7 +117420,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": false,
       "patterns": []
     },
@@ -117801,7 +117801,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -118221,7 +118221,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -118627,7 +118627,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -118929,7 +118929,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": false,
       "patterns": [
         "六合"
@@ -119219,7 +119219,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": false,
       "patterns": [
         "三合金局"
@@ -119516,7 +119516,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": false,
       "patterns": [
         "六合"
@@ -119916,7 +119916,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -120335,7 +120335,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -120736,7 +120736,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -121126,7 +121126,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和"
@@ -121520,7 +121520,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "三合金局"
@@ -121931,7 +121931,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -122365,7 +122365,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -122789,7 +122789,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -123182,7 +123182,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -123478,7 +123478,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": [
         "六冲",
@@ -123902,7 +123902,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -124307,7 +124307,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化去"
@@ -124700,7 +124700,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -125098,7 +125098,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "变生"
@@ -125493,7 +125493,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -125906,7 +125906,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -126289,7 +126289,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "三合水局"
@@ -126579,7 +126579,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": false,
       "patterns": []
     },
@@ -126986,7 +126986,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化来"
@@ -127411,7 +127411,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -127799,7 +127799,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -128223,7 +128223,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -128644,7 +128644,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "三合水局"
@@ -129013,7 +129013,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "兄弟",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -129389,7 +129389,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -129792,7 +129792,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -130175,7 +130175,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -130605,7 +130605,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "三合火局"
@@ -130907,7 +130907,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": false,
       "patterns": []
     },
@@ -131350,7 +131350,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -131771,7 +131771,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -132070,7 +132070,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": false,
       "patterns": []
     },
@@ -132466,7 +132466,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -132858,7 +132858,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": []
     },
@@ -133149,7 +133149,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": []
     },
@@ -133440,7 +133440,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": [
         "六冲",
@@ -133846,7 +133846,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -134273,7 +134273,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化来"
@@ -134699,7 +134699,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "三合木局",
@@ -135148,7 +135148,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -135553,7 +135553,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -135962,7 +135962,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -136397,7 +136397,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "兄弟",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -136808,7 +136808,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -137215,7 +137215,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -137607,7 +137607,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "变生"
@@ -137997,7 +137997,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -138297,7 +138297,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": false,
       "patterns": []
     },
@@ -138702,7 +138702,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "化空"
@@ -139087,7 +139087,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -139376,7 +139376,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": false,
       "patterns": [
         "三合木局"
@@ -139775,7 +139775,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -140171,7 +140171,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "化来",
@@ -140575,7 +140575,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "化去",
@@ -140972,7 +140972,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "妻财",
       "hasMoving": true,
       "patterns": []
     },
@@ -141375,7 +141375,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -141782,7 +141782,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -142095,7 +142095,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": false,
       "patterns": []
     },
@@ -142492,7 +142492,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "父母",
       "hasMoving": true,
       "patterns": [
         "比和",
@@ -142915,7 +142915,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六冲",
@@ -143221,7 +143221,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": []
     },
@@ -143609,7 +143609,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": true,
       "patterns": [
         "六合",
@@ -143897,7 +143897,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "",
       "hasMoving": false,
       "patterns": [
         "六冲",
@@ -144330,7 +144330,7 @@
           "shenSha": []
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "官鬼",
       "hasMoving": true,
       "patterns": [
         "三合金局",
@@ -144747,7 +144747,7 @@
           ]
         }
       ],
-      "yongShenKey": "用神",
+      "yongShenKey": "子孙",
       "hasMoving": true,
       "patterns": [
         "六合",
