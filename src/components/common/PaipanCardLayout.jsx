@@ -39,7 +39,7 @@ function splitWangShuai(wangShuai) {
   return [match[1], match[2] || ''];
 }
 
-// 六爻排盘看板共享渲染组件：智能排盘工作台 / 实例库 / 卦例记录 共用同一份盘面样式。
+// 六爻排盘看板共享渲染组件：模拟排盘工作台 / 实例库 / 卦例记录 共用同一份盘面样式。
 // 只负责按 board（paipanEngine.assemblePaipanBoard 的输出）渲染，不持有起卦/输入状态。
 export default function PaipanCardLayout({
   board,

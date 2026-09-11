@@ -10,9 +10,9 @@ export default function Header({
   onOpenSearch
 }) {
   const navTabs = [
-    { id: 'paipan', label: '智能排盘', icon: Compass },
-    { id: 'records', label: '卦例记录', icon: NotebookPen },
     { id: 'cases', label: '实例库', icon: BookMarked },
+    { id: 'paipan', label: '模拟排盘', icon: Compass },
+    { id: 'records', label: '卦例记录', icon: NotebookPen },
     { id: 'reader', label: '典籍精读', icon: BookOpen },
     { id: 'terms', label: '术语总览', icon: Library }
   ];
