@@ -10,7 +10,7 @@ import TermsOverview from './features/terms/TermsOverview';
 import { getTermByIdOrName } from './lib/termService';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('paipan');
+  const [activeTab, setActiveTab] = useState('cases');
   const [selectedChapterId, setSelectedChapterId] = useState('ch_001');
   const [activeTerm, setActiveTerm] = useState(null);
   const [focusCaseId, setFocusCaseId] = useState(null);
