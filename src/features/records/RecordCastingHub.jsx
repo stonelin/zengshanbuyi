@@ -450,7 +450,7 @@ export default function RecordCastingHub({ onSelectCase }) {
                         className="w-full px-3 py-2 text-sm border border-stone-200 rounded-lg bg-stone-50"
                       />
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 flex-wrap">
                       <button
                         onClick={() => handleSaveEdit(r)}
                         className="px-4 py-1.5 rounded-lg font-bold text-xs bg-emerald-600 hover:bg-emerald-700 text-white flex items-center gap-1.5 cursor-pointer"
@@ -461,7 +461,7 @@ export default function RecordCastingHub({ onSelectCase }) {
 
                       {/* 删除需点两次确认：卦例存在本地，删掉找不回 */}
                       {confirmDeleteId === r.id ? (
-                        <span className="flex items-center gap-2 text-xs">
+                        <span className="flex items-center gap-2 flex-wrap text-xs">
                           <span className="text-red-700">确定删除这条卦例？</span>
                           <button
                             onClick={() => {

@@ -88,7 +88,7 @@ export default function Header({
         </div>
 
         {/* Mobile Tab Bar */}
-        <div className="md:hidden flex items-center justify-around py-1.5 border-t border-stone-200/60 overflow-x-auto">
+        <div className="md:hidden flex items-center justify-around py-1 border-t border-stone-200/60 overflow-x-auto">
           {navTabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -96,11 +96,11 @@ export default function Header({
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex flex-col items-center py-1 px-2.5 rounded-lg text-[11px] font-medium transition-all ${
-                  isActive ? 'text-[#C0392B] font-bold' : 'text-stone-500'
+                className={`flex flex-col items-center justify-center gap-0.5 py-1.5 px-2 min-w-[52px] min-h-11 rounded-lg text-[11px] font-medium whitespace-nowrap transition-all ${
+                  isActive ? 'text-[#C0392B] font-bold bg-[#C0392B]/[0.06]' : 'text-stone-500'
                 }`}
               >
-                <Icon className="w-4 h-4 mb-0.5" />
+                <Icon className="w-4 h-4" />
                 <span>{tab.label}</span>
               </button>
             );

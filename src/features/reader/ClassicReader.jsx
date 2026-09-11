@@ -116,8 +116,8 @@ export default function ClassicReader({
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
-        {/* 左侧：章节导航目录栏 (4 cols) */}
-        <div className="lg:col-span-4 bg-white border border-[#EAE6DC] rounded-2xl p-4 shadow-sm space-y-4 max-h-[85vh] flex flex-col">
+        {/* 左侧：章节导航目录栏 (4 cols)。移动端排在正文之后（order-2），避免一进页面先看到一屏目录 */}
+        <div className="order-2 lg:order-1 lg:col-span-4 bg-white border border-[#EAE6DC] rounded-2xl p-4 shadow-sm space-y-4 max-h-[60vh] lg:max-h-[85vh] flex flex-col">
           
           <div>
             <div className="flex items-center justify-between mb-3">
@@ -193,7 +193,7 @@ export default function ClassicReader({
         </div>
 
         {/* 右侧：章节精读与双注视图 (8 cols - 限制阅读工效宽度) */}
-        <div className="lg:col-span-8 bg-white border border-[#EAE6DC] rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
+        <div className="order-1 lg:order-2 lg:col-span-8 bg-white border border-[#EAE6DC] rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
           
           {/* 章节头部与典籍印章 */}
           <div className="border-b border-stone-200 pb-5 flex items-start justify-between">

@@ -113,10 +113,10 @@ export default function PaipanWorkbench({ onSelectConcept }) {
       <div className="bg-white border border-[#EAE6DC] rounded-2xl p-5 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
         
         {/* 起卦模式切换器 */}
-        <div className="flex items-center gap-2 bg-stone-100 p-1.5 rounded-xl border border-stone-200/60">
+        <div className="flex items-center gap-2 bg-stone-100 p-1.5 rounded-xl border border-stone-200/60 flex-wrap">
           <button
             onClick={() => setActiveMode('coins')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all ${
+            className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
               activeMode === 'coins'
                 ? 'bg-white text-[#1F2421] shadow-xs font-bold'
                 : 'text-stone-600 hover:text-stone-900'
@@ -126,7 +126,7 @@ export default function PaipanWorkbench({ onSelectConcept }) {
           </button>
           <button
             onClick={() => setActiveMode('manual')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all ${
+            className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
               activeMode === 'manual'
                 ? 'bg-white text-[#1F2421] shadow-xs font-bold'
                 : 'text-stone-600 hover:text-stone-900'
@@ -258,7 +258,7 @@ export default function PaipanWorkbench({ onSelectConcept }) {
               </div>
 
               {/* 6步状态指示 */}
-              <div className="grid grid-cols-6 gap-2 text-center">
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 text-center">
                 {['初爻', '二爻', '三爻', '四爻', '五爻', '上爻'].map((label, idx) => {
                   const step = coinSteps[idx];
                   return (
@@ -367,9 +367,9 @@ export default function PaipanWorkbench({ onSelectConcept }) {
           </div>
 
           {/* 动爻勾选开关 */}
-          <div className="pt-3 border-t border-stone-100 flex items-center justify-between">
+          <div className="pt-3 border-t border-stone-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <span className="text-xs font-semibold text-stone-600">动爻设定 (点击勾选发动):</span>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               {['初爻', '二爻', '三爻', '四爻', '五爻', '上爻'].map((label, idx) => (
                 <button
                   key={idx}
@@ -381,7 +381,7 @@ export default function PaipanWorkbench({ onSelectConcept }) {
                       setCoinSteps(prev => prev.map((item, i) => i === idx ? { ...item, isMoving: next[idx] } : item));
                     }
                   }}
-                  className={`px-2.5 py-1 text-xs rounded-md transition-all font-medium cursor-pointer ${
+                  className={`px-2.5 py-1 text-xs rounded-md transition-all font-medium cursor-pointer whitespace-nowrap ${
                     manualMovingLines[idx]
                       ? 'bg-[#C0392B] text-white font-bold'
                       : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
