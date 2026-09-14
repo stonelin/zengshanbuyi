@@ -132,13 +132,53 @@ export const SANHE_GROUPS = [
   { branches: ['亥', '卯', '未'], element: '木' }
 ];
 
-// 三合局检测：传入一组地支（本卦六爻地支 ∪ 变爻地支），返回命中的三合局
-export function detectSanHeGroups(branchesInPlay) {
-  const uniqueBranches = new Set(branchesInPlay);
+// 三合局检测（《增删卜易》：三支会齐成局，可借变爻与日辰月建凑足，但必须有动爻发端）。
+// 四种成局方式，逐条显式判，不合并成"凑够三支即可"——静爻凑局、纯日月建凑局都不算。
+//   1. 三个动爻的地支凑成一局
+//   2. 两个动爻 + 任一动爻的变爻
+//   3. 两个动爻 + 日辰或月建（借天）
+//   4. 一个动爻 + 它自己的变爻 + 日辰或月建；以及 一个动爻 + 日辰 + 月建
+// @param {{branch: string, bianBranch: string|null}[]} movingPairs 各动爻及其变爻地支
+export function detectSanHeGroups({ movingPairs = [], dayBranch = null, monthBranch = null }) {
+  const movingBranches = new Set(movingPairs.map(p => p.branch));
+  const allBianBranches = new Set(movingPairs.map(p => p.bianBranch).filter(Boolean));
+  const tianShi = new Set([dayBranch, monthBranch].filter(Boolean));
+
   return SANHE_GROUPS
-    .filter(g => g.branches.every(b => uniqueBranches.has(b)))
+    .filter(g => {
+      const hitMoving = g.branches.filter(b => movingBranches.has(b));
+      const rest = g.branches.filter(b => !movingBranches.has(b));
+
+      if (hitMoving.length === 3) return true; // 方式 1
+      if (hitMoving.length === 2) {
+        // 方式 2 / 3：缺的那一支由任一动爻的变爻，或日辰月建补上
+        return rest.every(b => allBianBranches.has(b) || tianShi.has(b));
+      }
+      if (hitMoving.length === 1) {
+        // 方式 4：缺的两支必须补齐，且至少借到一个天时（否则就成了"一动爻+两变爻"，书中未列此式）；
+        // 变爻只认这个动爻自己化出的那一支，不借别的动爻的变爻。
+        const ownBian = movingPairs.find(p => p.branch === hitMoving[0])?.bianBranch ?? null;
+        return rest.every(b => b === ownBian || tianShi.has(b)) && rest.some(b => tianShi.has(b));
+      }
+      return false;
+    })
     .map(g => `三合${g.element}局`);
 }
+
+// 反吟定式（《增删卜易·反伏章》）："卦变反吟者，内外自相冲克。如乾变巽、巽变乾、坎变离、
+// 离变坎、震变兑、兑变震、坤变艮、艮变坤，皆谓之反吟。"——判的是卦象对冲（恰为后天八卦
+// 方位相对：乾西北↔巽东南、坎北↔离南、震东↔兑西、坤西南↔艮东北），不是逐爻比纳甲地支。
+// 曾按"逐位地支相冲"自行推导，穷举下来只有巽↔坤成立，八组定式全被误杀，已废弃该判法。
+export const FAN_YIN_PAIRS = {
+  '乾': '巽', '巽': '乾',
+  '坎': '离', '离': '坎',
+  '震': '兑', '兑': '震',
+  '坤': '艮', '艮': '坤'
+};
+
+// 伏吟定式：乾变震、震变乾。成因是两者纳甲完全相同（内卦同为子寅辰、外卦同为午申戌），
+// 互变时阴阳换了而地支没换，故曰"动如不动"。
+export const FU_YIN_PAIRS = { '乾': '震', '震': '乾' };
 
 // 十二长生：野鹤老人明确只验证"长生、旺、墓、绝"四项，其余八项（沐浴冠带临官衰病胎养）
 // "不必用也"，所以只实现这四个。水土同宫寄生（"生旺墓绝章"原文明确给出的四张表）。
@@ -186,6 +226,30 @@ export const YI_MA_MAP = {
 
 export function getYiMa(dayBranch) {
   return YI_MA_MAP[dayBranch] || null;
+}
+
+// 桃花（咸池）：以日支所属三合局起——申子辰在酉、寅午戌在卯、巳酉丑在午、亥卯未在子
+export const TAO_HUA_MAP = {
+  '申': '酉', '子': '酉', '辰': '酉',
+  '寅': '卯', '午': '卯', '戌': '卯',
+  '巳': '午', '酉': '午', '丑': '午',
+  '亥': '子', '卯': '子', '未': '子'
+};
+
+export function getTaoHua(dayBranch) {
+  return TAO_HUA_MAP[dayBranch] || null;
+}
+
+// 天喜：以月建所属四季起——春(寅卯辰)在戌、夏(巳午未)在丑、秋(申酉戌)在辰、冬(亥子丑)在未
+export const TIAN_XI_MAP = {
+  '寅': '戌', '卯': '戌', '辰': '戌',
+  '巳': '丑', '午': '丑', '未': '丑',
+  '申': '辰', '酉': '辰', '戌': '辰',
+  '亥': '未', '子': '未', '丑': '未'
+};
+
+export function getTianXi(monthBranch) {
+  return TIAN_XI_MAP[monthBranch] || null;
 }
 
 // 五行生克与旺相休囚死判断
@@ -287,6 +351,10 @@ export function assemblePaipanBoard({
   const guiRenBranches = getGuiRen(dayStem);
   const luShenBranch = getLuShen(dayStem);
   const yiMaBranch = getYiMa(dayBranch);
+  const taoHuaBranch = getTaoHua(dayBranch);
+  const tianXiBranch = getTianXi(monthBranch);
+  const dayElement = BRANCH_WUXING[dayBranch];
+  const monthElement = BRANCH_WUXING[monthBranch];
 
   // 本卦序列 (0/1)
   const benLinesBinary = rawLines.map(l => (l.yinYang === '阳' ? 1 : 0));
@@ -340,12 +408,12 @@ export function assemblePaipanBoard({
       else if (yaoBranch === '戌' && targetBianLine.branch === '未') dynamicTrend = '化退神';
       else if (yaoBranch === '丑' && targetBianLine.branch === '戌') dynamicTrend = '化退神';
 
-      // 化合/化冲：变爻地支与本爻地支的合冲关系（若已判定为回头生克/进退神则不重复标注）
+      // 化合/化冲：变爻地支与本爻地支的合冲关系。与 dynamicTrend 是两个正交维度，必须各判各的——
+      // 相冲六对里子午/寅申/卯酉/巳亥本就相克，相合六对里寅亥是水生木，此前只在 dynamicTrend
+      // 为'变爻'时才判，这些爻会先被认成回头生/回头克而把化冲化合整个吞掉，爻变反吟随之漏判。
       let heChong = null;
-      if (dynamicTrend === '变爻') {
-        if (getHeBranch(yaoBranch) === targetBianLine.branch) heChong = '化合';
-        else if (getClashBranch(yaoBranch) === targetBianLine.branch) heChong = '化冲';
-      }
+      if (getHeBranch(yaoBranch) === targetBianLine.branch) heChong = '化合';
+      else if (getClashBranch(yaoBranch) === targetBianLine.branch) heChong = '化冲';
 
       bianYao = {
         yinYang: targetBianLine.yin_yang,
@@ -360,26 +428,61 @@ export function assemblePaipanBoard({
       };
     }
 
-    // 神煞命中（仅旬空/贵人/禄神/驿马）
+    // 神煞命中（旬空走 tags，此处为贵人/禄神/驿马/桃花/天喜）
     const shenSha = [];
     if (guiRenBranches.includes(yaoBranch)) shenSha.push('贵人');
     if (luShenBranch === yaoBranch) shenSha.push('禄神');
     if (yiMaBranch === yaoBranch) shenSha.push('驿马');
+    if (taoHuaBranch === yaoBranch) shenSha.push('桃花');
+    if (tianXiBranch === yaoBranch) shenSha.push('天喜');
 
     // 旺相休囚死（以月建为准）
     const wangShuai = getWangXiangStatus(yaoElement, monthBranch);
+    const isWangXiang = wangShuai.startsWith('旺') || wangShuai.startsWith('相');
+
+    // 日辰/月建对本爻的扶抑：临（同支）与生（其五行生本爻五行）。
+    // 这几项既单独出标签，也是下面"假破"与"暗动"的判据来源。
+    const linRi = yaoBranch === dayBranch;
+    const linYue = yaoBranch === monthBranch;
+    const riSheng = WUXING_RELATIONS[dayElement]?.sheng === yaoElement;
+    const yueSheng = WUXING_RELATIONS[monthElement]?.sheng === yaoElement;
 
     // 状态标签
     const tags = [];
-    if (yaoBranch === monthBroken) tags.push({ text: '月破', type: 'danger' });
+
+    // 月破：冲而未必真破。动、临日、得日生扶、化回头生，四者居其一即为"假破"（破而不破）。
+    if (yaoBranch === monthBroken) {
+      const fakeBreak = isMoving || linRi || riSheng || bianYao?.dynamicTrend === '回头生';
+      tags.push(fakeBreak ? { text: '假破', type: 'warning' } : { text: '月破', type: 'danger' });
+    }
+
     if (xunKong.includes(yaoBranch)) tags.push({ text: '旬空', type: 'warning' });
-    if (dayClash === yaoBranch) tags.push({ text: '日破', type: 'danger' });
+
+    // 日冲：动静分判。
+    // 动爻依《增删卜易·动散章》"旺相动爻，逢日冲为冲起；休囚动爻，逢日冲为冲散"，按月令旺衰分流；
+    // 静爻得月生扶或临月建则为暗动（虽未摇出动象而实已起用），否则为日破。
+    if (dayClash === yaoBranch) {
+      if (isMoving) {
+        tags.push(isWangXiang ? { text: '冲起', type: 'primary' } : { text: '冲散', type: 'warning' });
+      } else {
+        tags.push(yueSheng || linYue ? { text: '暗动', type: 'primary' } : { text: '日破', type: 'danger' });
+      }
+    }
+
     if (dayHe === yaoBranch) tags.push({ text: '日合', type: 'info' });
-    if (!isMoving && dayClash === yaoBranch && !xunKong.includes(yaoBranch)) tags.push({ text: '暗动', type: 'primary' });
-    if (isRuMu(yaoElement, dayBranch)) tags.push({ text: '入墓(日墓)', type: 'warning' });
-    if (CHANGSHENG_MAP[yaoElement] === dayBranch) tags.push({ text: '长生(日)', type: 'success' });
-    if (DI_WANG_MAP[yaoElement] === dayBranch) tags.push({ text: '帝旺(日)', type: 'success' });
-    if (JUE_MAP[yaoElement] === dayBranch) tags.push({ text: '绝(日)', type: 'danger' });
+    if (linRi) tags.push({ text: '临日', type: 'success' });
+    if (riSheng) tags.push({ text: '日生', type: 'success' });
+
+    // 生旺墓绝：以月建为主、日辰为辅——月建上命中即标"(月)"，月建不命中才退到日辰标"(日)"。
+    const changShengTag = (map, label, type) => {
+      if (map[yaoElement] === monthBranch) tags.push({ text: `${label}(月)`, type });
+      else if (map[yaoElement] === dayBranch) tags.push({ text: `${label}(日)`, type });
+    };
+    changShengTag(MUKU_MAP, '入墓', 'warning');
+    changShengTag(CHANGSHENG_MAP, '长生', 'success');
+    changShengTag(DI_WANG_MAP, '帝旺', 'success');
+    changShengTag(JUE_MAP, '绝', 'danger');
+
     if (bLine.is_shi) tags.push({ text: '世爻', type: 'primary' });
     if (bLine.is_ying) tags.push({ text: '应爻', type: 'info' });
     if (bLine.relative === yongShenKey) tags.push({ text: '用神', type: 'success' });
@@ -468,29 +571,18 @@ export function resolvePatterns(board) {
     patterns.push('反吟(爻)');
   }
 
-  // 卦反吟/卦伏吟（内卦=1-3爻，外卦=4-6爻）：原文"反伏章"用具体例卦给出的结构性定义——
-  // 直接比较本卦与变卦同一爻位的地支：内/外卦三爻若两两都是"六冲支"，称反吟；若两两地支
-  // 完全相同（阴阳互换但地支不变），称伏吟。这是本卦、变卦作为两个完整卦象的结构性比较，
-  // 不看某一爻是否真的"动"（原著"观变坤"例中四爻阴阳未变但地支仍从未变丑，照样算进外卦
-  // 反吟），所以直接比对 benGua.lines / bianGua.lines，不经过 yaos 的 isMoving 门槛。
-  const trigramReflection = (lineNumbers) => {
-    if (!board.bianGua) return null;
-    const pairs = lineNumbers.map(n => ({
-      ben: board.benGua.lines.find(l => l.line_number === n),
-      bian: board.bianGua.lines.find(l => l.line_number === n)
-    }));
-    // 先看这半边卦的阴阳组合本身是否真的变了（即变卦是否换了一个不同的三爻符号）——
-    // 若阴阳组合根本没变（比如"观变坤"的内卦本来就同是坤，"巽变观"的外卦本来就同是巽），
-    // 这半边压根不在这次卦变里，不算伏吟，否则任何"没变"的半卦都会被误判成伏吟。
-    const benPattern = pairs.map(p => p.ben.yin_yang).join('');
-    const bianPattern = pairs.map(p => p.bian.yin_yang).join('');
-    if (benPattern === bianPattern) return null;
-    if (pairs.every(p => p.bian.branch === p.ben.branch)) return 'fu';
-    if (pairs.every(p => p.bian.branch === getClashBranch(p.ben.branch))) return 'fan';
+  // 卦反吟/卦伏吟（内卦=1-3爻，外卦=4-6爻）：《增删卜易·反伏章》给的是定式，直接查表，不自行推导。
+  // 反吟 FAN_YIN_PAIRS 判的是卦象对冲（乾↔巽、坎↔离、震↔兑、坤↔艮），伏吟 FU_YIN_PAIRS
+  // 判的是纳甲相同的乾↔震。半边卦没换卦名的（本卦变卦同一个三爻符号）本就不在这次卦变里，
+  // 查表自然落空，无需另设门槛。
+  const trigramReflection = (benTrigram, bianTrigram) => {
+    if (!bianTrigram || benTrigram === bianTrigram) return null;
+    if (FU_YIN_PAIRS[benTrigram] === bianTrigram) return 'fu';
+    if (FAN_YIN_PAIRS[benTrigram] === bianTrigram) return 'fan';
     return null;
   };
-  const innerType = trigramReflection([1, 2, 3]);
-  const outerType = trigramReflection([4, 5, 6]);
+  const innerType = trigramReflection(board.benGua.lower_trigram, board.bianGua?.lower_trigram);
+  const outerType = trigramReflection(board.benGua.upper_trigram, board.bianGua?.upper_trigram);
   if (innerType === 'fan' && outerType === 'fan') patterns.push('反吟(内外)');
   else {
     if (innerType === 'fan') patterns.push('反吟(内卦)');
@@ -502,8 +594,11 @@ export function resolvePatterns(board) {
     if (outerType === 'fu') patterns.push('伏吟(外卦)');
   }
 
-  const branchesInPlay = board.yaos.flatMap(y => [y.branch, y.bianYao?.branch].filter(Boolean));
-  patterns.push(...detectSanHeGroups(branchesInPlay));
+  patterns.push(...detectSanHeGroups({
+    movingPairs: board.yaos.filter(y => y.isMoving).map(y => ({ branch: y.branch, bianBranch: y.bianYao?.branch ?? null })),
+    dayBranch: board.dateGanzhi.dayBranch,
+    monthBranch: board.dateGanzhi.monthBranch
+  }));
 
   board.yaos.forEach(y => {
     if (!y.bianYao) return;
@@ -521,12 +616,12 @@ export function resolvePatterns(board) {
 export const EVENT_YONGSHEN_MAP = {
   '求财': '妻财',
   '功名': '官鬼',
-  '婚姻': '妻财',
-  '疾病': '官鬼'
+  '婚姻': '妻财'
 };
 
-// 这类事类不取固定六亲，以世爻自身旺衰吉凶为准
-export const WORLD_LINE_EVENTS = ['出行'];
+// 这类事类不取固定六亲，以世爻自身旺衰吉凶为准。
+// 疾病归此列：占病问的是占卜者自身安危，用神即世爻（问他人之病才另取对应六亲，需人工指定）。
+export const WORLD_LINE_EVENTS = ['出行', '疾病'];
 
 // 用神取法：按占问事类解析用神六亲，多现列出全部候选（不强行择一），不上卦转看伏神
 export function resolveYongShen(eventType, board) {

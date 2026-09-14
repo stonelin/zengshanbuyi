@@ -65,7 +65,7 @@ const bianYaoSchema = z
     branch: z.string(),
     element: z.enum(WUXING),
     dynamicTrend: z.string(), // '回头生' | '回头克' | '化进神' | '化退神' | '变爻'
-    heChong: z.enum(['化合', '化冲']).nullable(), // 变爻与本爻的合冲关系（仅当 dynamicTrend 为'变爻'时可能命中）
+    heChong: z.enum(['化合', '化冲']).nullable(), // 变爻与本爻的合冲关系，与 dynamicTrend 正交（相冲支多半同时相克，故可与回头克并存）
     isKong: z.boolean(), // 化空：变爻地支落旬空
     isRuMu: z.boolean() // 化墓：变爻地支为其五行的日墓（仅金木水火四行判定）
   })
@@ -86,7 +86,7 @@ const yaoSchema = z.object({
   bianYao: bianYaoSchema,
   tags: z.array(yaoTagSchema),
   wangShuai: z.string(), // 该爻旺相休囚死判断（以月建为准）
-  shenSha: z.array(z.enum(['贵人', '禄神', '驿马'])) // 本项目仅采用旬空/贵人/禄神/驿马；旬空走 tags，不重复放这里
+  shenSha: z.array(z.enum(['贵人', '禄神', '驿马', '桃花', '天喜'])) // 旬空走 tags，不重复放这里
 });
 
 const dateGanzhiSchema = z.object({
@@ -99,8 +99,9 @@ const dateGanzhiSchema = z.object({
   xunKong: z.tuple([z.string(), z.string()])
 });
 
-// 已实现的格局类型（不含反吟/伏吟——宫位对冲规则把握不足，留待用实例校对后再补）。
-// 三合局按命中五行标注具体名称，故 patterns 不做严格 enum 校验，仅以此列表作为参考。
+// 已实现的格局类型。反吟/伏吟按《增删卜易·反伏章》的定式表判（见 paipanEngine 的
+// FAN_YIN_PAIRS / FU_YIN_PAIRS）。三合局按命中五行标注具体名称，故 patterns 不做严格
+// enum 校验，仅以此列表作为参考。
 export const PATTERN_TYPES = ['六合', '六冲', '六冲变六合', '六合变六合', '六冲变六冲', '六合变六冲', '反吟(爻)', '反吟(内卦)', '反吟(外卦)', '反吟(内外)', '伏吟(内卦)', '伏吟(外卦)', '伏吟(内外)', '化来', '化去', '变生', '比和', '三合水局', '三合木局', '三合火局', '三合金局', '化空', '化墓', '化合', '化冲'];
 
 export const boardSchema = z.object({
