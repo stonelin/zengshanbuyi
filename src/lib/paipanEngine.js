@@ -193,7 +193,8 @@ export function isRuMu(yaoElement, referenceBranch) {
   return !!muku && muku === referenceBranch;
 }
 
-// 神煞：以日干起贵人与禄神，以日支起驿马（本项目仅采用旬空/贵人/禄神/驿马，其余不采）
+// 神煞：以日干起贵人与禄神，以日支起驿马与桃花，以月建起天喜
+// （本项目仅采用旬空/贵人/禄神/驿马/桃花/天喜，其余不采）
 export const GUI_REN_MAP = {
   '甲': ['丑', '未'], '戊': ['丑', '未'], '庚': ['丑', '未'],
   '乙': ['子', '申'], '己': ['子', '申'],
@@ -354,7 +355,6 @@ export function assemblePaipanBoard({
   const taoHuaBranch = getTaoHua(dayBranch);
   const tianXiBranch = getTianXi(monthBranch);
   const dayElement = BRANCH_WUXING[dayBranch];
-  const monthElement = BRANCH_WUXING[monthBranch];
 
   // 本卦序列 (0/1)
   const benLinesBinary = rawLines.map(l => (l.yinYang === '阳' ? 1 : 0));
@@ -440,12 +440,10 @@ export function assemblePaipanBoard({
     const wangShuai = getWangXiangStatus(yaoElement, monthBranch);
     const isWangXiang = wangShuai.startsWith('旺') || wangShuai.startsWith('相');
 
-    // 日辰/月建对本爻的扶抑：临（同支）与生（其五行生本爻五行）。
-    // 这几项既单独出标签，也是下面"假破"与"暗动"的判据来源。
+    // 日辰对本爻的扶抑：临（同支）与生（日支五行生本爻五行）。
+    // 这两项既单独出标签，也是下面"假破"的判据来源。
     const linRi = yaoBranch === dayBranch;
-    const linYue = yaoBranch === monthBranch;
     const riSheng = WUXING_RELATIONS[dayElement]?.sheng === yaoElement;
-    const yueSheng = WUXING_RELATIONS[monthElement]?.sheng === yaoElement;
 
     // 状态标签
     const tags = [];
@@ -458,14 +456,16 @@ export function assemblePaipanBoard({
 
     if (xunKong.includes(yaoBranch)) tags.push({ text: '旬空', type: 'warning' });
 
-    // 日冲：动静分判。
-    // 动爻依《增删卜易·动散章》"旺相动爻，逢日冲为冲起；休囚动爻，逢日冲为冲散"，按月令旺衰分流；
-    // 静爻得月生扶或临月建则为暗动（虽未摇出动象而实已起用），否则为日破。
+    // 日冲：动静分判，两层同用一把尺——有根气则冲而愈起，无根气则一冲即垮。
+    // 动爻依《增删卜易·动散章》"旺相动爻，逢日冲为冲起；休囚动爻，逢日冲为冲散"；
+    // 静爻依"旺相静爻被日辰冲曰暗动，休囚被冲曰日破"，虽未摇出动象而实已起用。
+    // 旺衰一律取 getWangXiangStatus 的月令五档，不再拿"得月生扶或临月建"另立一套判据——
+    // 那套漏掉了"与月建同五行而不同支"这种旺（如卯月之寅木），同一个旺在动静两边会判出相反结论。
     if (dayClash === yaoBranch) {
       if (isMoving) {
         tags.push(isWangXiang ? { text: '冲起', type: 'primary' } : { text: '冲散', type: 'warning' });
       } else {
-        tags.push(yueSheng || linYue ? { text: '暗动', type: 'primary' } : { text: '日破', type: 'danger' });
+        tags.push(isWangXiang ? { text: '暗动', type: 'primary' } : { text: '日破', type: 'danger' });
       }
     }
 

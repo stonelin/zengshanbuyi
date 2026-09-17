@@ -215,8 +215,6 @@ export function explainYaoTag(tagText, yao, board) {
   const monthElement = BRANCH_WUXING[monthBranch];
   const linRi = yao.branch === dayBranch;
   const riSheng = WUXING_RELATIONS[dayElement]?.sheng === yao.element;
-  const linYue = yao.branch === monthBranch;
-  const yueSheng = WUXING_RELATIONS[monthElement]?.sheng === yao.element;
 
   switch (tagText) {
     case '月破':
@@ -249,11 +247,12 @@ export function explainYaoTag(tagText, yao, board) {
       };
     case '日破':
       return {
-        why: `日辰${dayBranch}冲本爻${yao.branch}。本爻为静爻，既不得月建生扶也不临月建，无力承冲，故为日破。`,
+        why: `日辰${dayBranch}冲本爻${yao.branch}。本爻为静爻，月令又${yao.wangShuai[0]}，本无根气，无力承冲，故为日破。`,
         evidence: [
           `日辰：${day}，冲${getClashBranch(dayBranch)}`,
           `${self}，地支${yao.branch}（静爻）`,
-          `月建${monthBranch}属${monthElement}，${yueSheng ? '生本爻' : '不生本爻'}；本爻${linYue ? '临月建' : '不临月建'}`
+          `月令旺衰：${yao.wangShuai}`,
+          '静爻逢日冲：旺相为暗动，休囚为日破——与动爻的冲起/冲散同用一把尺'
         ]
       };
     case '冲起':
@@ -291,11 +290,12 @@ export function explainYaoTag(tagText, yao, board) {
       };
     case '暗动':
       return {
-        why: '静爻被日辰冲，而本身得月建生扶或径临月建，有力承冲，则冲而不破反被激发——爻虽未摇出动象，实已暗中起用，与明动同论，谓之暗动。',
+        why: `静爻被日辰冲，而本身月令${yao.wangShuai[0]}，有根气承冲，则冲而不破反被激发——爻虽未摇出动象，实已暗中起用，与明动同论，谓之暗动。`,
         evidence: [
           `${self}未发动（静爻）`,
           `日辰${dayBranch}冲${yao.branch}`,
-          linYue ? `本爻临月建（月建${monthBranch}与本爻同支）` : `得月建生扶（月建${monthBranch}属${monthElement}，生本爻${yao.element}）`
+          `月令旺衰：${yao.wangShuai}（月建${monthBranch}属${monthElement}）`,
+          '静爻逢日冲：旺相为暗动，休囚为日破——与动爻的冲起/冲散同用一把尺'
         ]
       };
     case '入墓(月)':
